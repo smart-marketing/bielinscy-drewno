@@ -68,7 +68,7 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            
+            <a
               href="tel:+48XXXXXXXXX"
               className="group relative w-full sm:w-auto bg-brand-green text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-brand-green/90 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
@@ -76,7 +76,7 @@ export default function Hero() {
               <span>Zadzwoń - wycena od ręki</span>
             </a>
 
-            
+            <a
               href="https://wa.me/48XXXXXXXXX"
               className="group relative w-full sm:w-auto bg-green-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-green-600 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >

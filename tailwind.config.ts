@@ -7,15 +7,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        brand: {
-          green: '#2B6650',
-          brown: '#4C3B34',
-        },
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
+
 export default config;

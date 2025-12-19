@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-green: #2B6650;
+  --color-brand-green-light: #3d8a6d;
+  --color-brand-green-dark: #1d4a39;
+  --color-brand-brown: #4C3B34;
+  --color-brand-brown-light: #6b5548;
+  --color-brand-brown-dark: #352822;
+  --color-cream: #FDFBF7;
+  --color-cream-dark: #F5F0E8;
+  --color-warm-gray: #E8E2D9;
+  --color-warm-gray-dark: #C4BBB0;
+  
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  
+  --shadow-soft: 0 4px 20px -2px rgba(76, 59, 52, 0.08);
+  --shadow-medium: 0 8px 30px -4px rgba(76, 59, 52, 0.12);
+  --shadow-large: 0 20px 50px -12px rgba(76, 59, 52, 0.18);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-brand-brown);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-brand-green);
+  color: white;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-brand-green);
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-green-dark);
+  box-shadow: var(--shadow-large);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-whatsapp {
+  position: relative;
+  overflow: hidden;
+  background-color: #25D366;
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+  box-shadow: var(--shadow-large);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  position: relative;
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  border: 2px solid rgba(76, 59, 52, 0.2);
+  background-color: transparent;
+  color: var(--color-brand-brown);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-brand-green);
+  color: var(--color-brand-green);
+  background-color: rgba(43, 102, 80, 0.05);
+}
+
+/* ========================================
+   LAYOUT
+   ======================================== */
+
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.section-padding-sm {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding-sm {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding-sm {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.container-wide {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-wide {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ========================================
+   STICKY MOBILE CTA
+   ======================================== */
+
+.sticky-cta-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-warm-gray);
+  padding: 1rem;
+  box-shadow: 0 -4px 20px rgba(76, 59, 52, 0.1);
+}
+
+@media (min-width: 768px) {
+  .sticky-cta-mobile {
+    display: none;
+  }
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-warm-gray-dark);
+  border-radius: 4px;
+}
+
+/* ========================================
+   MOBILE TOUCH TARGETS
+   ======================================== */
+
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
