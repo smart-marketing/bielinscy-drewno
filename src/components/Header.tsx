@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+<Link href="/o-nas">O nas</Link>
+
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
