@@ -30,12 +30,13 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  const navLinks = [
-    { href: "#sortament", label: "Sortament" },
-    { href: "#jak-dzialamy", label: "Jak działamy" },
-    { href: "#obszar", label: "Obszar dostaw" },
-    { href: "#kontakt", label: "Kontakt" },
-  ];
+const navLinks = [
+  { href: "/o-nas", label: "O nas" },
+  { href: "/oferta", label: "Oferta" },
+  { href: "/kalkulator", label: "Kalkulator" },
+  { href: "/blog", label: "Blog" },
+  { href: "/kontakt", label: "Kontakt" },
+];
 
   return (
     <>
@@ -49,11 +50,11 @@ export default function Header() {
         <div className="container-wide flex items-center justify-between">
           <Link href="/" className="relative z-10 flex-shrink-0">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Bielińscy Drewno"
-              width={160}
-              height={48}
-              className="h-10 md:h-12 w-auto"
+              width={200}
+              height={60}
+              className="h-12 md:h-14 w-auto"
               priority
             />
           </Link>

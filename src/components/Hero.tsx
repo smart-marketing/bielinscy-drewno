@@ -44,7 +44,7 @@ export default function Hero() {
       </div>
 
       {/* Content - FULL WIDTH */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-32 md:pb-20">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pt-32 md:pb-20">
         <div className="max-w-6xl mx-auto text-center">
           {/* Badge */}
           <motion.div
@@ -64,9 +64,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display text-[2.5rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-78xl font-bold leading-[1.1] mb-8"
           >
-            <span className="text-brand-green">Drewno budowlane na czas.</span>
+            <span className="text-brand-green">Drewno budowlane na czas</span>
             <br />
-            <span className="text-brand-brown">Jakość, która nie zawiedzie.</span>
+            <span className="text-brand-brown">Jakość, która nie zawiedzie</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -74,7 +74,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-brand-brown/70 mb-4 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-brand-brown/70 mb-4 max-w-6xl mx-auto leading-relaxed"
           >
             Proste deski, prawdziwa impregnacja ciśnieniowa, wymiary zgodne z
             zamówieniem.
@@ -86,7 +86,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-base md:text-lg lg:text-xl text-brand-brown/60 mb-12"
           >
-            Realizacja w 3 dni z własnym transportem. Od 2013 roku.
+            Realizacja w 3 dni z własnym transportem.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -94,7 +94,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4"
           >
             <a
               href="tel:+48XXXXXXXXX"
@@ -118,7 +118,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="inline-flex items-center gap-2 text-brand-brown/60 hover:text-brand-green font-medium transition-colors group mb-14"
+            className="inline-flex items-center gap-2 text-brand-brown/60 hover:text-brand-green font-medium transition-colors group mb-8"
           >
             <span>Zobacz asortyment</span>
             <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
@@ -137,7 +137,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-brand-brown/10 shadow-sm"
+                className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-xl border border-brand-brown/10 shadow-sm"
               >
                 <Check className="w-4 h-4 text-brand-green flex-shrink-0" />
                 <span className="text-sm md:text-base text-brand-brown/80 whitespace-nowrap">
