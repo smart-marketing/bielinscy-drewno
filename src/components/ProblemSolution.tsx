@@ -1,7 +1,7 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, Zap, CheckCircle2, CreditCard, ArrowRight } from "lucide-react";
+import { Phone, Zap, CheckCircle2, CreditCard, ArrowRight, Sparkles } from "lucide-react";
 
 const benefits = [
   {
@@ -35,26 +35,65 @@ export default function ProblemSolution() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding bg-white relative overflow-hidden">
-      <div className="container-wide relative">
+    <section ref={ref} className="section-padding bg-gradient-to-br from-white via-cream/30 to-white relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={isInView ? { scale: 1, opacity: 1 } : {}}
+          transition={{ duration: 1.5, delay: 0.2 }}
+          className="absolute top-20 right-10 w-72 h-72 bg-brand-green/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={isInView ? { scale: 1, opacity: 1 } : {}}
+          transition={{ duration: 1.5, delay: 0.4 }}
+          className="absolute bottom-20 left-10 w-96 h-96 bg-brand-brown/10 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="container-wide relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-brown mb-6"
+            className="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-5 py-2 rounded-full text-sm font-semibold mb-6"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Rozumiemy Twoje potrzeby</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-6 leading-tight"
           >
             Kupujesz drewno na budowę?
             <br />
-            <span className="text-brand-green">Wiesz, na czym Ci zależy.</span>
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-brand-green inline-block mt-2 relative"
+            >
+              Wiesz, na czym Ci zależy.
+              <motion.span
+                initial={{ width: 0 }}
+                animate={isInView ? { width: '100%' } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute bottom-0 left-0 h-1 bg-brand-green/30 rounded-full"
+              />
+            </motion.span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-brand-brown/70 leading-relaxed"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-base md:text-lg lg:text-xl text-brand-brown/70 leading-relaxed max-w-3xl mx-auto"
           >
             Chcesz mieć pewność, że dostaniesz dokładnie to, co zamówiłeś. Że
             deski będą proste, a nie wykrzywione. Że impregnacja to prawdziwa
@@ -62,40 +101,68 @@ export default function ProblemSolution() {
           </motion.p>
         </div>
 
-        {/* Gwarancja Headline */}
+        {/* Gwarancja Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mb-10 md:mb-14"
         >
-          <span className="inline-block bg-brand-green/10 text-brand-green px-6 py-3 rounded-full text-lg font-semibold">
-            W Bielińscy Drewno dostajesz gwarancję spokoju:
-          </span>
+          <div className="inline-block relative">
+            <div className="absolute inset-0 bg-brand-green/20 blur-xl rounded-full" />
+            <span className="relative inline-block bg-gradient-to-r from-brand-green to-brand-green/80 text-white px-8 py-4 rounded-2xl text-base md:text-lg font-bold shadow-lg">
+              W Bielińscy Drewno dostajesz gwarancję spokoju:
+            </span>
+          </div>
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12 md:mb-16">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              className="group relative bg-cream rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-500"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.6 + index * 0.1,
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover={{ 
+                y: -8,
+                transition: { duration: 0.3 }
+              }}
+              className="group relative bg-white rounded-3xl p-6 md:p-8 shadow-md hover:shadow-2xl transition-all duration-500 border border-brand-brown/5"
             >
-              <div className="w-14 h-14 bg-brand-green/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green group-hover:scale-110 transition-all duration-500">
-                <benefit.icon className="w-7 h-7 text-brand-green group-hover:text-white transition-colors duration-500" />
+              {/* Gradient Border on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-green/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Content */}
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-green to-brand-green/80 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                  <benefit.icon className="w-8 h-8 text-white" />
+                </div>
+
+                {/* Title */}
+                <h3 className="font-display text-xl md:text-2xl font-bold text-brand-brown mb-4 group-hover:text-brand-green transition-colors duration-300">
+                  {benefit.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-brand-brown/70 leading-relaxed text-base">
+                  {benefit.description}
+                </p>
               </div>
 
-              <h3 className="font-display text-xl md:text-2xl font-semibold text-brand-brown mb-3">
-                {benefit.title}
-              </h3>
-              <p className="text-brand-brown/70 leading-relaxed">
-                {benefit.description}
-              </p>
-
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-green to-brand-green-light rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Bottom Accent Line */}
+              <motion.div 
+                initial={{ width: 0 }}
+                whileInView={{ width: '100%' }}
+                transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
+                className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-green via-brand-green/80 to-transparent rounded-b-3xl"
+              />
             </motion.div>
           ))}
         </div>
@@ -104,15 +171,16 @@ export default function ProblemSolution() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.7 }}
+          transition={{ duration: 0.6, delay: 1 }}
           className="text-center"
         >
           <a
-            href="tel:+48XXXXXXXXX"
-            className="inline-flex items-center gap-3 text-brand-green font-semibold text-lg hover:gap-4 transition-all duration-300 group"
+            href="tel:+48537593186"
+            className="inline-flex items-center gap-3 bg-brand-green text-white px-8 py-4 rounded-2xl font-bold text-base md:text-lg hover:bg-brand-green/90 hover:gap-5 transition-all duration-300 group shadow-lg hover:shadow-xl"
           >
+            <Phone className="w-5 h-5" />
             <span>Sprawdź, jak szybko zrealizujemy Twoje zamówienie</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </a>
         </motion.div>
       </div>

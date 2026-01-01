@@ -1,146 +1,200 @@
 "use client";
-import { motion } from "framer-motion";
-import { Phone, MessageCircle, ChevronDown, Check } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, ChevronDown, Check } from "lucide-react";
+import Image from 'next/image';
+
+const backgroundImages = [
+  '/drewno-impregnowane.jpg',
+  '/kantowka.jpg',
+  '/tarcica.jpg',
+  '/wiezba.jpg'
+];
+
+const socialProof = [
+  "Realizacja w 2-3 dni",
+  "500+ dostaw rocznie",
+  "12 lat doświadczenia",
+  "Własny transport"
+];
 
 const trustBadges = [
-  "Dostawa w 3 dni",
   "Kontrola jakości przed wysyłką",
   "Prawdziwa impregnacja",
-  "Płatność kartą",
-  "Bezpłatne doradztwo",
+  "Proste deski",
+  "Wycena od ręki",
+  "Magazyn przy A1"
 ];
 
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-cream">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-30"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(43, 102, 80, 0.15) 0%, transparent 70%)",
-          }}
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            x: [0, -20, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-40 -left-40 w-[700px] h-[700px] rounded-full opacity-20"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(76, 59, 52, 0.12) 0%, transparent 70%)",
-          }}
-        />
+    <section className="relative min-h-screen flex items-center overflow-hidden mt-[2px]">
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${backgroundImages[currentImageIndex]})`
+            }}
+          />
+        </AnimatePresence>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
       </div>
 
-      {/* Content - FULL WIDTH */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pt-32 md:pb-20">
-        <div className="max-w-6xl mx-auto text-center">
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto sm:px-2 lg:px-2 py-4">
+        <div className="max-w-6xl mx-auto text-center flex flex-col justify-center min-h-[calc(100vh-10px)]">
+          
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-4 py-2 rounded-full text-sm font-medium mb-6"
-          >
-            <span className="w-2 h-2 bg-brand-green rounded-full animate-pulse-soft" />
-            Od 2013 roku
-          </motion.div>
+          <div className="flex justify-center mb-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium"
+            >
+              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+              Od 2013 roku
+            </motion.div>
+          </div>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-[2.5rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-78xl font-bold leading-[1.1] mb-8"
-          >
-            <span className="text-brand-green">Drewno budowlane na czas</span>
-            <br />
-            <span className="text-brand-brown">Jakość, która nie zawiedzie</span>
-          </motion.h1>
+         {/* Headline */}
+<motion.h1
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.1 }}
+  className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-4 text-white"
+>
+  Drewno budowlane z dostawą w 3 dni
+  <br />
+  <motion.span 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.3 }}
+    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cream inline-block mt-2 relative"
+  >
+    <span className="relative z-10">Jakość sprawdzona przed wysyłką</span>
+    <motion.span
+      initial={{ width: 0 }}
+      animate={{ width: '100%' }}
+      transition={{ duration: 0.8, delay: 0.5 }}
+      className="absolute bottom-0 left-0 h-[3px] bg-green-600 rounded-full"
+    />
+  </motion.span>
+</motion.h1>
 
           {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-brand-brown/70 mb-4 max-w-6xl mx-auto leading-relaxed"
+            className="text-base md:text-lg lg:text-xl text-white/90 mb-3 max-w-5xl mx-auto leading-relaxed"
           >
-            Proste deski, prawdziwa impregnacja ciśnieniowa, wymiary zgodne z
-            zamówieniem.
+            Tarcica sosnowa i świerkowa, więźby dachowe, kantówka, deski impregnowane. 
+            Proste deski, prawdziwa impregnacja ciśnieniowa, wymiary zgodne z zamówieniem (dawniej Tartak Mirotki)
           </motion.p>
 
-          <motion.p
+          {/* Mini Social Proof */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-base md:text-lg lg:text-xl text-brand-brown/60 mb-12"
+            className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6"
           >
-            Realizacja w 3 dni z własnym transportem.
-          </motion.p>
+            {socialProof.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="flex items-center gap-2 text-white/90 text-sm md:text-base"
+              >
+                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>{item}</span>
+              </motion.div>
+            ))}
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-3"
           >
             <a
-              href="tel:+48XXXXXXXXX"
-              className="btn-primary w-full sm:w-auto flex items-center justify-center gap-3 text-lg px-8 py-4 group"
+              href="tel:+48537593186"
+              className="btn-primary w-full sm:w-auto flex items-center justify-center gap-3 text-base md:text-lg px-6 md:px-8 py-3 md:py-4 group"
             >
               <Phone className="w-5 h-5 group-hover:animate-pulse" />
-              <span>Zadzwoń - wycena od ręki</span>
+              <span>Zadzwoń - wycena od ręki: 537 593 186</span>
             </a>
             <a
-              href="https://wa.me/48XXXXXXXXX"
-              className="btn-whatsapp w-full sm:w-auto flex items-center justify-center gap-3 text-lg px-8 py-4"
+              href="https://wa.me/48537593186"
+              className="btn-whatsapp w-full sm:w-auto flex items-center justify-center gap-3 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>Napisz na WhatsApp</span>
+              <Image 
+                src="/whatsapp-svgrepo-com.svg" 
+                alt="WhatsApp" 
+                width={20} 
+                height={20}
+                className="brightness-0 invert"
+              />
+              <span>Szybka wycena na WhatsApp</span>
             </a>
           </motion.div>
 
           {/* Tertiary CTA */}
-          <motion.a
-            href="#sortament"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="inline-flex items-center gap-2 text-brand-brown/60 hover:text-brand-green font-medium transition-colors group mb-8"
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span>Zobacz asortyment</span>
-            <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-          </motion.a>
+            <a
+              href="#sortament"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white font-medium transition-colors group mb-5"
+            >
+              <span>Zobacz asortyment</span>
+              <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+            </a>
+          </motion.div>
 
           {/* Trust Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-3 md:gap-4"
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="flex flex-wrap justify-center gap-2 md:gap-3"
           >
             {trustBadges.map((badge, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-xl border border-brand-brown/10 shadow-sm"
+                transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 md:px-4 py-1.5 rounded-xl border border-white/20 shadow-sm"
               >
-                <Check className="w-4 h-4 text-brand-green flex-shrink-0" />
-                <span className="text-sm md:text-base text-brand-brown/80 whitespace-nowrap">
+                <Check className="w-3 h-3 md:w-4 md:h-4 text-green-400 flex-shrink-0" />
+                <span className="text-xs md:text-sm text-white whitespace-nowrap">
                   {badge}
                 </span>
               </motion.div>
@@ -156,15 +210,15 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-brand-brown/40 uppercase tracking-wider">
+        <span className="text-xs text-white/60 uppercase tracking-wider">
           Przewiń
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 border-2 border-brand-brown/20 rounded-full flex justify-center pt-2"
+          className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2"
         >
-          <div className="w-1.5 h-1.5 bg-brand-brown/40 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

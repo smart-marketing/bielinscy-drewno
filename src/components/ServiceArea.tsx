@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { MapPin, Clock, Navigation } from "lucide-react";
 
 const regions = [
-  { city: "Gdańsk, Tczew, Starogard", time: "ok. 1 godzina" },
-  { city: "Grudziądz, Toruń, Bydgoszcz", time: "max 1,5h" },
-  { city: "Elbląg, Malbork, Kwidzyn", time: "ok. 1 godzina" },
-  { city: "Olsztyn, Chojnice", time: "ok. 1,5h" },
+  { city: "Gdańsk, Tczew, Starogard", time: "ok. 30-45 minut" },
+  { city: "Grudziądz, Kwidzyn, Malbork", time: "ok. 40-50 minut" },
+  { city: "Bydgoszcz, Toruń, Brodnica", time: "ok. 60-90 minut" },
+  { city: "Elbąg, Olsztyn, Chojnice", time: "max. 1,5h" },
 ];
 
 export default function ServiceArea() {
@@ -185,7 +185,7 @@ export default function ServiceArea() {
 
             {/* Google Maps Link */}
             <motion.a
-              href="https://maps.google.com/?q=Mirotki,Skórcz"
+              href="https://www.google.com/maps/place/Bieli%C5%84scy+Drewno+(daw.+Tartak+Mirotki)/@53.7647207,18.5799619,17z/data=!3m1!4b1!4m6!3m5!1s0x470295c353c56b19:0x303da21a2fd86f14!8m2!3d53.7647207!4d18.5825368!16s%2Fg%2F12hk8l_jj?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 10 }}

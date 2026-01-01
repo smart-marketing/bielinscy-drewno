@@ -8,36 +8,28 @@ const steps = [
     number: "01",
     icon: MessageSquare,
     title: "Kontakt + Doradztwo",
-    subtitle: "Dzwonisz, piszesz maila, WhatsAppa lub wypełniasz formularz",
     description:
-      "Opisujesz projekt i co potrzebujesz. Nie wiesz, jakie drewno wybrać? Jakie wymiary? Jakiej klasy impregnację? Spokojnie - to normalne. Wypytuj nas przed zakupem - doradzamy za darmo, bez zobowiązań.",
-    highlight: "📱 WhatsApp to najszybszy kontakt - odpowiadamy na bieżąco.",
+      "Dzwonisz, piszesz maila lub WhatsApp. Opisujesz projekt - doradzamy za darmo.",
   },
   {
     number: "02",
     icon: Calculator,
     title: "Wycena od ręki",
-    subtitle: "Przygotowujemy ofertę i potwierdzamy termin",
     description:
-      "Konkretna cena, konkretny termin dostawy (zwykle 2-3 dni). Płatność: przelew, karta, gotówka przy odbiorze.",
-    highlight: null,
+      "Konkretna cena, termin 2-3 dni. Płatność: przelew, karta, gotówka.",
   },
   {
     number: "03",
     icon: Package,
     title: "Realizacja",
-    subtitle: "Przygotowujemy Twoje zamówienie w magazynie",
     description:
-      "Wybieramy proste deski, impregnujemy (jeśli zamówiłeś), pakujemy na transport. Jakość sprawdzamy przed załadunkiem.",
-    highlight: null,
+      "Wybieramy proste deski, impregnujemy, kontrolujemy przed wysyłką.",
   },
   {
     number: "04",
     icon: Truck,
     title: "Dostawa/odbiór",
-    subtitle: "Dowóz na budowę własnym transportem lub odbiór osobisty",
-    description: "Magazyn w Mirotkach (gm. Skórcz), obok A1 - zjazd Kopytowo.",
-    highlight: null,
+    description: "Dowóz własnym transportem lub odbiór z Mirotek (obok A1).",
   },
 ];
 
@@ -49,70 +41,83 @@ export default function HowWeWork() {
     <section
       ref={ref}
       id="jak-dzialamy"
-      className="section-padding bg-brand-brown relative overflow-hidden"
+      className="py-16 md:py-20 bg-gradient-to-br from-brand-green via-brand-green/95 to-brand-green/90 relative overflow-hidden"
     >
-      {/* Background */}
+      {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
+            transition={{ duration: 1.5, delay: i * 0.2 }}
+            className="absolute bg-white rounded-full blur-3xl"
+            style={{
+              width: `${300 + i * 100}px`,
+              height: `${300 + i * 100}px`,
+              top: `${20 + i * 30}%`,
+              left: `${10 + i * 30}%`,
+            }}
+          />
+        ))}
       </div>
 
-      <div className="container-wide relative">
+      <div className="container-wide relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
             4 kroki od telefonu do gotowej dostawy
           </h2>
         </motion.div>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-              className="relative"
-            >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 h-full border border-white/10 hover:border-white/20 hover:bg-white/15 transition-all duration-500 group">
-                {/* Number & Icon */}
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-5xl font-display font-bold text-white/20 group-hover:text-white/30 transition-colors">
-                    {step.number}
-                  </span>
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:bg-brand-green group-hover:scale-110 transition-all duration-500">
-                    <step.icon className="w-6 h-6 text-white transition-colors" />
-                  </div>
+        {/* Timeline Steps */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-6 relative">
+            {/* Connection Line - Desktop Only */}
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-white/20" 
+                 style={{ width: 'calc(100% - 120px)', left: '60px' }} />
+            
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.2 + index * 0.15,
+                }}
+                className="relative"
+              >
+                {/* Step Card */}
+                <div className="text-center">
+                  {/* Icon Circle */}
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="relative inline-flex items-center justify-center w-24 h-24 bg-white rounded-2xl shadow-xl mb-4 mx-auto group cursor-pointer"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-green/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <step.icon className="w-10 h-10 text-brand-green relative z-10" />
+                    <span className="absolute -top-2 -right-2 w-8 h-8 bg-brand-green text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+                      {step.number}
+                    </span>
+                  </motion.div>
+
+                  {/* Content */}
+                  <h3 className="font-display text-lg md:text-xl font-bold text-white mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-
-                {/* Content */}
-                <h3 className="font-display text-xl font-semibold text-white mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-white/70 font-medium text-sm mb-3">
-                  {step.subtitle}
-                </p>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  {step.description}
-                </p>
-
-                {/* Highlight */}
-                {step.highlight && (
-                  <div className="mt-4 p-3 bg-brand-green/30 rounded-lg border border-brand-green/20">
-                    <p className="text-white text-sm font-medium">
-                      {step.highlight}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* CTA */}
@@ -123,11 +128,11 @@ export default function HowWeWork() {
           className="text-center mt-12"
         >
           <a
-            href="tel:+48XXXXXXXXX"
-            className="inline-flex items-center gap-3 bg-brand-green text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-brand-green-light transition-all duration-300 group"
+            href="tel:+48537593186"
+            className="inline-flex items-center gap-3 bg-white text-brand-green px-8 py-4 rounded-2xl font-bold text-lg hover:bg-cream hover:gap-5 transition-all duration-300 group shadow-2xl hover:shadow-3xl hover:scale-105"
           >
             <span>Zamów teraz - dostawa w 3 dni</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </a>
         </motion.div>
       </div>

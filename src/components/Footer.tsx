@@ -1,5 +1,5 @@
 "use client";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,57 +8,69 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-brown text-white/80">
-      <div className="container-wide section-padding-sm">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <div className="container-wide py-12 md:py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Logo & About */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logo.png"
+                src="/logo-footer.jpg"
                 alt="Bielińscy Drewno"
-                width={140}
-                height={42}
-                className="h-10 w-auto brightness-0 invert"
+                width={270}
+                height={60}
+                className="rounded-lg"
               />
             </Link>
-            <p className="text-white/60 leading-relaxed mb-6">
+            <p className="text-white/70 leading-relaxed mb-4 text-sm">
               Skład drewna budowlanego. Tarcica, więźby dachowe, deski
               impregnowane. Realizacja w 3 dni, własny transport.
             </p>
-            <p className="text-white/40 text-sm">Od 2013 roku</p>
+            <p className="text-brand-green font-semibold text-sm">Od 2013 roku</p>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold text-white text-lg mb-6">
+            <h4 className="font-display font-bold text-white text-lg mb-5">
               Kontakt
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:+48XXXXXXXXX"
+                  href="tel:+48537593186"
                   className="flex items-center gap-3 hover:text-white transition-colors group"
                 >
-                  <Phone className="w-5 h-5 text-brand-green group-hover:scale-110 transition-transform" />
-                  <span>+48 XXX XXX XXX</span>
+                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
+                    <Phone className="w-4 h-4 text-brand-green group-hover:text-white" />
+                  </div>
+                  <span className="font-medium">537 593 186</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/48XXXXXXXXX"
+                  href="https://wa.me/48537593186"
                   className="flex items-center gap-3 hover:text-white transition-colors group"
                 >
-                  <MessageCircle className="w-5 h-5 text-brand-green group-hover:scale-110 transition-transform" />
-                  <span>WhatsApp</span>
+                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
+                    <Image 
+                      src="/whatsapp-svgrepo-com.svg" 
+                      alt="WhatsApp" 
+                      width={16} 
+                      height={16}
+                      className="brightness-0 invert opacity-70 group-hover:opacity-100"
+                    />
+                  </div>
+                  <span className="font-medium">WhatsApp</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:kontakt@bielinscy-drewno.pl"
+                  href="mailto:biuro@bielinscydrewno.pl"
                   className="flex items-center gap-3 hover:text-white transition-colors group"
                 >
-                  <Mail className="w-5 h-5 text-brand-green group-hover:scale-110 transition-transform" />
-                  <span>kontakt@bielinscy-drewno.pl</span>
+                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
+                    <Mail className="w-4 h-4 text-brand-green group-hover:text-white" />
+                  </div>
+                  <span className="font-medium text-sm">biuro@bielinscydrewno.pl</span>
                 </a>
               </li>
             </ul>
@@ -66,23 +78,25 @@ export default function Footer() {
 
           {/* Location */}
           <div>
-            <h4 className="font-display font-semibold text-white text-lg mb-6">
+            <h4 className="font-display font-bold text-white text-lg mb-5">
               Lokalizacja
             </h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5" />
+                <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 h-4 text-brand-green" />
+                </div>
                 <div>
-                  <p className="text-white">Mirotki</p>
-                  <p className="text-white/60">gm. Skórcz, woj. pomorskie</p>
-                  <p className="text-white/40 text-sm mt-1">Zjazd Kopytowo z A1</p>
+                  <p className="text-white font-semibold">Mirotki</p>
+                  <p className="text-white/60 text-sm">gm. Skórcz, woj. pomorskie</p>
+                  <p className="text-white/50 text-xs mt-1">Zjazd Kopytowo z A1</p>
                 </div>
               </div>
               <a
                 href="https://maps.google.com/?q=Mirotki,Skórcz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-brand-green hover:text-brand-green-light text-sm font-medium transition-colors"
+                className="inline-flex items-center gap-2 text-brand-green hover:text-cream text-sm font-semibold transition-colors"
               >
                 Zobacz na mapie →
               </a>
@@ -91,23 +105,25 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="font-display font-semibold text-white text-lg mb-6">
+            <h4 className="font-display font-bold text-white text-lg mb-5">
               Godziny otwarcia
             </h4>
             <div className="flex items-start gap-3">
-              <Clock className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5" />
-              <div className="space-y-2">
-                <div>
-                  <p className="text-white">Pon - Pt</p>
-                  <p className="text-white/60">7:00 - 17:00</p>
+              <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Clock className="w-4 h-4 text-brand-green" />
+              </div>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between gap-6">
+                  <span className="text-white font-medium">Pon - Pt</span>
+                  <span className="text-white/60">7:00 - 17:00</span>
                 </div>
-                <div>
-                  <p className="text-white">Sobota</p>
-                  <p className="text-white/60">8:00 - 14:00</p>
+                <div className="flex justify-between gap-6">
+                  <span className="text-white font-medium">Sobota</span>
+                  <span className="text-white/60">8:00 - 14:00</span>
                 </div>
-                <div>
-                  <p className="text-white">Niedziela</p>
-                  <p className="text-white/60">Zamknięte</p>
+                <div className="flex justify-between gap-6">
+                  <span className="text-white font-medium">Niedziela</span>
+                  <span className="text-white/60">Zamknięte</span>
                 </div>
               </div>
             </div>
@@ -117,14 +133,15 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-wide py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
+        <div className="container-wide py-5">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-white/50">
             <p>© {currentYear} Bielińscy Drewno. Wszystkie prawa zastrzeżone.</p>
-            <div className="flex items-center gap-6">
-              <Link href="/polityka-prywatnosci" className="hover:text-white transition-colors">
-                Polityka prywatności
-              </Link>
-            </div>
+            <Link 
+              href="/polityka-prywatnosci" 
+              className="hover:text-white transition-colors"
+            >
+              Polityka prywatności
+            </Link>
           </div>
         </div>
       </div>

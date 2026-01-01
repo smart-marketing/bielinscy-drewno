@@ -1,7 +1,8 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, MessageCircle, Check } from "lucide-react";
+import { Phone, Check, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const guarantees = [
   "Proste deski sprawdzone przed załadunkiem",
@@ -18,59 +19,97 @@ export default function FinalCTA() {
     <section
       ref={ref}
       id="kontakt"
-      className="section-padding bg-gradient-to-br from-brand-green via-brand-green to-brand-green-dark relative overflow-hidden"
+      className="py-16 md:py-20 bg-gradient-to-br from-brand-green via-brand-green/95 to-brand-green/90 relative overflow-hidden"
     >
-      {/* Background */}
+      {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-brown/10 rounded-full blur-3xl" />
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
+            transition={{ duration: 1.5, delay: i * 0.2 }}
+            className="absolute bg-white rounded-full blur-3xl"
+            style={{
+              width: `${250 + i * 80}px`,
+              height: `${250 + i * 80}px`,
+              top: `${15 + i * 25}%`,
+              right: `${5 + i * 20}%`,
+            }}
+          />
+        ))}
       </div>
 
-      <div className="container-wide relative">
-        <div className="max-w-6xl mx-auto text-center">
+      <div className="container-wide relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold mb-6"
+          >
+            <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
+            <span>Od 2013 roku - setki zadowolonych klientów</span>
+          </motion.div>
+
           {/* Headline */}
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight"
           >
             Twoja budowa zasługuje na materiał,
             <br />
-            <span className="text-cream">na którym można polegać</span>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-cream inline-block relative mt-2"
+            >
+              na którym można polegać
+              <motion.span
+                initial={{ width: 0 }}
+                animate={isInView ? { width: '100%' } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute bottom-0 left-0 h-1 bg-cream/50 rounded-full"
+              />
+            </motion.span>
           </motion.h2>
 
           {/* Subtext */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-white/80 mb-8"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-base md:text-lg text-white/90 mb-8 max-w-3xl mx-auto"
           >
-            Od 2013 roku dostarczamy drewno setkom budów - od małych altan po
-            duże konstrukcje dachowe. Nasze drewno stoi w dachach, tarasach,
-            ogrodzeniach w całym regionie.
+            Dostarczamy drewno setkom budów - od małych altan po duże konstrukcje dachowe. 
+            Nasze drewno stoi w dachach, tarasach i ogrodzeniach w całym regionie.
           </motion.p>
 
           {/* Guarantees */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-10"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mb-8"
           >
-            <p className="text-white/90 font-medium mb-6">Każda dostawa to:</p>
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            <p className="text-white/90 font-semibold mb-5 text-sm md:text-base">Każda dostawa to gwarancja:</p>
+            <div className="flex flex-wrap justify-center gap-3">
               {guarantees.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2.5 rounded-full"
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                  className="flex items-center gap-2 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg"
                 >
-                  <Check className="w-4 h-4 text-cream flex-shrink-0" />
-                  <span className="text-white text-sm md:text-base whitespace-nowrap">
+                  <div className="w-5 h-5 bg-brand-green rounded-full flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-brand-brown font-semibold text-xs md:text-sm">
                     {item}
                   </span>
                 </motion.div>
@@ -82,8 +121,8 @@ export default function FinalCTA() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-xl md:text-2xl text-white font-medium mb-10"
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-lg md:text-xl text-white font-bold mb-8"
           >
             Dołącz do klientów, którzy budują bez stresu i opóźnień.
           </motion.p>
@@ -92,22 +131,28 @@ export default function FinalCTA() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href="tel:+48XXXXXXXXX"
-              className="group relative bg-white text-brand-green px-8 py-4 rounded-xl font-semibold text-lg hover:bg-cream hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3"
+              href="tel:+48537593186"
+              className="group relative bg-white text-brand-green px-8 py-4 rounded-2xl font-bold text-base md:text-lg hover:bg-cream hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
             >
-              <Phone className="w-5 h-5" />
-              <span>Zadzwoń teraz</span>
+              <Phone className="w-5 h-5 group-hover:animate-pulse" />
+              <span>Zadzwoń: 537 593 186</span>
             </a>
             <a
-              href="https://wa.me/48XXXXXXXXX"
-              className="btn-whatsapp flex items-center justify-center gap-3 text-lg !px-8 !py-4"
+              href="https://wa.me/48537593186"
+              className="group relative bg-[#25D366] text-white px-8 py-4 rounded-2xl font-bold text-base md:text-lg hover:bg-[#128C7E] hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>Napisz WhatsApp</span>
+              <Image 
+                src="/whatsapp-svgrepo-com.svg" 
+                alt="WhatsApp" 
+                width={20} 
+                height={20}
+                className="brightness-0 invert"
+              />
+              <span>WhatsApp: 537 593 186</span>
             </a>
           </motion.div>
         </div>
