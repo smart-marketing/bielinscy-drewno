@@ -3,6 +3,17 @@ import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, Truck, CheckCircle } from "lucide-react";
 import Image from "next/image";
 
+const iconMap = {
+  truck: Truck,
+  clock: Clock,
+  checkCircle: CheckCircle,
+  phone: Phone,
+};
+
+const getIcon = (iconName) => {
+  return iconMap[iconName] || Phone;
+};
+
 export default function CityPage({ city, region, distance, features }) {
   return (
     <>
@@ -75,21 +86,24 @@ export default function CityPage({ city, region, distance, features }) {
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all"
-              >
-                <div className="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-brand-brown mb-2">{feature.title}</h3>
-                <p className="text-brand-brown/70 text-sm">{feature.description}</p>
-              </motion.div>
-            ))}
+            {features.map((feature, index) => {
+              const IconComponent = getIcon(feature.icon);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all"
+                >
+                  <div className="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center mb-4">
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-brand-brown mb-2">{feature.title}</h3>
+                  <p className="text-brand-brown/70 text-sm">{feature.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

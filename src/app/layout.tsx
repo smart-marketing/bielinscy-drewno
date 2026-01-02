@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
@@ -98,6 +99,7 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${playfair.variable} font-sans antialiased bg-cream text-brand-brown`}
       >
+        <TopBar />
         <Header />
         {children}
         <Footer />

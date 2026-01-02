@@ -1,166 +1,180 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Clock, Car, Package } from "lucide-react";
+import { MapPin, Car, Clock, Navigation } from "lucide-react";
 
 export default function Location() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const regions = [
-    { city: "Gdańsk, Tczew, Starogard", time: "~1h" },
-    { city: "Grudziądz, Toruń, Bydgoszcz", time: "~1-1,5h" },
-    { city: "Elbląg, Malbork, Kwidzyn", time: "~1h" },
-    { city: "Olsztyn, Chojnice", time: "~1,5h" },
+  const cities = [
+    { name: "Gdańsk, Tczew, Starogard", time: "~1h", color: "from-brand-green to-brand-green/80" },
+    { name: "Grudziądz, Toruń, Bydgoszcz", time: "~1-1,5h", color: "from-brand-green/90 to-brand-green/70" },
+    { name: "Elbląg, Malbork, Kwidzyn", time: "~1h", color: "from-brand-green/80 to-brand-green/60" },
+    { name: "Olsztyn, Chojnice", time: "~1,5h", color: "from-brand-green/70 to-brand-green/50" }
+  ];
+
+  const benefits = [
+    {
+      icon: Car,
+      title: "5 min od A1",
+      description: "Zjazd Kopytowo - szybki i wygodny dojazd z całej Polski"
+    },
+    {
+      icon: Navigation,
+      title: "Centrum północy",
+      description: "Równo oddaleni od Gdańska, Grudziądza, Torunia i Olsztyna"
+    },
+    {
+      icon: Clock,
+      title: "Realizacja 2-3 dni",
+      description: "Bliska lokalizacja = szybka dostawa, nawet dużych zamówień"
+    }
   ];
 
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-gray-50 relative overflow-hidden">
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left column - Info */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7 }}
-            >
-              <h2
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-                style={{ fontFamily: "var(--font-playfair)", color: "#4C3B34" }}
-              >
-                Gdzie nas znajdziesz?{" "}
-                <span style={{ color: "#2B6650" }}>5 minut od autostrady.</span>
-              </h2>
-            </motion.div>
+    <section ref={ref} className="py-20 md:py-32 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(var(--brand-green) 1px, transparent 1px), linear-gradient(90deg, var(--brand-green) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
 
-            {/* Address card */}
+      <div className="container-wide relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-6">
+            Gdzie nas znajdziesz?
+            <br />
+            <span className="text-brand-green">5 minut od autostrady.</span>
+          </h2>
+          <p className="text-lg md:text-xl text-brand-brown/70 max-w-2xl mx-auto px-4">
+            Mirotki, gmina Skórcz - idealnie między Gdańskiem a Bydgoszczą
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
+          {/* Left Column - Address & Benefits */}
+          <div className="space-y-8">
+            {/* Address Card */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-8 p-6 rounded-2xl bg-white shadow-lg"
-              style={{ border: "1px solid rgba(43, 102, 80, 0.2)" }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="bg-gradient-to-br from-brand-green to-brand-green/90 text-white rounded-3xl p-8 md:p-10 shadow-2xl"
             >
-              <div className="flex items-start gap-4">
-                <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: "#2B6650" }}
-                >
-                  <MapPin className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-1" style={{ color: "#4C3B34" }}>Adres</h3>
-                  <p className="text-lg text-gray-700">Mirotki, gmina Skórcz</p>
-                  <p className="text-sm text-gray-500 mt-1">
-                    (5 min od zjazdu Kopytowo z A1 Grudziądz-Gdańsk)
-                  </p>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2">Adres magazynu</h3>
+                  <p className="text-lg text-white/90 mb-1">Mirotki</p>
+                  <p className="text-white/80">gmina Skórcz, woj. pomorskie</p>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Why this location */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="mt-8"
-            >
-              <h3 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: "#4C3B34" }}>
-                <Clock className="w-5 h-5" style={{ color: "#2B6650" }} />
-                Dlaczego ta lokalizacja?
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Bo jesteś u nas maksymalnie w 1,5h z całego regionu:
-              </p>
-
-              <div className="space-y-3">
-                {regions.map((region, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    className="flex items-center justify-between p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <span className="text-gray-700">{region.city}</span>
-                    <span className="font-bold" style={{ color: "#2B6650" }}>{region.time}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Highlight */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              className="mt-8 text-lg font-medium p-4 rounded-xl"
-              style={{ 
-                color: "#4C3B34", 
-                backgroundColor: "rgba(76, 59, 52, 0.05)",
-                borderLeft: "4px solid #4C3B34"
-              }}
-            >
-              Zdążysz rano po drewno i popołudniu już budujesz.
-            </motion.p>
-
-            {/* Options */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              className="mt-8 grid sm:grid-cols-2 gap-4"
-            >
-              <div className="p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                <Car className="w-8 h-8 mb-3" style={{ color: "#2B6650" }} />
-                <h4 className="font-bold mb-2" style={{ color: "#4C3B34" }}>Odbiór osobisty</h4>
-                <p className="text-sm text-gray-600">
-                  Możesz przyjechać i odebrać zamówienie osobiście. Załadunek na Twoją przyczepę/samochód - pomagamy.
-                </p>
-              </div>
-              <div className="p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                <Package className="w-8 h-8 mb-3" style={{ color: "#2B6650" }} />
-                <h4 className="font-bold mb-2" style={{ color: "#4C3B34" }}>Dostawa</h4>
-                <p className="text-sm text-gray-600">
-                  Własny transport - dowozimy w całym regionie. Terminowo, bez opóźnień.
+              <div className="pt-6 border-t border-white/20">
+                <p className="text-sm text-white/80 mb-2">Jak dojechać?</p>
+                <p className="text-white/90">
+                  Autostrada A1, zjazd <strong>Kopytowo</strong> (Grudziądz-Gdańsk), 
+                  następnie tylko <strong>5 minut</strong> lokalną drogą
                 </p>
               </div>
             </motion.div>
+
+            {/* Benefits */}
+            <div className="space-y-4">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.7, delay: 0.3 + index * 0.1 }}
+                  className="bg-white border-2 border-brand-green/10 rounded-2xl p-6 hover:border-brand-green/30 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <benefit.icon className="w-6 h-6 text-brand-green" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-brand-brown mb-1">{benefit.title}</h4>
+                      <p className="text-brand-brown/70">{benefit.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          {/* Right column - Map */}
+          {/* Right Column - Service Area */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="relative"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100"
           >
-            <div className="aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-2xl">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18816.82!2d18.52!3d53.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47029d2f0f3d9b3b%3A0x4c8e3e3b7a2f1c0a!2sMirotki!5e0!3m2!1spl!2spl!4v1703000000000!5m2!1spl!2spl"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-brand-brown mb-6">
+              Gdzie dowozimy?
+            </h3>
+            <p className="text-brand-brown/70 mb-8">
+              Obsługujemy całe Pomorze, Kujawy i część warmińsko-mazurskiego. 
+              Czas dostawy zależy od odległości:
+            </p>
+
+            <div className="space-y-4">
+              {cities.map((city, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.03, x: 8 }}
+                  className={`bg-gradient-to-r ${city.color} text-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all duration-300`}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <MapPin className="w-5 h-5" />
+                      <span className="font-semibold">{city.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-lg">
+                      <Clock className="w-4 h-4" />
+                      <span className="text-sm font-medium">{city.time}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
-            {/* Floating label */}
-            <motion.div
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-full shadow-lg flex items-center gap-2"
-              style={{ backgroundColor: "#2B6650" }}
-            >
-              <MapPin className="w-5 h-5 text-white" />
-              <span className="font-medium text-white">Bielińscy Drewno</span>
-            </motion.div>
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <p className="text-sm text-brand-brown/60 mb-3">
+                <strong className="text-brand-brown">Nie ma Twojego miasta?</strong> Zadzwoń - dowozimy również poza standardowy obszar.
+              </p>
+              <a 
+                href="tel:+48537593186"
+                className="inline-flex items-center gap-2 text-brand-green font-semibold hover:gap-3 transition-all"
+              >
+                <Phone className="w-5 h-5" />
+                <span>Zapytaj o dostawę: 537 593 186</span>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Phone({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
   );
 }

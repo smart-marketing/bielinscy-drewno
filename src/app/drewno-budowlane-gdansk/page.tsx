@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import CityPage from "@/components/CityPage";
-import { Truck, Clock, CheckCircle, Phone } from "lucide-react";
 
 export const metadata = {
   title: "Drewno Budowlane Gdańsk - Dostawa w 45 minut | Bielińscy Drewno",
@@ -11,22 +10,22 @@ export const metadata = {
 
 const features = [
   {
-    icon: Truck,
+    icon: "truck",
     title: "Dostawa 45 minut",
     description: "Własny transport z Mirotek do Gdańska"
   },
   {
-    icon: Clock,
+    icon: "clock",
     title: "Realizacja 3 dni",
     description: "Nawet duże zamówienia"
   },
   {
-    icon: CheckCircle,
+    icon: "checkCircle",
     title: "Kontrola jakości",
     description: "Sprawdzamy przed wysyłką"
   },
   {
-    icon: Phone,
+    icon: "phone",
     title: "Wycena od ręki",
     description: "Zadzwoń - doradzamy bezpłatnie"
   }

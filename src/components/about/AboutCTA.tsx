@@ -1,170 +1,166 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
-import Link from "next/link";
+import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutCTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section
-      ref={ref}
-      className="py-20 md:py-32 bg-gradient-to-br from-[#4C3B34] via-[#3d2f29] to-[#2a201c] relative overflow-hidden"
-    >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section ref={ref} className="py-20 md:py-32 bg-gradient-to-br from-brand-green via-brand-green/95 to-brand-green/90 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-0 right-0 w-96 h-96 bg-[#2B6650] rounded-full blur-[100px]"
+          animate={{ 
+            scale: [1, 1.3, 1],
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"
         />
         <motion.div
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute bottom-0 left-0 w-96 h-96 bg-[#2B6650] rounded-full blur-[100px]"
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            x: [0, -100, 0],
+            y: [0, 50, 0],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white rounded-full blur-3xl"
         />
-        {/* Wood grain texture */}
+        {/* Wood texture overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `repeating-linear-gradient(
-            90deg,
-            white 0px,
-            transparent 1px,
-            transparent 30px
-          )`
+          backgroundImage: `repeating-linear-gradient(90deg, white 0px, transparent 1px, transparent 40px)`
         }} />
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container-wide relative z-10">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
+            className="text-center mb-12 md:mb-16"
           >
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              Poznajmy się.{" "}
-              <span className="text-[#98d4bb]">Zadzwoń, napisz, wpadnij.</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Poznajmy się.
+              <br />
+              <span className="text-white/90">Zadzwoń, napisz, wpadnij.</span>
             </h2>
-            <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto px-4">
               Masz pytania o drewno? Projektujesz budowę i nie wiesz, od czego zacząć?
+              <br className="hidden sm:block" />
               Pogadajmy. Doradzamy za darmo, bez zobowiązań.
             </p>
           </motion.div>
 
-          {/* Contact options */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="grid md:grid-cols-3 gap-6 mb-12"
-          >
+          {/* Contact Grid */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
             {/* Phone */}
             <motion.a
-              href="tel:+48XXXXXXXXX"
-              whileHover={{ y: -5, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all"
+              href="tel:+48537593186"
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="group bg-white/10 backdrop-blur-md hover:bg-white/20 rounded-2xl p-8 border-2 border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl"
             >
-              <div className="w-14 h-14 rounded-full bg-[#2B6650] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <Phone className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                  <Phone className="w-7 h-7 text-brand-green" />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl font-bold text-white mb-2">Zadzwoń teraz</h3>
+                  <p className="text-2xl font-bold text-white mb-1">537 593 186</p>
+                  <p className="text-sm text-white/70">Pon-Pt 7:00-17:00, Sob 8:00-14:00</p>
+                </div>
+                <ArrowRight className="w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">Telefon</h3>
-              <p className="text-[#98d4bb] font-medium">[NUMER]</p>
             </motion.a>
 
             {/* WhatsApp */}
             <motion.a
-              href="https://wa.me/48XXXXXXXXX"
+              href="https://wa.me/48537593186"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -5, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group p-6 rounded-2xl bg-[#2B6650] border border-[#2B6650] hover:bg-[#2B6650]/90 transition-all"
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="group bg-white/10 backdrop-blur-md hover:bg-white/20 rounded-2xl p-8 border-2 border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl"
             >
-              <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                  <MessageCircle className="w-7 h-7 text-brand-green" />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl font-bold text-white mb-2">Napisz na WhatsApp</h3>
+                  <p className="text-lg text-white/90 mb-1">Najszybszy kontakt</p>
+                  <p className="text-sm text-white/70">Odpowiadamy na bieżąco</p>
+                </div>
+                <ArrowRight className="w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">WhatsApp</h3>
-              <p className="text-white/90 font-medium text-sm">najszybszy kontakt</p>
             </motion.a>
 
             {/* Email */}
             <motion.a
-              href="mailto:kontakt@bielinscy-drewno.pl"
-              whileHover={{ y: -5, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all"
+              href="mailto:biuro@bielinscydrewno.pl"
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="group bg-white/10 backdrop-blur-md hover:bg-white/20 rounded-2xl p-8 border-2 border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl"
             >
-              <div className="w-14 h-14 rounded-full bg-[#2B6650] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <Mail className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                  <Mail className="w-7 h-7 text-brand-green" />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl font-bold text-white mb-2">Wyślij maila</h3>
+                  <p className="text-lg text-white/90 mb-1 break-all">biuro@bielinscydrewno.pl</p>
+                  <p className="text-sm text-white/70">Odpowiadamy tego samego dnia</p>
+                </div>
+                <ArrowRight className="w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">Email</h3>
-              <p className="text-[#98d4bb] font-medium text-sm">[EMAIL]</p>
             </motion.a>
-          </motion.div>
 
-          {/* Location info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 mb-12"
-          >
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center justify-center gap-2">
-              <MapPin className="w-5 h-5 text-[#98d4bb]" />
-              Odwiedź nas
-            </h3>
-            <div className="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto">
-              <div>
-                <p className="text-white/90 mb-2">
-                  <strong className="text-white">Mirotki, gm. Skórcz</strong>
-                </p>
-                <p className="text-white/70 text-sm">
-                  (zjazd Kopytowo z A1)
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-[#98d4bb] flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-white/90">Poniedziałek - Piątek: [GODZINY]</p>
-                  <p className="text-white/90">Sobota: [GODZINY]</p>
+            {/* Visit */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border-2 border-white/20 shadow-xl"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <MapPin className="w-7 h-7 text-brand-green" />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl font-bold text-white mb-2">Wpadnij do magazynu</h3>
+                  <p className="text-lg text-white/90 mb-1">Mirotki, gm. Skórcz</p>
+                  <p className="text-sm text-white/70">5 min od zjazdu Kopytowo z A1</p>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          {/* CTA buttons */}
+          {/* Bottom Note */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="text-center"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#2B6650] text-white font-bold text-lg hover:bg-[#2B6650]/90 transition-colors shadow-lg shadow-[#2B6650]/30"
-              >
-                Zamów wycenę
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white font-bold text-lg hover:bg-white/20 transition-colors border border-white/20"
-              >
-                <MapPin className="w-5 h-5" />
-                Jak dojechać?
-              </a>
-            </motion.div>
+            <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/20">
+              <p className="text-white/90 text-lg">
+                💬 <strong>Wypytuj nas przed zakupem</strong> - doradzamy za darmo, bez zobowiązań
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

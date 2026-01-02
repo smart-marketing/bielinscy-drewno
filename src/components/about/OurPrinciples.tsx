@@ -43,33 +43,19 @@ export default function OurPrinciples() {
   return (
     <section
       ref={ref}
-      className="py-20 md:py-32 bg-gradient-to-b from-[#2B6650] to-[#1e4d3c] relative overflow-hidden"
+      className="py-20 md:py-32 relative overflow-hidden"
+      style={{ backgroundColor: "#2B6650" }}
     >
-      {/* Background decorative elements */}
+      {/* Subtle decorative circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/2 -right-1/4 w-full h-full"
-        >
-          <div className="w-full h-full border border-white/5 rounded-full" />
-        </motion.div>
-        <motion.div
-          animate={{ rotate: [360, 0] }}
-          transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-1/2 -left-1/4 w-full h-full"
-        >
-          <div className="w-full h-full border border-white/5 rounded-full" />
-        </motion.div>
-        {/* Subtle wood texture overlay */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `repeating-linear-gradient(
-            0deg,
-            white 0px,
-            transparent 2px,
-            transparent 40px
-          )`
-        }} />
+        <div 
+          className="absolute -top-1/2 -right-1/4 w-full h-full rounded-full opacity-10"
+          style={{ border: "1px solid white" }}
+        />
+        <div 
+          className="absolute -bottom-1/2 -left-1/4 w-full h-full rounded-full opacity-10"
+          style={{ border: "1px solid white" }}
+        />
       </div>
 
       <div className="container-custom relative z-10">
@@ -81,11 +67,11 @@ export default function OurPrinciples() {
           className="text-center mb-16"
         >
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
-            style={{ fontFamily: "var(--font-playfair)" }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            style={{ fontFamily: "var(--font-playfair)", color: "white" }}
           >
             Proste zasady,{" "}
-            <span className="text-[#98d4bb]">na których możesz polegać</span>
+            <span style={{ color: "#a8e6cf" }}>na których możesz polegać</span>
           </h2>
         </motion.div>
 
@@ -102,30 +88,32 @@ export default function OurPrinciples() {
                 index === 4 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""
               }`}
             >
-              <div className="h-full p-6 md:p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all duration-300">
+              <div 
+                className="h-full p-6 md:p-8 rounded-2xl backdrop-blur-sm transition-all duration-300"
+                style={{ 
+                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)"
+                }}
+              >
                 {/* Icon */}
                 <motion.div
                   whileHover={{ rotate: [0, -10, 10, 0] }}
                   transition={{ duration: 0.5 }}
-                  className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5 group-hover:bg-[#98d4bb]/20 transition-colors"
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
                 >
-                  <principle.icon className="w-7 h-7 text-[#98d4bb]" />
+                  <principle.icon className="w-7 h-7" style={{ color: "#a8e6cf" }} />
                 </motion.div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-xl font-bold mb-3" style={{ color: "white" }}>
                   {principle.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-white/80 leading-relaxed">
+                <p style={{ color: "rgba(255, 255, 255, 0.9)" }} className="leading-relaxed">
                   {principle.description}
                 </p>
-
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
-                  <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-white/5 to-transparent" />
-                </div>
               </div>
             </motion.div>
           ))}
