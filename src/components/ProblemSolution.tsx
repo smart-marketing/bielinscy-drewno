@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Phone, Zap, CheckCircle2, CreditCard, ArrowRight, Sparkles } from "lucide-react";
 
 const benefits = [
@@ -32,7 +32,29 @@ const benefits = [
 
 export default function ProblemSolution() {
   const ref = useRef(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [currentCard, setCurrentCard] = useState(0);
+
+  const scrollToCard = (index: number) => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.offsetWidth;
+      carouselRef.current.scrollTo({
+        left: cardWidth * index,
+        behavior: 'smooth'
+      });
+      setCurrentCard(index);
+    }
+  };
+
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const scrollLeft = carouselRef.current.scrollLeft;
+      const cardWidth = carouselRef.current.offsetWidth;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setCurrentCard(newIndex);
+    }
+  };
 
   return (
     <section ref={ref} className="section-padding bg-gradient-to-br from-white via-cream/30 to-white relative overflow-hidden">
@@ -116,8 +138,8 @@ export default function ProblemSolution() {
           </div>
         </motion.div>
 
-        {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12 md:mb-16">
+        {/* DESKTOP: Grid Layout */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8 mb-12 md:mb-16">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -167,6 +189,72 @@ export default function ProblemSolution() {
           ))}
         </div>
 
+        {/* MOBILE: Carousel with Peek Effect */}
+        <div className="md:hidden mb-12 relative">
+          {/* Carousel Container */}
+          <div 
+            ref={carouselRef}
+            onScroll={handleScroll}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-4 -mx-4"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 100 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                className="flex-shrink-0 w-[85%] snap-center"
+              >
+                <div className="group relative bg-white rounded-3xl p-6 shadow-lg border border-brand-brown/5 h-full">
+                  {/* Gradient accent */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent rounded-3xl opacity-0 group-active:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Icon */}
+                    <div className="w-14 h-14 bg-gradient-to-br from-brand-green to-brand-green/80 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                      <benefit.icon className="w-7 h-7 text-white" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-display text-xl font-bold text-brand-brown mb-3">
+                      {benefit.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-brand-brown/70 leading-relaxed text-sm">
+                      {benefit.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom Accent Line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-green via-brand-green/80 to-transparent rounded-b-3xl" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {benefits.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToCard(index)}
+                className={`transition-all duration-300 ${
+                  currentCard === index 
+                    ? 'w-8 h-2 bg-brand-green rounded-full' 
+                    : 'w-2 h-2 bg-brand-brown/20 rounded-full hover:bg-brand-brown/40'
+                }`}
+                aria-label={`Go to card ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -184,6 +272,13 @@ export default function ProblemSolution() {
           </a>
         </motion.div>
       </div>
+
+      {/* Custom scrollbar hide */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }

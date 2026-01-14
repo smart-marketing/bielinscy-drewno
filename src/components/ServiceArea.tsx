@@ -3,11 +3,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Clock, Navigation } from "lucide-react";
 
+// Zaktualizowana lista według obrazka klienta
 const regions = [
-  { city: "Gdańsk, Tczew, Starogard", time: "ok. 30-45 minut" },
-  { city: "Grudziądz, Kwidzyn, Malbork", time: "ok. 40-50 minut" },
-  { city: "Bydgoszcz, Toruń, Brodnica", time: "ok. 60-90 minut" },
-  { city: "Elbąg, Olsztyn, Chojnice", time: "max. 1,5h" },
+  { city: "Starogard, Kwidzyn", time: "ok. 25min" },
+  { city: "Grudziądz, Świecie, Tczew", time: "ok. 30 min" },
+  { city: "Gdańsk, Malbork", time: "ok. 45 min" },
+  { city: "Rydgoszcz, Toruń, Kościerzyna, Tuchola", time: "ok. 60min" },
+  { city: "Iława, Brodnica, Chojnice, Elbląg", time: "ok 90min" },
+  { city: "Olsztyn, Poznań", time: "ok 120 min" },
 ];
 
 export default function ServiceArea() {
@@ -26,8 +29,6 @@ export default function ServiceArea() {
           >
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-brown mb-6">
               Masz nas blisko
-              <br />
-              <span className="text-brand-green">maksymalnie 1,5h jazdy</span>
             </h2>
 
             <p className="text-lg text-brand-brown/70 mb-8 leading-relaxed">
@@ -40,7 +41,7 @@ export default function ServiceArea() {
               Dla Ciebie to znaczy:
             </p>
 
-            {/* Regions */}
+            {/* Regions - zaktualizowana lista */}
             <div className="space-y-4 mb-8">
               {regions.map((region, index) => (
                 <motion.div
@@ -104,15 +105,15 @@ export default function ServiceArea() {
                     strokeOpacity="0.3"
                   />
 
-                  {/* A1 Highway */}
+                  {/* A1 Highway - prawidłowy kierunek Gdańsk (góra-prawo) przez Mirotki do Grudziądz (dół-lewo) */}
                   <path
-                    d="M150,80 L200,180 L180,320"
+                    d="M 240 70 Q 220 120, 200 180 Q 185 230, 170 280"
                     stroke="#4C3B34"
                     strokeWidth="3"
                     strokeDasharray="10,5"
                     opacity="0.3"
                   />
-                  <text x="140" y="150" fill="#4C3B34" fontSize="12" opacity="0.5">
+                  <text x="210" y="140" fill="#4C3B34" fontSize="12" opacity="0.5">
                     A1
                   </text>
 
@@ -146,8 +147,16 @@ export default function ServiceArea() {
                   <circle cx="180" cy="150" r="4" fill="#4C3B34" opacity="0.5" />
                   <text x="130" y="155" fill="#4C3B34" fontSize="10" opacity="0.6">Starogard</text>
 
+                  {/* Kościerzyna - przy drodze górze */}
+                  <circle cx="160" cy="100" r="4" fill="#4C3B34" opacity="0.5" />
+                  <text x="110" y="105" fill="#4C3B34" fontSize="10" opacity="0.6">Kościerzyna</text>
+
                   <circle cx="180" cy="240" r="5" fill="#4C3B34" opacity="0.5" />
                   <text x="190" y="245" fill="#4C3B34" fontSize="10" opacity="0.6">Grudziądz</text>
+
+                  {/* Świecie */}
+                  <circle cx="190" cy="260" r="5" fill="#4C3B34" opacity="0.5" />
+                  <text x="200" y="265" fill="#4C3B34" fontSize="10" opacity="0.6">Świecie</text>
 
                   <circle cx="200" cy="300" r="5" fill="#4C3B34" opacity="0.5" />
                   <text x="210" y="305" fill="#4C3B34" fontSize="10" opacity="0.6">Toruń</text>
@@ -155,11 +164,27 @@ export default function ServiceArea() {
                   <circle cx="130" cy="290" r="5" fill="#4C3B34" opacity="0.5" />
                   <text x="85" y="295" fill="#4C3B34" fontSize="10" opacity="0.6">Bydgoszcz</text>
 
+                  {/* Tuchola - po lewej */}
+                  <circle cx="110" cy="230" r="5" fill="#4C3B34" opacity="0.5" />
+                  <text x="60" y="235" fill="#4C3B34" fontSize="10" opacity="0.6">Tuchola</text>
+
                   <circle cx="300" cy="100" r="5" fill="#4C3B34" opacity="0.5" />
                   <text x="310" y="105" fill="#4C3B34" fontSize="10" opacity="0.6">Elbląg</text>
 
                   <circle cx="270" cy="130" r="4" fill="#4C3B34" opacity="0.5" />
                   <text x="280" y="135" fill="#4C3B34" fontSize="10" opacity="0.6">Malbork</text>
+
+                  {/* Kwidzyn - po prawej */}
+                  <circle cx="280" cy="180" r="5" fill="#4C3B34" opacity="0.5" />
+                  <text x="290" y="185" fill="#4C3B34" fontSize="10" opacity="0.6">Kwidzyn</text>
+
+                  {/* Iława - po prawej */}
+                  <circle cx="300" cy="220" r="5" fill="#4C3B34" opacity="0.5" />
+                  <text x="310" y="225" fill="#4C3B34" fontSize="10" opacity="0.6">Iława</text>
+
+                  {/* Brodnica - po prawej dole */}
+                  <circle cx="270" cy="280" r="5" fill="#4C3B34" opacity="0.5" />
+                  <text x="280" y="285" fill="#4C3B34" fontSize="10" opacity="0.6">Brodnica</text>
 
                   <circle cx="340" cy="180" r="5" fill="#4C3B34" opacity="0.5" />
                   <text x="320" y="200" fill="#4C3B34" fontSize="10" opacity="0.6">Olsztyn</text>
@@ -185,7 +210,7 @@ export default function ServiceArea() {
 
             {/* Google Maps Link */}
             <motion.a
-              href="https://www.google.com/maps/place/Bieli%C5%84scy+Drewno+(daw.+Tartak+Mirotki)/@53.7647207,18.5799619,17z/data=!3m1!4b1!4m6!3m5!1s0x470295c353c56b19:0x303da21a2fd86f14!8m2!3d53.7647207!4d18.5825368!16s%2Fg%2F12hk8l_jj?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+              href="https://www.google.com/maps/place/Bieli%C5%84scy+Drewno+(daw.+Tartak+Mirotki)/@53.7647207,18.5799619,17z/data=!3m1!4b1!4m6!3m5!1s0x470295c353c56b19:0x303da21a2fd86f14!8m2!3d53.7647207!4d18.5825368!16s%2Fg%2F12hk8l_jj?entry=ttu"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 10 }}

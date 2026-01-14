@@ -9,7 +9,6 @@ export default function TopBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Pokaż tylko gdy scrollY < 50 (czyli prawie na samej górze)
       setIsVisible(window.scrollY < 50);
     };
 
@@ -25,7 +24,7 @@ export default function TopBar() {
           animate={{ y: 0 }}
           exit={{ y: -100 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-0 left-0 right-0 z-[60] bg-brand-green text-white py-2 text-sm shadow-md"
+          className="hidden lg:block fixed top-0 left-0 right-0 z-[60] bg-brand-green text-white py-2 text-sm shadow-md"
         >
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
@@ -50,7 +49,7 @@ export default function TopBar() {
                     height={14}
                     className="brightness-0 invert"
                   />
-                  <span className="font-medium hidden sm:inline">WhatsApp</span>
+                  <span className="font-medium">WhatsApp</span>
                 </a>
 
                 <a
@@ -58,12 +57,12 @@ export default function TopBar() {
                   className="flex items-center gap-2 hover:text-cream transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  <span className="font-medium hidden md:inline">biuro@bielinscydrewno.pl</span>
+                  <span className="font-medium">biuro@bielinscydrewno.pl</span>
                 </a>
               </div>
 
               {/* Right side - Location */}
-              <div className="flex items-center gap-2 text-white/90 hidden lg:flex">
+              <div className="flex items-center gap-2 text-white/90">
                 <MapPin className="w-3.5 h-3.5" />
                 <span className="font-medium">Mirotki - na trasie A1 Gdańsk - Grudziądz</span>
               </div>
@@ -73,4 +72,4 @@ export default function TopBar() {
       )}
     </AnimatePresence>
   );
-}
+}   

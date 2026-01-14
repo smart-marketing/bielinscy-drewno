@@ -2,13 +2,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, ChevronDown, Check } from "lucide-react";
-import Image from 'next/image';
 
-const backgroundImages = [
-  '/drewno-impregnowane.jpg',
-  '/kantowka.jpg',
-  '/tarcica.jpg',
-  '/wiezba.jpg'
+// UWAGA: Dodaj wideo do /public/hero-video.mp4
+// Możesz też dodać więcej zdjęć do array
+const backgroundMedia = [
+  { type: 'video', src: '/hero-video.mp4' }, // <-- WIDEO od klienta tutaj
+  { type: 'image', src: '/drewno-impregnowane.jpg' },
+  { type: 'image', src: '/kantowka.jpg' },
+  { type: 'image', src: '/tarcica.jpg' },
+  { type: 'image', src: '/wiezba.jpg' }
 ];
 
 const socialProof = [
@@ -27,37 +29,73 @@ const trustBadges = [
 ];
 
 export default function Hero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % backgroundImages.length
+      setCurrentIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundMedia.length
       );
-    }, 4000);
+    }, 6000); // 6 sekund na każdy slajd (wideo trwa swój czas i zapętla się)
 
     return () => clearInterval(interval);
   }, []);
 
+  const currentMedia = backgroundMedia[currentIndex];
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden mt-[2px]">
-      {/* Background Image Slider */}
+      {/* Background Media Slider (WIDEO + ZDJĘCIA) */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentImageIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${backgroundImages[currentImageIndex]})`
-            }}
-          />
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            {currentMedia.type === 'video' ? (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                style={{ objectFit: 'cover' }}
+              >
+                <source src={currentMedia.src} type="video/mp4" />
+              </video>
+            ) : (
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${currentMedia.src})`
+                }}
+              />
+            )}
+          </motion.div>
         </AnimatePresence>
+        
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
+      </div>
+
+      {/* Progress indicators (kropki nawigacyjne) */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+        {backgroundMedia.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`h-1 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'w-8 bg-white' 
+                : 'w-4 bg-white/40 hover:bg-white/60'
+            }`}
+            aria-label={`Przejdź do slajdu ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Content */}
@@ -65,139 +103,97 @@ export default function Hero() {
         <div className="max-w-6xl mx-auto text-center flex flex-col justify-center min-h-[calc(100vh-10px)]">
           
           {/* Badge */}
-          <div className="flex justify-center mb-3">
+          <div className="flex justify-center mb-2 sm:mb-3">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium"
+              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
             >
-              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
               Od 2013 roku
             </motion.div>
           </div>
 
-         {/* Headline */}
-<motion.h1
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.1 }}
-  className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-4 text-white"
->
-  Drewno budowlane z dostawą w 3 dni
-  <br />
-  <motion.span 
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.3 }}
-    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cream inline-block mt-2 relative"
-  >
-    <span className="relative z-10">Jakość sprawdzona przed wysyłką</span>
-    <motion.span
-      initial={{ width: 0 }}
-      animate={{ width: '100%' }}
-      transition={{ duration: 0.8, delay: 0.5 }}
-      className="absolute bottom-0 left-0 h-[3px] bg-green-600 rounded-full"
-    />
-  </motion.span>
-</motion.h1>
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 leading-[1.1] px-4"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Drewno budowlane na czas.
+            <br />
+            <span className="bg-gradient-to-r from-[#98d4bb] to-[#2B6650] bg-clip-text text-transparent">
+              Jakość, która nie zawiedzie.
+            </span>
+          </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base md:text-lg lg:text-xl text-white/90 mb-3 max-w-5xl mx-auto leading-relaxed"
-          >
-            Tarcica sosnowa i świerkowa, więźby dachowe, kantówka, deski impregnowane. 
-            Proste deski, prawdziwa impregnacja ciśnieniowa, wymiary zgodne z zamówieniem (dawniej Tartak Mirotki)
-          </motion.p>
-
-          {/* Mini Social Proof */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-5 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-4"
           >
-            {socialProof.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="flex items-center gap-2 text-white/90 text-sm md:text-base"
-              >
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                <span>{item}</span>
-              </motion.div>
-            ))}
+            Proste deski, prawdziwa impregnacja ciśnieniowa, wymiary zgodne z zamówieniem.
+          </motion.p>
+
+          {/* CTAs - drugi telefon ukryty na mobile */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-4"
+          >
+            <a
+              href="tel:+48537593186"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[#2B6650] text-white rounded-xl font-semibold hover:bg-[#2B6650]/90 transition-all shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base lg:text-lg"
+            >
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>537 593 186</span>
+            </a>
+            {/* Drugi telefon - ukryty na mobile, widoczny od SM */}
+            <a
+              href="tel:+48695467337"
+              className="hidden sm:inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[#4C3B34] text-white rounded-xl font-semibold hover:bg-[#4C3B34]/90 transition-all shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base lg:text-lg"
+            >
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>695 467 337</span>
+            </a>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Social Proof */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-3"
+            className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-6 mb-5 sm:mb-6 px-4"
           >
-            <a
-              href="tel:+48537593186"
-              className="btn-primary w-full sm:w-auto flex items-center justify-center gap-3 text-base md:text-lg px-6 md:px-8 py-3 md:py-4 group"
-            >
-              <Phone className="w-5 h-5 group-hover:animate-pulse" />
-              <span>Zadzwoń - wycena od ręki: 537 593 186</span>
-            </a>
-            <a
-              href="https://wa.me/48537593186"
-              className="btn-whatsapp w-full sm:w-auto flex items-center justify-center gap-3 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
-            >
-              <Image 
-                src="/whatsapp-svgrepo-com.svg" 
-                alt="WhatsApp" 
-                width={20} 
-                height={20}
-                className="brightness-0 invert"
-              />
-              <span>Szybka wycena na WhatsApp</span>
-            </a>
-          </motion.div>
-
-          {/* Tertiary CTA */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <a
-              href="#sortament"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white font-medium transition-colors group mb-5"
-            >
-              <span>Zobacz asortyment</span>
-              <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-            </a>
+            {socialProof.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-sm rounded-lg py-2 px-2 sm:px-3 text-white text-[11px] sm:text-xs md:text-sm font-medium"
+              >
+                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-[#98d4bb] flex-shrink-0" />
+                <span className="leading-tight">{item}</span>
+              </div>
+            ))}
           </motion.div>
 
           {/* Trust Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-2 md:gap-3"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 text-[10px] sm:text-xs md:text-sm text-white/80 px-4"
           >
             {trustBadges.map((badge, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 md:px-4 py-1.5 rounded-xl border border-white/20 shadow-sm"
-              >
-                <Check className="w-3 h-3 md:w-4 md:h-4 text-green-400 flex-shrink-0" />
-                <span className="text-xs md:text-sm text-white whitespace-nowrap">
-                  {badge}
-                </span>
-              </motion.div>
+              <span key={index} className="flex items-center gap-1">
+                <span className="w-1 h-1 bg-[#98d4bb] rounded-full" />
+                {badge}
+              </span>
             ))}
           </motion.div>
         </div>
@@ -207,8 +203,8 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-20"
       >
         <span className="text-xs text-white/60 uppercase tracking-wider">
           Przewiń

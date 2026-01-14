@@ -160,12 +160,12 @@ export default function ContactMethods() {
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-white rounded-xl p-4 border border-brand-green/10">
                 <div className="font-semibold text-brand-brown mb-2">Poniedziałek - Piątek</div>
-                <div className="text-2xl font-bold text-brand-green">7:00 - 17:00</div>
+                <div className="text-2xl font-bold text-brand-green">8:00 - 16:00</div>
               </div>
 
               <div className="bg-white rounded-xl p-4 border border-brand-green/10">
                 <div className="font-semibold text-brand-brown mb-2">Sobota</div>
-                <div className="text-2xl font-bold text-brand-green">8:00 - 14:00</div>
+                <div className="text-2xl font-bold text-brand-green">8:00 - 13:00</div>
               </div>
             </div>
 

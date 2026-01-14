@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { MessageSquare, Calculator, Package, Truck, ArrowRight } from "lucide-react";
 
 const steps = [
@@ -35,7 +35,29 @@ const steps = [
 
 export default function HowWeWork() {
   const ref = useRef(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [currentCard, setCurrentCard] = useState(0);
+
+  const scrollToCard = (index: number) => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.offsetWidth;
+      carouselRef.current.scrollTo({
+        left: cardWidth * index,
+        behavior: 'smooth'
+      });
+      setCurrentCard(index);
+    }
+  };
+
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const scrollLeft = carouselRef.current.scrollLeft;
+      const cardWidth = carouselRef.current.offsetWidth;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setCurrentCard(newIndex);
+    }
+  };
 
   return (
     <section
@@ -75,8 +97,8 @@ export default function HowWeWork() {
           </h2>
         </motion.div>
 
-        {/* Timeline Steps */}
-        <div className="max-w-6xl mx-auto">
+        {/* DESKTOP: Grid with Timeline */}
+        <div className="hidden md:block max-w-6xl mx-auto mb-12">
           <div className="grid md:grid-cols-4 gap-6 relative">
             {/* Connection Line - Desktop Only */}
             <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-white/20" 
@@ -120,6 +142,69 @@ export default function HowWeWork() {
           </div>
         </div>
 
+        {/* MOBILE: Carousel */}
+        <div className="md:hidden mb-12 relative">
+          {/* Carousel Container */}
+          <div 
+            ref={carouselRef}
+            onScroll={handleScroll}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-4 -mx-4"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 100 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="flex-shrink-0 w-[85%] snap-center"
+              >
+                <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 shadow-xl h-full">
+                  {/* Step number badge */}
+                  <div className="absolute -top-3 -right-3 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-xl font-black text-brand-green">{step.number}</span>
+                  </div>
+
+                  {/* Icon */}
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                    <step.icon className="w-8 h-8 text-brand-green" />
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="font-display text-xl font-bold text-white mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  {/* Bottom accent */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/20 rounded-b-3xl" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {steps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToCard(index)}
+                className={`transition-all duration-300 ${
+                  currentCard === index 
+                    ? 'w-8 h-2 bg-white rounded-full' 
+                    : 'w-2 h-2 bg-white/40 rounded-full hover:bg-white/60'
+                }`}
+                aria-label={`Go to step ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -136,6 +221,13 @@ export default function HowWeWork() {
           </a>
         </motion.div>
       </div>
+
+      {/* Custom scrollbar hide */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }

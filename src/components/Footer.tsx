@@ -44,6 +44,16 @@ export default function Footer() {
                   </div>
                   <span className="font-medium">537 593 186</span>
                 </a>
+                
+                <a
+                  href="tel:+48695-467-337"
+                  className="flex items-center gap-3 hover:text-white transition-colors group"
+                >
+                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
+                    <Phone className="w-4 h-4 text-brand-green group-hover:text-white" />
+                  </div>
+                  <span className="font-medium">695 467 337</span>
+                </a>
               </li>
               <li>
                 <a
@@ -113,13 +123,13 @@ export default function Footer() {
                 <Clock className="w-4 h-4 text-brand-green" />
               </div>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between gap-6">
+              <div className="flex justify-between gap-6">
                   <span className="text-white font-medium">Pon - Pt</span>
-                  <span className="text-white/60">7:00 - 17:00</span>
+                  <span className="text-white/60">8:00 - 16:00</span>
                 </div>
                 <div className="flex justify-between gap-6">
                   <span className="text-white font-medium">Sobota</span>
-                  <span className="text-white/60">8:00 - 14:00</span>
+                  <span className="text-white/60">8:00 - 13:00</span>
                 </div>
                 <div className="flex justify-between gap-6">
                   <span className="text-white font-medium">Niedziela</span>

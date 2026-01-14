@@ -88,8 +88,11 @@ export default function ContactCTA() {
               </div>
               <h3 className="text-xl font-bold text-brand-brown text-center mb-2">Zadzwoń</h3>
               <p className="text-2xl font-bold text-brand-green text-center mb-2">537 593 186</p>
-              <p className="text-sm text-brand-brown/60 text-center">Pon-Pt 7-17, Sob 8-14</p>
+
+              <p className="text-2xl font-bold text-brand-green text-center mb-2">695 467 337</p>
+              <p className="text-sm text-brand-brown/60 text-center">Pon-Pt 8-16, Sob 8-13</p>
             </motion.a>
+            
 
             {/* WhatsApp */}
             <motion.a
