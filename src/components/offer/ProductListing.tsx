@@ -1,7 +1,8 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Info } from "lucide-react";
+import { Check, Info, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function ProductListing() {
@@ -10,107 +11,115 @@ export default function ProductListing() {
 
   const products = [
     {
+      category: "Deska szorstka",
+      title: "Deska szorstka",
+      description: "Materiał konstrukcyjno-techniczny. Niska cena, wysoka wszechstronność.",
       image: "/tarcica.jpg",
-      category: "Konstrukcje",
-      title: "Tarcica konstrukcyjna",
-      description: "Podstawa każdej budowy - więźby, deskowanie, łaty, konstrukcje",
       features: [
-        "Sosna, świerk - klasa C24",
-        "Mokra, suszona, strugana",
-        "Pełen zakres wymiarów",
-        "Cięcie na wymiar"
+        "Budownictwo - szalunki, deskowanie",
+        "Konstrukcje zewnętrzne - wiaty, altany",
+        "Transport - palety, skrzynie"
       ],
-      applications: "Więźby dachowe, deskowanie, łaty, konstrukcje drewniane",
-      popular: true
+      applications: "Szalunki, deskowanie, wiaty, palety, zagrody",
+      href: "/produkty/deska-szorstka"
     },
     {
-      image: "/wiezba.jpg",
-      category: "Konstrukcje",
-      title: "Więźby dachowe",
-      description: "Kompletne konstrukcje dachowe - od projektu po montaż",
-      features: [
-        "Projekt konstrukcji",
-        "Wycena + materiał",
-        "Przekroje pod obciążenia",
-        "Możliwość montażu"
-      ],
-      applications: "Domy jednorodzinne, garaże, wiaty, hale",
-      popular: true
-    },
-    {
-      image: "/drewno-impregnowane.jpg",
-      category: "Zewnętrzne",
-      title: "Deski impregnowane",
-      description: "Prawdziwa impregnacja ciśnieniowa - nie barwnik kosmetyczny",
-      features: [
-        "Klasa użytkowa 3 i 4",
-        "Impregnacja ciśnieniowa",
-        "Trwałość 15-25 lat",
-        "Różne grubości i szerokości"
-      ],
-      applications: "Tarasy, ogrodzenia, elewacje, konstrukcje ogrodowe",
-      popular: true
-    },
-    {
+      category: "Kantówka mokra szorstka",
+      title: "Kantówka mokra szorstka",
+      description: "Materiał konstrukcyjno-techniczny. Niesuszona, nieheblowana - najlepsza cena.",
       image: "/kantowka.jpg",
-      category: "Uniwersalne",
-      title: "Kantówka",
-      description: "Od małych projektów po duże konstrukcje",
       features: [
-        "Wymiary od 38x38 do 200x200",
-        "Mokra, suszona, impregnowana",
-        "Strugana na zamówienie",
-        "Cięcie na wymiar"
+        "Więźby dachowe - krokwie, murłaty",
+        "Szalunki i konstrukcje tymczasowe",
+        "Konstrukcje gospodarcze i ogrodowe"
       ],
-      applications: "Ogrodzenia, altany, pergole, konstrukcje ogrodowe"
+      applications: "Więźby dachowe, wiaty, altany, zagrody, konstrukcje pomocnicze",
+      href: "/produkty/kantowka-mokra-szorstka",
+      note: "⚠️ Drewno kurczy się podczas schnięcia - idealna na konstrukcje surowe"
     },
     {
-      category: "Wykończenie",
-      title: "Deski tarasowe",
-      description: "Naturalne piękno drewna pod stopami",
+      category: "Łata i kontrłata",
+      title: "Łata i kontrłata",
+      description: "Podstawowe elementy konstrukcji dachowych i elewacyjnych.",
+      image: "/tarcica.jpg",
       features: [
-        "Sosna, modrzew, egzotyczne",
-        "Gładkie lub ryflowane",
-        "Impregnowane lub naturalne",
-        "Systemy montażowe"
+        "Mokra szorstka - budowlany standard",
+        "Suszona strugana - standard premium",
+        "Łaty dachowe pod dachówkę"
       ],
-      applications: "Tarasy przydomowe, pomosty, ścieżki ogrodowe"
+      applications: "Konstrukcje dachowe, elewacje wentylowane, ruszty",
+      href: "/produkty/lata-kontrlata"
     },
     {
-      category: "Wykończenie",
-      title: "Lambriowanie",
-      description: "Wykończenie ścian i sufitów",
+      category: "Więźba dachowa",
+      title: "Więźba dachowa",
+      description: "Konstrukcja nośna dachu - wybierz standard odpowiedni do projektu.",
+      image: "/wiezba.jpg",
       features: [
-        "Sosna, świerk skandynawski",
-        "Klasy A, B",
-        "Różne profile",
-        "Możliwość bejcowania"
+        "Mokra szorstka - budowa tradycyjna",
+        "Suszona strugana C24 - standard premium",
+        "Krokwie, płatwie, jętki, murłaty"
       ],
-      applications: "Ściany, sufity, elewacje wewnętrzne"
+      applications: "Dachy domów, budynki gospodarcze, konstrukcje prefabrykowane",
+      href: "/produkty/wiezba-dachowa",
+      popular: true,
+      note: "💡 Poddasze użytkowe? Wybierz suszoną struganą C24"
     },
     {
-      category: "Wykończenie", 
-      title: "Deski podłogowe",
-      description: "Klasyka, która nigdy się nie nudzi",
+      category: "Deska strugana bez pióro-wpustu",
+      title: "Deska strugana bez pióro-wpustu",
+      description: "Uniwersalny materiał czterostronnie strugany. Gładka powierzchnia, łatwa obróbka.",
+      image: "/tarcica.jpg",
       features: [
-        "Sosna, dąb, jesion",
-        "Grubości 20-40mm",
-        "Układanie na zamówienie",
-        "Możliwość cyklinowania"
+        "Meble i zabudowy - półki, blaty",
+        "Dekoracje - okładziny, listwy",
+        "Zastosowania ogrodowe - płoty, skrzynie"
       ],
-      applications: "Podłogi mieszkalne, restauracje, obiekty użyteczności"
+      applications: "Meble, okładziny, płoty, mała architektura ogrodowa",
+      href: "/produkty/deska-strugana-bez-pioro-wpustu"
     },
     {
-      category: "Dodatki",
-      title: "Listwy, profile, akcesoria",
-      description: "Wykończenie każdego projektu",
+      category: "Deska strugana na pióro-wpust",
+      title: "Deska strugana na pióro-wpust",
+      description: "Szczelne, równe łączenie. System pióro-wpust zapewnia stabilność i estetykę.",
+      image: "/tarcica.jpg",
       features: [
-        "Listwy przypodłogowe",
-        "Profile ozdobne",
-        "Śruby, wkręty, łączniki",
-        "Środki do impregnacji"
+        "Boazerie ścienne - wykończenie wnętrz",
+        "Podbitki i zabudowy dachowe",
+        "Elewacje drewniane (po impregnacji)"
       ],
-      applications: "Wykończenie, montaż, konserwacja"
+      applications: "Boazerie, elewacje, podbitki, sufity drewniane",
+      href: "/produkty/deska-strugana-pioro-wpust"
+    },
+    {
+      category: "Deska tarasowa",
+      title: "Deska tarasowa",
+      description: "Wytrzymały materiał zewnętrzny. Antypoślizgowa powierzchnia, długa żywotność.",
+      image: "/drewno-impregnowane.jpg",
+      features: [
+        "Tarasy i balkony - powierzchnia antypoślizgowa",
+        "Ścieżki ogrodowe, pomosty",
+        "Schody i podesty zewnętrzne"
+      ],
+      applications: "Tarasy, balkony, ścieżki, pomosty, schody zewnętrzne",
+      href: "/produkty/deska-tarasowa",
+      popular: true,
+      note: "✨ Dostępna impregnacja ciśnieniowa na kolor brązowy"
+    },
+    {
+      category: "Kantówka suszona C24/KVH/BSH",
+      title: "Kantówka suszona C24/KVH/BSH",
+      description: "Wysokiej klasy drewno konstrukcyjne. Suche, stabilne, gotowe do montażu.",
+      image: "/kantowka.jpg",
+      features: [
+        "Domy szkieletowe - klasa C24",
+        "Więźby dachowe premium - stabilność",
+        "Konstrukcje widoczne - estetyka"
+      ],
+      applications: "Domy szkieletowe, więźby premium, konstrukcje widoczne, meble",
+      href: "/produkty/kantowka-suszona-c24",
+      popular: true,
+      note: "⭐ Wilgotność 12-18% - stabilność wymiarowa, minimalna praca drewna"
     }
   ];
 
@@ -133,11 +142,11 @@ export default function ProductListing() {
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-6">
-            Co możemy dla Ciebie
-            <br className="sm:hidden" /> <span className="text-brand-green">przygotować?</span>
+            Pełen asortyment drewna
+            <br className="sm:hidden" /> <span className="text-brand-green">budowlanego</span>
           </h2>
           <p className="text-lg md:text-xl text-brand-brown/70 max-w-2xl mx-auto px-4">
-            Kompleksowy asortyment drewna budowlanego - od konstrukcji po wykończenie
+            Od podstawowych materiałów konstrukcyjnych po wykończenia premium
           </p>
         </motion.div>
 
@@ -148,76 +157,65 @@ export default function ProductListing() {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
-              className="group h-full"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative bg-gradient-to-br from-white to-cream rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-green/10 flex flex-col h-full max-h-[85vh] overflow-hidden"
             >
-              <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-brand-green/20 flex flex-col">
-                {/* Image - only if exists */}
-                {product.image && (
-                  <div className="aspect-[16/10] relative overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Popular Badge */}
-                    {product.popular && (
-                      <div className="absolute top-4 right-4 bg-brand-green text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                        POPULARNE
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Content */}
-                <div className="p-6 md:p-8 flex-grow flex flex-col">
-                  {/* Category */}
-                  <div className="text-xs font-bold text-brand-green uppercase tracking-wider mb-2">
-                    {product.category}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-brand-brown mb-3 group-hover:text-brand-green transition-colors">
-                    {product.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-brand-brown/70 mb-4 leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  {/* Features List */}
-                  <div className="mb-4 flex-grow">
-                    <div className="text-sm font-semibold text-brand-brown mb-2 flex items-center gap-2">
-                      <Info className="w-4 h-4 text-brand-green" />
-                      <span>Co oferujemy:</span>
+              {/* Image */}
+              {product.image && (
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  
+                  {/* Popular Badge */}
+                  {product.popular && (
+                    <div className="absolute top-4 right-4 bg-brand-green text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg z-10">
+                      Popularne
                     </div>
-                    <ul className="space-y-2">
-                      {product.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-brand-brown/80">
-                          <Check className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Applications */}
-                  <div className="pt-4 border-t border-brand-green/10">
-                    <div className="text-xs font-semibold text-brand-brown/60 mb-1">
-                      Zastosowanie:
-                    </div>
-                    <div className="text-sm text-brand-brown/70">
-                      {product.applications}
-                    </div>
-                  </div>
+                  )}
                 </div>
+              )}
 
-                {/* Hover Line */}
-                <div className="h-1.5 bg-gradient-to-r from-brand-green to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-grow">
+
+              {/* Category Tag */}
+              <div className="inline-block mb-4 px-4 py-1.5 bg-brand-green/10 text-brand-green text-sm font-semibold rounded-full">
+                {product.category}
+              </div>
+
+              {/* Title */}
+              <h3 className="font-display text-xl md:text-2xl font-bold text-brand-brown mb-2 group-hover:text-brand-green transition-colors">
+                {product.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-brand-brown/70 mb-4 leading-snug text-sm">
+                {product.description}
+              </p>
+
+              {/* Features */}
+              <div className="space-y-2 mb-6 flex-grow">
+                {product.features.slice(0, 3).map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
+                    <span className="text-brand-brown/80 text-sm leading-tight">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button with Link */}
+              <Link
+                href={product.href}
+                className="block w-full py-3 px-6 bg-brand-green text-white text-center font-bold rounded-xl hover:bg-brand-green/90 hover:shadow-lg transition-all duration-300 group-hover:scale-105 flex items-center justify-center gap-2 mt-auto"
+              >
+                Zobacz szczegóły
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
               </div>
             </motion.div>
           ))}
@@ -228,17 +226,17 @@ export default function ProductListing() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-16 md:mt-20 text-center"
+          className="mt-16 text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-brand-green/10 via-transparent to-brand-green/10 px-8 py-6 rounded-2xl">
-            <p className="text-lg md:text-xl font-semibold text-brand-brown">
-              Nie znalazłeś czego szukasz?
-            </p>
-            <a 
-              href="tel:+48537593186"
-              className="inline-flex items-center gap-2 bg-brand-green text-white px-6 py-3 rounded-xl font-semibold hover:bg-brand-green/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <span>Zadzwoń - pomożemy: 537 593 186</span>
+          <p className="text-lg text-brand-brown/70 mb-6">
+            Nie znalazłeś interesującego Cię wymiaru? Zadzwoń - doradzimy najlepsze rozwiązanie.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:+48537593186" className="btn-primary">
+              Zadzwoń: 537 593 186
+            </a>
+            <a href="https://wa.me/48537593186" className="btn-secondary">
+              Napisz na WhatsApp
             </a>
           </div>
         </motion.div>

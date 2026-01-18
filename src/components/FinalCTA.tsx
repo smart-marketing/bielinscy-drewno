@@ -248,6 +248,7 @@ export default function FinalCTA() {
               whileTap={{ scale: 0.98 }}
               className="group relative block"
             >
+              
               {/* Glow effect */}
               <motion.div
                 animate={{ opacity: [0.5, 0.8, 0.5], scale: [1, 1.05, 1] }}
@@ -283,6 +284,52 @@ export default function FinalCTA() {
                 <ArrowRight className="w-6 h-6 text-brand-green/40 group-hover:text-brand-green group-hover:translate-x-2 transition-all" />
               </div>
             </motion.a>
+
+            
+            {/* Phone Card */}
+            <motion.a
+              href="tel:+48537593186"
+              whileHover={{ scale: 1.02, y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative block"
+            >
+              
+              {/* Glow effect */}
+              <motion.div
+                animate={{ opacity: [0.5, 0.8, 0.5], scale: [1, 1.05, 1] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -inset-2 bg-white/30 rounded-3xl blur-xl"
+              />
+              
+              <div className="relative flex items-center justify-between px-8 py-6 bg-white rounded-3xl shadow-2xl overflow-hidden">
+                {/* Shine effect */}
+                <motion.div
+                  animate={{ x: ['-100%', '200%'] }}
+                  transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-green/10 to-transparent skew-x-12"
+                />
+                
+                <div className="flex items-center gap-5">
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-2xl bg-brand-green flex items-center justify-center shadow-lg">
+                      <Phone className="w-8 h-8 text-white" />
+                    </div>
+                    <motion.div
+                      animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0 rounded-2xl bg-brand-green"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-sm text-brand-green/60 font-medium">Zadzwoń - wycena od ręki</div>
+                    <div className="text-2xl font-black text-brand-green">695 467 337</div>
+                  </div>
+                </div>
+                
+                <ArrowRight className="w-6 h-6 text-brand-green/40 group-hover:text-brand-green group-hover:translate-x-2 transition-all" />
+              </div>
+            </motion.a>
+
 
             {/* WhatsApp Card */}
             <motion.a

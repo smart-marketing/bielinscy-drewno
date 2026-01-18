@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import Products from "src/components/Products";
-import HowWeWork from "src/components/HowWeWork";
-import FinalCTA from "src/components/FinalCTA";
+import Products from "@/components/Products";
+import HowWeWork from "@/components/HowWeWork";
+import FinalCTA from "@/components/FinalCTA";
+
+
 
 export const metadata: Metadata = {
   title: "Oferta - Drewno Budowlane | Bielińscy Drewno",
