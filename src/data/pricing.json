@@ -1,0 +1,457 @@
+{
+  "version": "1.0",
+  "lastUpdate": "2025-01-18T15:00:00Z",
+  "updatedBy": "admin",
+  "settings": {
+    "currency": "PLN",
+    "vat": 0.23,
+    "defaultMarkup": 1.15
+  },
+  "products": [
+    {
+      "id": "deska-szorstka",
+      "name": "Deska szorstka",
+      "slug": "deska-szorstka",
+      "category": "konstrukcyjne",
+      "description": "Materiał konstrukcyjno-techniczny. Niska cena, wysoka wszechstronność.",
+      "image": "/tarcica.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "ds-25x150x3000",
+          "display": "25x150x3000mm",
+          "dimensions": { "width": 25, "height": 150, "length": 3000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 13.50,
+            "volumeM3": 0.01125
+          },
+          "stock": { "available": true, "quantity": 450 }
+        },
+        {
+          "id": "ds-25x150x4000",
+          "display": "25x150x4000mm",
+          "dimensions": { "width": 25, "height": 150, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 18.00,
+            "volumeM3": 0.015
+          },
+          "stock": { "available": true, "quantity": 500 }
+        },
+        {
+          "id": "ds-25x150x5000",
+          "display": "25x150x5000mm",
+          "dimensions": { "width": 25, "height": 150, "length": 5000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 22.50,
+            "volumeM3": 0.01875
+          },
+          "stock": { "available": true, "quantity": 320 }
+        },
+        {
+          "id": "ds-32x140x6000",
+          "display": "32x140x6000mm",
+          "dimensions": { "width": 32, "height": 140, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 27.00,
+            "volumeM3": 0.02688
+          },
+          "stock": { "available": true, "quantity": 280 }
+        }
+      ]
+    },
+    {
+      "id": "kantowka-mokra",
+      "name": "Kantówka mokra szorstka",
+      "slug": "kantowka-mokra-szorstka",
+      "category": "konstrukcyjne",
+      "description": "Niesuszona, nieheblowana - najlepsza cena.",
+      "image": "/kantowka.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "km-40x140x6000",
+          "display": "40x140x6000mm",
+          "dimensions": { "width": 40, "height": 140, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 33.60,
+            "volumeM3": 0.0336
+          },
+          "stock": { "available": true, "quantity": 220 }
+        },
+        {
+          "id": "km-50x140x6000",
+          "display": "50x140x6000mm",
+          "dimensions": { "width": 50, "height": 140, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 42.00,
+            "volumeM3": 0.042
+          },
+          "stock": { "available": true, "quantity": 180 }
+        },
+        {
+          "id": "km-50x100x6000",
+          "display": "50x100x6000mm",
+          "dimensions": { "width": 50, "height": 100, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 30.00,
+            "volumeM3": 0.03
+          },
+          "stock": { "available": true, "quantity": 150 }
+        },
+        {
+          "id": "km-80x80x6000",
+          "display": "80x80x6000mm",
+          "dimensions": { "width": 80, "height": 80, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 38.40,
+            "volumeM3": 0.0384
+          },
+          "stock": { "available": true, "quantity": 95 }
+        },
+        {
+          "id": "km-100x100x6000",
+          "display": "100x100x6000mm",
+          "dimensions": { "width": 100, "height": 100, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 60.00,
+            "volumeM3": 0.06
+          },
+          "stock": { "available": true, "quantity": 120 }
+        }
+      ]
+    },
+    {
+      "id": "lata-kontrlata",
+      "name": "Łata i kontrłata",
+      "slug": "lata-kontrlata",
+      "category": "konstrukcyjne",
+      "description": "Konstrukcje dachowe i elewacyjne.",
+      "image": "/tarcica.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "lk-25x50x4000-mokra",
+          "display": "25x50x4000mm (mokra)",
+          "dimensions": { "width": 25, "height": 50, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 5.00,
+            "volumeM3": 0.005
+          },
+          "stock": { "available": true, "quantity": 800 }
+        },
+        {
+          "id": "lk-25x50x4000-suszona",
+          "display": "25x50x4000mm (suszona)",
+          "dimensions": { "width": 25, "height": 50, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 7.50,
+            "volumeM3": 0.005
+          },
+          "stock": { "available": true, "quantity": 600 }
+        },
+        {
+          "id": "lk-40x60x4000-mokra",
+          "display": "40x60x4000mm (mokra)",
+          "dimensions": { "width": 40, "height": 60, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 9.60,
+            "volumeM3": 0.0096
+          },
+          "stock": { "available": true, "quantity": 550 }
+        },
+        {
+          "id": "lk-40x60x4000-suszona",
+          "display": "40x60x4000mm (suszona)",
+          "dimensions": { "width": 40, "height": 60, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 14.40,
+            "volumeM3": 0.0096
+          },
+          "stock": { "available": true, "quantity": 450 }
+        }
+      ]
+    },
+    {
+      "id": "deska-tarasowa",
+      "name": "Deska tarasowa",
+      "slug": "deska-tarasowa",
+      "category": "zewnetrzne",
+      "description": "Antypoślizgowa, z opcją impregnacji ciśnieniowej.",
+      "image": "/drewno-impregnowane.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "dt-27x145x4000",
+          "display": "27x145x4000mm",
+          "dimensions": { "width": 27, "height": 145, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 28.00,
+            "volumeM3": 0.01566
+          },
+          "stock": { "available": true, "quantity": 350 }
+        },
+        {
+          "id": "dt-28x145x4000",
+          "display": "28x145x4000mm",
+          "dimensions": { "width": 28, "height": 145, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 29.00,
+            "volumeM3": 0.01624
+          },
+          "stock": { "available": true, "quantity": 400 }
+        },
+        {
+          "id": "dt-28x120x4000",
+          "display": "28x120x4000mm",
+          "dimensions": { "width": 28, "height": 120, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 24.00,
+            "volumeM3": 0.01344
+          },
+          "stock": { "available": true, "quantity": 320 }
+        }
+      ]
+    },
+    {
+      "id": "wiezba-dachowa",
+      "name": "Więźba dachowa",
+      "slug": "wiezba-dachowa",
+      "category": "konstrukcyjne",
+      "description": "Konstrukcja nośna dachu - mokra lub suszona C24.",
+      "image": "/wiezba.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "wd-50x140x6000-mokra",
+          "display": "50x140x6000mm (mokra)",
+          "dimensions": { "width": 50, "height": 140, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 42.00,
+            "volumeM3": 0.042
+          },
+          "stock": { "available": true, "quantity": 200 }
+        },
+        {
+          "id": "wd-50x140x6000-c24",
+          "display": "50x140x6000mm (C24 suszona)",
+          "dimensions": { "width": 50, "height": 140, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 63.00,
+            "volumeM3": 0.042
+          },
+          "stock": { "available": true, "quantity": 150 }
+        },
+        {
+          "id": "wd-60x140x6000-mokra",
+          "display": "60x140x6000mm (mokra)",
+          "dimensions": { "width": 60, "height": 140, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 50.40,
+            "volumeM3": 0.0504
+          },
+          "stock": { "available": true, "quantity": 180 }
+        },
+        {
+          "id": "wd-60x140x6000-c24",
+          "display": "60x140x6000mm (C24 suszona)",
+          "dimensions": { "width": 60, "height": 140, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 75.60,
+            "volumeM3": 0.0504
+          },
+          "stock": { "available": true, "quantity": 130 }
+        }
+      ]
+    },
+    {
+      "id": "deska-strugana-bez-pioro-wpustu",
+      "name": "Deska strugana bez pióro-wpustu",
+      "slug": "deska-strugana-bez-pioro-wpustu",
+      "category": "wykończeniowe",
+      "description": "Czterostronnie strugana - meble, okładziny, DIY.",
+      "image": "/tarcica.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "ds-22x68x4000",
+          "display": "22x68x4000mm",
+          "dimensions": { "width": 22, "height": 68, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 6.00,
+            "volumeM3": 0.005984
+          },
+          "stock": { "available": true, "quantity": 600 }
+        },
+        {
+          "id": "ds-22x90x4000",
+          "display": "22x90x4000mm",
+          "dimensions": { "width": 22, "height": 90, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 7.92,
+            "volumeM3": 0.00792
+          },
+          "stock": { "available": true, "quantity": 550 }
+        },
+        {
+          "id": "ds-22x120x4000",
+          "display": "22x120x4000mm",
+          "dimensions": { "width": 22, "height": 120, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 10.56,
+            "volumeM3": 0.01056
+          },
+          "stock": { "available": true, "quantity": 500 }
+        },
+        {
+          "id": "ds-28x120x4000",
+          "display": "28x120x4000mm",
+          "dimensions": { "width": 28, "height": 120, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 13.44,
+            "volumeM3": 0.01344
+          },
+          "stock": { "available": true, "quantity": 450 }
+        }
+      ]
+    },
+    {
+      "id": "deska-strugana-pioro-wpust",
+      "name": "Deska strugana pióro-wpust",
+      "slug": "deska-strugana-pioro-wpust",
+      "category": "wykończeniowe",
+      "description": "Boazerie, elewacje, podbitki - szczelne połączenie.",
+      "image": "/tarcica.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "dpw-14x110",
+          "display": "14x110mm Boazeria",
+          "dimensions": { "width": 14, "height": 110, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 6.16,
+            "volumeM3": 0.00616
+          },
+          "stock": { "available": true, "quantity": 800 }
+        },
+        {
+          "id": "dpw-18x135x4000",
+          "display": "18x135x4000mm Podbitka",
+          "dimensions": { "width": 18, "height": 135, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 9.72,
+            "volumeM3": 0.00972
+          },
+          "stock": { "available": true, "quantity": 700 }
+        },
+        {
+          "id": "dpw-22x135x4000",
+          "display": "22x135x4000mm Elewacja",
+          "dimensions": { "width": 22, "height": 135, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 11.88,
+            "volumeM3": 0.01188
+          },
+          "stock": { "available": true, "quantity": 650 }
+        },
+        {
+          "id": "dpw-28x137",
+          "display": "28x137mm Stropopodłoga",
+          "dimensions": { "width": 28, "height": 137, "length": 4000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 15.34,
+            "volumeM3": 0.01534
+          },
+          "stock": { "available": true, "quantity": 400 }
+        }
+      ]
+    },
+    {
+      "id": "kantowka-suszona-c24",
+      "name": "Kantówka suszona C24",
+      "slug": "kantowka-suszona-c24",
+      "category": "premium",
+      "description": "Suche, stabilne, gotowe do montażu.",
+      "image": "/kantowka.jpg",
+      "active": true,
+      "sizes": [
+        {
+          "id": "kc24-45x120x6000",
+          "display": "45x120x6000mm",
+          "dimensions": { "width": 45, "height": 120, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 48.60,
+            "volumeM3": 0.0324
+          },
+          "stock": { "available": true, "quantity": 180 }
+        },
+        {
+          "id": "kc24-60x120x6000",
+          "display": "60x120x6000mm",
+          "dimensions": { "width": 60, "height": 120, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 64.80,
+            "volumeM3": 0.0432
+          },
+          "stock": { "available": true, "quantity": 150 }
+        },
+        {
+          "id": "kc24-100x100x6000",
+          "display": "100x100x6000mm",
+          "dimensions": { "width": 100, "height": 100, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 90.00,
+            "volumeM3": 0.06
+          },
+          "stock": { "available": true, "quantity": 85 }
+        },
+        {
+          "id": "kc24-120x120x6000",
+          "display": "120x120x6000mm",
+          "dimensions": { "width": 120, "height": 120, "length": 6000 },
+          "pricing": {
+            "unit": "szt",
+            "pricePerUnit": 129.60,
+            "volumeM3": 0.0864
+          },
+          "stock": { "available": true, "quantity": 65 }
+        }
+      ]
+    }
+  ],
+  "transport": {
+    "pricePerKm": 3.50,
+    "minCharge": 150,
+    "freeAbove": 5000
+  }
+}
