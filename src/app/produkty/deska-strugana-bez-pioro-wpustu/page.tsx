@@ -169,7 +169,12 @@ const productData = {
 export default function DeskaStugganaaBezPage() {
   return (
     <main>
-      <ProductHero product={productData} />
+      <ProductHero 
+  name={productData.name}
+  tagline={productData.tagline}
+  description={productData.description}
+  image="/deska-strugana-bez-wpustu.jpg"
+/>
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />
       <ProductApplications applications={productData.applications} />

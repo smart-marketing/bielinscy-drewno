@@ -148,7 +148,12 @@ const productData = {
 export default function DeskaSzorstkaPage() {
   return (
     <main>
-      <ProductHero product={productData} />
+      <ProductHero 
+  name={productData.name}
+  tagline={productData.tagline}
+  description={productData.description}
+  image="/deska-szorstka.jpg"
+/>
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />
       <ProductApplications applications={productData.applications} />

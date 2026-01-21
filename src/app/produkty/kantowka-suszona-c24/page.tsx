@@ -164,7 +164,12 @@ const productData = {
 export default function KantowkaSuszonaPage() {
   return (
     <main>
-      <ProductHero product={productData} />
+      <ProductHero 
+  name={productData.name}
+  tagline={productData.tagline}
+  description={productData.description}
+  image="/kantowka-c24.jpg"
+/>
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />
       <ProductApplications applications={productData.applications} />

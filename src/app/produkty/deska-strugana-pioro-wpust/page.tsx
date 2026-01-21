@@ -163,7 +163,12 @@ const productData = {
 export default function DeskaPioroWpustPage() {
   return (
     <main>
-      <ProductHero product={productData} />
+      <ProductHero 
+  name={productData.name}
+  tagline={productData.tagline}
+  description={productData.description}
+  image="/deska-strugana-wpust.jpg"
+/>
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />
       <ProductApplications applications={productData.applications} />

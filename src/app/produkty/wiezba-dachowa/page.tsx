@@ -143,7 +143,12 @@ const productData = {
 export default function WiezbaDachowaPage() {
   return (
     <main>
-      <ProductHero product={productData} />
+      <ProductHero 
+  name={productData.name}
+  tagline={productData.tagline}
+  description={productData.description}
+  image="/wiezba-dachowa.jpg"
+/>
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />
       <ProductApplications applications={productData.applications} />
