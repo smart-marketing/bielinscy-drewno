@@ -3,40 +3,42 @@ import { useState, useEffect } from "react";
 import {
   Calculator,
   Package,
-  Ruler,
   ShoppingCart,
   Phone,
   Trash2,
   Plus,
   Edit2,
-  TrendingUp,
   X,
 } from "lucide-react";
 import Image from "next/image";
 
+interface ProductSize {
+  dimension: string;
+  price: number;
+  stock: number;
+  available: boolean;
+}
+
 interface Product {
-  id: string;
+  id: number;
   name: string;
-  category: string;
-  sizes: any[];
+  sizes: ProductSize[];
 }
 
 interface CartItem {
   id: string;
-  productId: string;
+  productId: number;
   productName: string;
-  sizeId: string;
-  sizeDisplay: string;
+  dimension: string;
   pricePerUnit: number;
   quantity: number;
-  volumeM3: number;
 }
 
 export default function KalkulatorPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [selectedSize, setSelectedSize] = useState<any>(null);
+  const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [editingItemId, setEditingItemId] = useState<string | null>(null);
@@ -54,6 +56,7 @@ export default function KalkulatorPage() {
     try {
       const response = await fetch("/api/pricing");
       const data = await response.json();
+      console.log('📦 Loaded products:', data.products);
       setProducts(data.products || []);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -74,31 +77,37 @@ export default function KalkulatorPage() {
   };
 
   const handleProductChange = (productId: string) => {
-    const product = products.find((p) => p.id === productId);
+    console.log('🔍 Selecting product:', productId);
+    const product = products.find((p) => p.id === parseInt(productId));
+    console.log('✅ Found product:', product);
     setSelectedProduct(product || null);
     setSelectedSize(null);
     setQuantity(1);
   };
 
-  const handleSizeChange = (sizeId: string) => {
-    const size = selectedProduct?.sizes.find((s) => s.id === sizeId);
+  const handleSizeChange = (dimension: string) => {
+    console.log('🔍 Selecting size:', dimension);
+    const size = selectedProduct?.sizes.find((s) => s.dimension === dimension);
+    console.log('✅ Found size:', size);
     setSelectedSize(size || null);
   };
 
   const addToCart = () => {
-    if (!selectedProduct || !selectedSize || !quantity) return;
+    if (!selectedProduct || !selectedSize || !quantity) {
+      alert('Wybierz produkt, rozmiar i ilość');
+      return;
+    }
 
     const newItem: CartItem = {
       id: Date.now().toString(),
       productId: selectedProduct.id,
       productName: selectedProduct.name,
-      sizeId: selectedSize.id,
-      sizeDisplay: selectedSize.display,
-      pricePerUnit: selectedSize.pricing.pricePerUnit,
+      dimension: selectedSize.dimension,
+      pricePerUnit: selectedSize.price,
       quantity: quantity,
-      volumeM3: selectedSize.pricing.volumeM3,
     };
 
+    console.log('➕ Adding to cart:', newItem);
     setCart([...cart, newItem]);
     
     // Reset form
@@ -141,23 +150,27 @@ export default function KalkulatorPage() {
     return calculateSubtotal() + calculateVAT();
   };
 
-  const calculateTotalVolume = () => {
-    return cart.reduce((sum, item) => sum + item.volumeM3 * item.quantity, 0);
-  };
-
   const sendWhatsAppQuery = () => {
+    if (cart.length === 0) {
+      alert('Koszyk jest pusty!');
+      return;
+    }
+
     const itemsList = cart
       .map(
         (item, idx) =>
-          `${idx + 1}. ${item.productName} ${item.sizeDisplay}\n   ${item.quantity} szt × ${item.pricePerUnit.toFixed(2)} zł = ${calculateItemTotal(item).toFixed(2)} zł`
+          `${idx + 1}. ${item.productName}\n   ${item.dimension}\n   ${item.quantity} szt × ${item.pricePerUnit.toFixed(2)} zł = ${calculateItemTotal(item).toFixed(2)} zł`
       )
       .join("\n\n");
 
-    const message = `Dzień dobry! Chciałbym zapytać o:\n\n${itemsList}\n\nPodsumowanie:\nWartość produktów: ${calculateSubtotal().toFixed(2)} zł netto\nVAT 23%: ${calculateVAT().toFixed(2)} zł\nRAZEM: ${calculateTotal().toFixed(2)} zł brutto\n\nObjętość: ${calculateTotalVolume().toFixed(3)} m³\n\nProszę o kontakt.`;
+    const message = `Dzień dobry! Chciałbym zapytać o:\n\n${itemsList}\n\nPodsumowanie:\nWartość produktów: ${calculateSubtotal().toFixed(2)} zł netto\nVAT 23%: ${calculateVAT().toFixed(2)} zł\nRAZEM: ${calculateTotal().toFixed(2)} zł brutto\n\nProszę o kontakt.`;
     
     const url = `https://wa.me/48537593186?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
+
+  // Filter only available sizes
+  const availableSizes = selectedProduct?.sizes.filter(s => s.available) || [];
 
   if (loading) {
     return (
@@ -206,7 +219,7 @@ export default function KalkulatorPage() {
                 <select
                   value={selectedProduct?.id || ""}
                   onChange={(e) => handleProductChange(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent bg-white cursor-pointer"
                 >
                   <option value="">-- Wybierz produkt --</option>
                   {products.map((product) => (
@@ -218,20 +231,21 @@ export default function KalkulatorPage() {
               </div>
 
               {/* Size Select */}
-              {selectedProduct && (
+              {selectedProduct && availableSizes.length > 0 && (
                 <div className="mb-4">
                   <label className="block text-sm font-semibold text-brand-brown mb-2">
                     Rozmiar
                   </label>
                   <select
-                    value={selectedSize?.id || ""}
+                    value={selectedSize?.dimension || ""}
                     onChange={(e) => handleSizeChange(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent bg-white cursor-pointer"
                   >
                     <option value="">-- Wybierz rozmiar --</option>
-                    {selectedProduct.sizes.map((size) => (
-                      <option key={size.id} value={size.id}>
-                        {size.display} - {size.pricing.pricePerUnit.toFixed(2)} zł/szt
+                    {availableSizes.map((size, idx) => (
+                      <option key={idx} value={size.dimension}>
+                        {size.dimension} - {size.price.toFixed(2)} zł/szt
+                        {size.stock > 0 && ` (dostępne: ${size.stock})`}
                       </option>
                     ))}
                   </select>
@@ -251,9 +265,6 @@ export default function KalkulatorPage() {
                     onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent"
                   />
-                  <p className="text-sm text-gray-600 mt-1">
-                    ≈ {(selectedSize.pricing.volumeM3 * quantity).toFixed(3)} m³
-                  </p>
                 </div>
               )}
 
@@ -261,7 +272,7 @@ export default function KalkulatorPage() {
               {selectedSize && (
                 <button
                   onClick={addToCart}
-                  className="w-full bg-brand-green text-white py-3 px-6 rounded-xl font-bold hover:bg-brand-green/90 transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-brand-green text-white py-3 px-6 rounded-xl font-bold hover:bg-brand-green/90 transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
                 >
                   <Plus className="w-5 h-5" />
                   Dodaj do wyceny
@@ -305,7 +316,7 @@ export default function KalkulatorPage() {
                           <p className="font-semibold text-brand-brown">
                             {index + 1}. {item.productName}
                           </p>
-                          <p className="text-sm text-gray-600">{item.sizeDisplay}</p>
+                          <p className="text-sm text-gray-600">{item.dimension}</p>
                         </div>
                         <button
                           onClick={() => removeFromCart(item.id)}
@@ -392,9 +403,9 @@ export default function KalkulatorPage() {
                         <span className="font-semibold">{cart.length}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-white/80">Łączna objętość:</span>
+                        <span className="text-white/80">Łączna ilość:</span>
                         <span className="font-semibold">
-                          {calculateTotalVolume().toFixed(3)} m³
+                          {cart.reduce((sum, item) => sum + item.quantity, 0)} szt
                         </span>
                       </div>
                     </div>

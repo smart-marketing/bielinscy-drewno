@@ -5,63 +5,291 @@
       "name": "Deska szorstka",
       "sizes": [
         {
-          "dimension": "25x150x4000mm",
-          "price": 18.00,
+          "dimension": "25mm MIX szerokości x 3000mm",
+          "price": 15.00,
           "stock": 500,
           "available": true
         },
         {
-          "dimension": "25x150x6000mm",
-          "price": 27.00,
+          "dimension": "25mm MIX szerokości x 4000mm",
+          "price": 20.00,
+          "stock": 450,
+          "available": true
+        },
+        {
+          "dimension": "25mm MIX szerokości x 5000mm",
+          "price": 25.00,
           "stock": 300,
           "available": true
         },
         {
-          "dimension": "32x150x4000mm",
-          "price": 23.00,
-          "stock": 200,
+          "dimension": "25x150x4000mm",
+          "price": 18.00,
+          "stock": 600,
+          "available": true
+        },
+        {
+          "dimension": "32x140x6000mm",
+          "price": 34.00,
+          "stock": 250,
           "available": true
         }
       ]
     },
     {
       "id": 2,
-      "name": "Kantówka mokra",
+      "name": "Kantówka mokra szorstka",
       "sizes": [
         {
-          "dimension": "38x63x3000mm",
-          "price": 15.00,
+          "dimension": "38x63mm",
+          "price": 25.00,
+          "stock": 200,
+          "available": true
+        },
+        {
+          "dimension": "50x50mm",
+          "price": 28.00,
+          "stock": 180,
+          "available": true
+        },
+        {
+          "dimension": "50x100mm",
+          "price": 45.00,
           "stock": 150,
           "available": true
         },
         {
-          "dimension": "50x100x4000mm",
-          "price": 35.00,
-          "stock": 100,
+          "dimension": "70x70mm",
+          "price": 50.00,
+          "stock": 120,
           "available": true
         },
         {
-          "dimension": "100x100x6000mm",
-          "price": 90.00,
-          "stock": 50,
-          "available": false
+          "dimension": "100x100mm",
+          "price": 85.00,
+          "stock": 80,
+          "available": true
+        },
+        {
+          "dimension": "150x150mm",
+          "price": 150.00,
+          "stock": 40,
+          "available": true
         }
       ]
     },
     {
       "id": 3,
-      "name": "Deska tarasowa",
+      "name": "Łaty i kontrłaty",
       "sizes": [
         {
-          "dimension": "28x145x4000mm",
+          "dimension": "25x50mm (do 6m)",
+          "price": 8.00,
+          "stock": 800,
+          "available": true
+        },
+        {
+          "dimension": "32x50mm (do 6m)",
+          "price": 10.00,
+          "stock": 600,
+          "available": true
+        },
+        {
+          "dimension": "38x63mm (do 6m)",
+          "price": 12.00,
+          "stock": 500,
+          "available": true
+        },
+        {
+          "dimension": "50x50mm (do 6m)",
+          "price": 14.00,
+          "stock": 400,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Więźba dachowa",
+      "sizes": [
+        {
+          "dimension": "50x100mm C24",
+          "price": 1200.00,
+          "stock": 50,
+          "available": true
+        },
+        {
+          "dimension": "50x150mm C24",
+          "price": 1350.00,
+          "stock": 45,
+          "available": true
+        },
+        {
+          "dimension": "70x140mm C24",
+          "price": 1500.00,
+          "stock": 40,
+          "available": true
+        },
+        {
+          "dimension": "100x100mm mokra",
+          "price": 1100.00,
+          "stock": 35,
+          "available": true
+        },
+        {
+          "dimension": "Projekt + cięcie CNC",
+          "price": 0.00,
+          "stock": 999,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Deski strugane bez pióro-wpustu",
+      "sizes": [
+        {
+          "dimension": "19x95mm (wilg. 18-22%)",
+          "price": 5.50,
+          "stock": 400,
+          "available": true
+        },
+        {
+          "dimension": "19x120mm (wilg. 18-22%)",
+          "price": 6.00,
+          "stock": 350,
+          "available": true
+        },
+        {
+          "dimension": "22x95mm (wilg. 18-22%)",
+          "price": 6.20,
+          "stock": 300,
+          "available": true
+        },
+        {
+          "dimension": "22x120mm (wilg. 18-22%)",
+          "price": 7.00,
+          "stock": 280,
+          "available": true
+        },
+        {
+          "dimension": "25x150mm (wilg. 18-22%)",
+          "price": 8.50,
+          "stock": 250,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Deski strugane z pióro-wpustem",
+      "sizes": [
+        {
+          "dimension": "14x110mm Boazeria",
+          "price": 6.16,
+          "stock": 500,
+          "available": true
+        },
+        {
+          "dimension": "18x135mm Podbitka",
+          "price": 7.50,
+          "stock": 400,
+          "available": true
+        },
+        {
+          "dimension": "22x135mm Elewacja",
+          "price": 8.80,
+          "stock": 350,
+          "available": true
+        },
+        {
+          "dimension": "25x145mm Elewacja premium",
+          "price": 10.20,
+          "stock": 300,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Deski tarasowe",
+      "sizes": [
+        {
+          "dimension": "28x145x3000mm rowkowana",
           "price": 29.00,
           "stock": 400,
           "available": true
         },
         {
-          "dimension": "28x145x6000mm",
-          "price": 43.50,
+          "dimension": "28x145x4000mm rowkowana",
+          "price": 38.00,
+          "stock": 350,
+          "available": true
+        },
+        {
+          "dimension": "28x145x5000mm rowkowana",
+          "price": 47.00,
           "stock": 250,
+          "available": true
+        },
+        {
+          "dimension": "28x145x3000mm gładka",
+          "price": 27.00,
+          "stock": 300,
+          "available": true
+        },
+        {
+          "dimension": "28x145x4000mm gładka",
+          "price": 36.00,
+          "stock": 280,
+          "available": true
+        },
+        {
+          "dimension": "28x145x5000mm gładka",
+          "price": 45.00,
+          "stock": 200,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Kantówka suszona C24",
+      "sizes": [
+        {
+          "dimension": "45x70mm (wilg. 18-22%)",
+          "price": 48.00,
+          "stock": 150,
+          "available": true
+        },
+        {
+          "dimension": "45x95mm (wilg. 18-22%)",
+          "price": 55.00,
+          "stock": 130,
+          "available": true
+        },
+        {
+          "dimension": "45x120mm (wilg. 18-22%)",
+          "price": 65.00,
+          "stock": 110,
+          "available": true
+        },
+        {
+          "dimension": "45x145mm (wilg. 18-22%)",
+          "price": 75.00,
+          "stock": 100,
+          "available": true
+        },
+        {
+          "dimension": "70x145mm (wilg. 18-22%)",
+          "price": 110.00,
+          "stock": 80,
+          "available": true
+        },
+        {
+          "dimension": "95x95mm (wilg. 18-22%)",
+          "price": 95.00,
+          "stock": 70,
           "available": true
         }
       ]
