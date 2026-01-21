@@ -1,127 +1,132 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Info, ArrowRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, CheckCircle } from "lucide-react";
+
+const products = [
+  {
+    id: 1,
+    name: "Deska szorstka",
+    slug: "deska-szorstka",
+    description: "Tarcica nieobrobiona - idealna na deskowanie, szalunki, konstrukcje tymczasowe.",
+    image: "/deska-szorstka.jpg",
+    features: [
+      "Sosna/świerk klasa C24",
+      "Szeroki zakres wymiarów",
+      "Impregnacja ciśnieniowa",
+      "Dostępna od ręki"
+    ],
+    price: "od 18 zł/szt",
+    badge: "Bestseller"
+  },
+  {
+    id: 2,
+    name: "Kantówka mokra szorstka",
+    slug: "kantowka-mokra-szorstka",
+    description: "Surowa kantówka na konstrukcje - ogrodzenia, altany, pergole, tarasy.",
+    image: "/kantowka-mokra-szorstka.jpg",
+    features: [
+      "Przekroje od 38x63 do 150x150",
+      "Długości 3-6m",
+      "Impregnowana lub naturalna",
+      "Cięcie na wymiar"
+    ],
+    price: "od 25 zł/szt"
+  },
+  {
+    id: 3,
+    name: "Łaty i kontrłaty",
+    slug: "lata-kontrlata",
+    description: "Na więźby dachowe, wiatrownice, konstrukcje szkieletowe.",
+    image: "/lata.jpg",
+    features: [
+      "Wymiary standardowe",
+      "Długości do 6m",
+      "Drewno świerkowe",
+      "Realizacja 24h"
+    ],
+    price: "od 8 zł/mb"
+  },
+  {
+    id: 4,
+    name: "Więźba dachowa",
+    slug: "wiezba-dachowa",
+    description: "Konstrukcja nośna dachu - mokra lub suszona C24. Wymiary dopasowane pod projekt.",
+    image: "/wiezba-dachowa.jpg",
+    features: [
+      "Projekt + wycena gratis",
+      "Cięcie CNC",
+      "Dostawa na budowę",
+      "Klasa C24 dostępna"
+    ],
+    price: "od 1200 zł/m²",
+    badge: "Premium"
+  },
+  {
+    id: 5,
+    name: "Deski strugane bez pióro-wpustu",
+    slug: "deska-strugana-bez-pioro-wpustu",
+    description: "Czterostronnie strugane - meble, okładziny ścian, projekty DIY.",
+    image: "/deska-strugana-bez-wpustu.jpg",
+    features: [
+      "4 strony strugane",
+      "Kl. wilgotności 18-22%",
+      "Gładka powierzchnia",
+      "Szeroki wybór wymiarów"
+    ],
+    price: "od 6 zł/szt"
+  },
+  {
+    id: 6,
+    name: "Deski strugane z pióro-wpustem",
+    slug: "deska-strugana-pioro-wpust",
+    description: "Boazerie, elewacje, podbitki dachowe - szczelne połączenie na pióro.",
+    image: "/deska-strugana-wpust.jpg",
+    features: [
+      "System pióro-wpust",
+      "Boazeria 14x110mm",
+      "Podbitka 18x135mm",
+      "Elewacja 22x135mm"
+    ],
+    price: "od 6.16 zł/szt"
+  },
+  {
+    id: 7,
+    name: "Deski tarasowe",
+    slug: "deska-tarasowa",
+    description: "Prawdziwa impregnacja ciśnieniowa - trwałość na lata, nie farba.",
+    image: "/deska-tarasowa.jpg",
+    features: [
+      "Klasa użytkowa 3 i 4",
+      "Impregnacja Tanalith E",
+      "Gwarancja 10 lat",
+      "Rowkowana lub gładka"
+    ],
+    price: "od 29 zł/szt",
+    badge: "Gwarancja"
+  },
+  {
+    id: 8,
+    name: "Kantówka suszona C24",
+    slug: "kantowka-suszona-c24",
+    description: "Suszone, stabilne, gotowe do montażu - bez skręcania i pękania.",
+    image: "/kantowka-c24.jpg",
+    features: [
+      "Wilgotność 18-22%",
+      "Klasa wytrzymałości C24",
+      "Wymiary dokładne",
+      "Bez żywicy"
+    ],
+    price: "od 48 zł/szt",
+    badge: "Premium"
+  }
+];
 
 export default function ProductListing() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const products = [
-    {
-      category: "Deska szorstka",
-      title: "Deska szorstka",
-      description: "Materiał konstrukcyjno-techniczny. Niska cena, wysoka wszechstronność.",
-      image: "/tarcica.jpg",
-      features: [
-        "Budownictwo - szalunki, deskowanie",
-        "Konstrukcje zewnętrzne - wiaty, altany",
-        "Transport - palety, skrzynie"
-      ],
-      applications: "Szalunki, deskowanie, wiaty, palety, zagrody",
-      href: "/produkty/deska-szorstka"
-    },
-    {
-      category: "Kantówka mokra szorstka",
-      title: "Kantówka mokra szorstka",
-      description: "Materiał konstrukcyjno-techniczny. Niesuszona, nieheblowana - najlepsza cena.",
-      image: "/kantowka.jpg",
-      features: [
-        "Więźby dachowe - krokwie, murłaty",
-        "Szalunki i konstrukcje tymczasowe",
-        "Konstrukcje gospodarcze i ogrodowe"
-      ],
-      applications: "Więźby dachowe, wiaty, altany, zagrody, konstrukcje pomocnicze",
-      href: "/produkty/kantowka-mokra-szorstka",
-      note: "⚠️ Drewno kurczy się podczas schnięcia - idealna na konstrukcje surowe"
-    },
-    {
-      category: "Łata i kontrłata",
-      title: "Łata i kontrłata",
-      description: "Podstawowe elementy konstrukcji dachowych i elewacyjnych.",
-      image: "/tarcica.jpg",
-      features: [
-        "Mokra szorstka - budowlany standard",
-        "Suszona strugana - standard premium",
-        "Łaty dachowe pod dachówkę"
-      ],
-      applications: "Konstrukcje dachowe, elewacje wentylowane, ruszty",
-      href: "/produkty/lata-kontrlata"
-    },
-    {
-      category: "Więźba dachowa",
-      title: "Więźba dachowa",
-      description: "Konstrukcja nośna dachu - wybierz standard odpowiedni do projektu.",
-      image: "/wiezba.jpg",
-      features: [
-        "Mokra szorstka - budowa tradycyjna",
-        "Suszona strugana C24 - standard premium",
-        "Krokwie, płatwie, jętki, murłaty"
-      ],
-      applications: "Dachy domów, budynki gospodarcze, konstrukcje prefabrykowane",
-      href: "/produkty/wiezba-dachowa",
-      popular: true,
-      note: "💡 Poddasze użytkowe? Wybierz suszoną struganą C24"
-    },
-    {
-      category: "Deska strugana bez pióro-wpustu",
-      title: "Deska strugana bez pióro-wpustu",
-      description: "Uniwersalny materiał czterostronnie strugany. Gładka powierzchnia, łatwa obróbka.",
-      image: "/tarcica.jpg",
-      features: [
-        "Meble i zabudowy - półki, blaty",
-        "Dekoracje - okładziny, listwy",
-        "Zastosowania ogrodowe - płoty, skrzynie"
-      ],
-      applications: "Meble, okładziny, płoty, mała architektura ogrodowa",
-      href: "/produkty/deska-strugana-bez-pioro-wpustu"
-    },
-    {
-      category: "Deska strugana na pióro-wpust",
-      title: "Deska strugana na pióro-wpust",
-      description: "Szczelne, równe łączenie. System pióro-wpust zapewnia stabilność i estetykę.",
-      image: "/tarcica.jpg",
-      features: [
-        "Boazerie ścienne - wykończenie wnętrz",
-        "Podbitki i zabudowy dachowe",
-        "Elewacje drewniane (po impregnacji)"
-      ],
-      applications: "Boazerie, elewacje, podbitki, sufity drewniane",
-      href: "/produkty/deska-strugana-pioro-wpust"
-    },
-    {
-      category: "Deska tarasowa",
-      title: "Deska tarasowa",
-      description: "Wytrzymały materiał zewnętrzny. Antypoślizgowa powierzchnia, długa żywotność.",
-      image: "/drewno-impregnowane.jpg",
-      features: [
-        "Tarasy i balkony - powierzchnia antypoślizgowa",
-        "Ścieżki ogrodowe, pomosty",
-        "Schody i podesty zewnętrzne"
-      ],
-      applications: "Tarasy, balkony, ścieżki, pomosty, schody zewnętrzne",
-      href: "/produkty/deska-tarasowa",
-      popular: true,
-      note: "✨ Dostępna impregnacja ciśnieniowa na kolor brązowy"
-    },
-    {
-      category: "Kantówka suszona C24/KVH/BSH",
-      title: "Kantówka suszona C24/KVH/BSH",
-      description: "Wysokiej klasy drewno konstrukcyjne. Suche, stabilne, gotowe do montażu.",
-      image: "/kantowka.jpg",
-      features: [
-        "Domy szkieletowe - klasa C24",
-        "Więźby dachowe premium - stabilność",
-        "Konstrukcje widoczne - estetyka"
-      ],
-      applications: "Domy szkieletowe, więźby premium, konstrukcje widoczne, meble",
-      href: "/produkty/kantowka-suszona-c24",
-      popular: true,
-      note: "⭐ Wilgotność 12-18% - stabilność wymiarowa, minimalna praca drewna"
-    }
-  ];
 
   return (
     <section ref={ref} className="py-20 md:py-32 bg-white relative overflow-hidden">
@@ -142,81 +147,73 @@ export default function ProductListing() {
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-6">
-            Pełen asortyment drewna
-            <br className="sm:hidden" /> <span className="text-brand-green">budowlanego</span>
+            Pełna oferta
+            <br className="sm:hidden" /> <span className="text-brand-green">drewna budowlanego</span>
           </h2>
           <p className="text-lg md:text-xl text-brand-brown/70 max-w-2xl mx-auto px-4">
-            Od podstawowych materiałów konstrukcyjnych po wykończenia premium
+            Od konstrukcji po wykończenie - wszystko w jednym miejscu
           </p>
         </motion.div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {products.map((product, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative bg-gradient-to-br from-white to-cream rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-green/10 flex flex-col h-full max-h-[85vh] overflow-hidden"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Image */}
-              {product.image && (
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  
-                  {/* Popular Badge */}
-                  {product.popular && (
-                    <div className="absolute top-4 right-4 bg-brand-green text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg z-10">
-                      Popularne
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-grow">
-
-              {/* Category Tag */}
-              <div className="inline-block mb-4 px-4 py-1.5 bg-brand-green/10 text-brand-green text-sm font-semibold rounded-full">
-                {product.category}
-              </div>
-
-              {/* Title */}
-              <h3 className="font-display text-xl md:text-2xl font-bold text-brand-brown mb-2 group-hover:text-brand-green transition-colors">
-                {product.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-brand-brown/70 mb-4 leading-snug text-sm">
-                {product.description}
-              </p>
-
-              {/* Features */}
-              <div className="space-y-2 mb-6 flex-grow">
-                {product.features.slice(0, 3).map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
-                    <span className="text-brand-brown/80 text-sm leading-tight">{feature}</span>
+              <Link href={`/produkty/${product.slug}`}>
+                <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-brand-green/30 h-full flex flex-col">
+                  {/* Image */}
+                  <div className="relative h-64 overflow-hidden bg-gray-100">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {product.badge && (
+                      <div className="absolute top-4 right-4 bg-brand-green text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg">
+                        {product.badge}
+                      </div>
+                    )}
                   </div>
-                ))}
-              </div>
 
-              {/* CTA Button with Link */}
-              <Link
-                href={product.href}
-                className="block w-full py-3 px-6 bg-brand-green text-white text-center font-bold rounded-xl hover:bg-brand-green/90 hover:shadow-lg transition-all duration-300 group-hover:scale-105 flex items-center justify-center gap-2 mt-auto"
-              >
-                Zobacz szczegóły
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  {/* Content */}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="font-display text-2xl font-bold text-brand-brown mb-3 group-hover:text-brand-green transition-colors">
+                      {product.name}
+                    </h3>
+                    
+                    <p className="text-brand-brown/70 mb-4 leading-relaxed">
+                      {product.description}
+                    </p>
+
+                    {/* Features */}
+                    <ul className="space-y-2 mb-6 flex-1">
+                      {product.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm text-brand-brown/80">
+                          <CheckCircle className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Price & CTA */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div className="text-2xl font-bold text-brand-green">
+                        {product.price}
+                      </div>
+                      <div className="flex items-center gap-2 text-brand-brown group-hover:text-brand-green transition-colors font-semibold">
+                        <span className="text-sm">Zobacz</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Link>
-              </div>
             </motion.div>
           ))}
         </div>
@@ -226,17 +223,19 @@ export default function ProductListing() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-16 text-center"
+          className="text-center mt-16"
         >
           <p className="text-lg text-brand-brown/70 mb-6">
-            Nie znalazłeś interesującego Cię wymiaru? Zadzwoń - doradzimy najlepsze rozwiązanie.
+            Nie jesteś pewien którego drewna potrzebujesz?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+48537593186" className="btn-primary">
+            <a href="tel:+48537593186" className="btn-primary inline-flex items-center justify-center gap-2">
+              <span>📞</span>
               Zadzwoń: 537 593 186
             </a>
-            <a href="https://wa.me/48537593186" className="btn-secondary">
-              Napisz na WhatsApp
+            <a href="https://wa.me/48537593186" className="btn-whatsapp inline-flex items-center justify-center gap-2">
+              <span>💬</span>
+              WhatsApp
             </a>
           </div>
         </motion.div>

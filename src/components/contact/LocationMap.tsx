@@ -10,21 +10,33 @@ export default function LocationMap() {
   const directions = [
     {
       icon: Car,
-      title: "Z Gdańska",
-      time: "~1h",
-      route: "A1 kierunek Grudziądz → zjazd Kopytowo → 5 min lokalną drogą"
+      city: "Starogard, Kwidzyn",
+      time: "ok. 25min"
     },
     {
       icon: Car,
-      title: "Z Grudziądza",
-      time: "~45 min",
-      route: "A1 kierunek Gdańsk → zjazd Kopytowo → 5 min lokalną drogą"
+      city: "Grudziądz, Świecie, Tczew",
+      time: "ok. 30 min"
     },
     {
       icon: Car,
-      title: "Z Torunia / Bydgoszczy",
-      time: "~1-1,5h",
-      route: "A1 kierunek Gdańsk → zjazd Kopytowo → 5 min lokalną drogą"
+      city: "Gdańsk, Malbork",
+      time: "ok. 45 min"
+    },
+    {
+      icon: Car,
+      city: "Bydgoszcz, Toruń, Kościerzyna, Tuchola",
+      time: "ok. 60min"
+    },
+    {
+      icon: Car,
+      city: "Iława, Brodnica, Chojnice, Elbląg",
+      time: "ok. 90min"
+    },
+    {
+      icon: Car,
+      city: "Olsztyn, Poznań",
+      time: "ok. 120 min"
     }
   ];
 
@@ -103,7 +115,7 @@ export default function LocationMap() {
                 className="text-xl font-bold text-brand-brown flex items-center gap-2"
               >
                 <Car className="w-6 h-6 text-brand-green" />
-                <span>Dojazd z głównych miast</span>
+                <span>Czas dojazdu z głównych miast</span>
               </motion.h3>
 
               {directions.map((direction, index) => (
@@ -111,91 +123,86 @@ export default function LocationMap() {
                   key={index}
                   initial={{ opacity: 0, x: -30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.7, delay: 0.4 + index * 0.1 }}
-                  className="bg-white border-2 border-brand-green/10 rounded-2xl p-6 hover:border-brand-green/30 hover:shadow-lg transition-all duration-300"
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  className="flex items-center gap-4 p-4 bg-cream rounded-xl hover:shadow-md transition-shadow"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-lg font-bold text-brand-brown">{direction.title}</h4>
-                    <div className="flex items-center gap-2 bg-brand-green/10 px-3 py-1 rounded-lg">
-                      <Clock className="w-4 h-4 text-brand-green" />
-                      <span className="text-sm font-semibold text-brand-green">{direction.time}</span>
-                    </div>
+                  <div className="w-10 h-10 bg-brand-green/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-brand-green" />
                   </div>
-                  <p className="text-brand-brown/70 text-sm leading-relaxed">
-                    {direction.route}
-                  </p>
+                  <div className="flex-1">
+                    <span className="text-brand-brown font-medium">
+                      {direction.city}
+                    </span>
+                  </div>
+                  <span className="text-brand-green font-semibold whitespace-nowrap">
+                    {direction.time}
+                  </span>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Right Column - Map */}
+          {/* Right Column - Map Placeholder */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="lg:sticky lg:top-32"
+            className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-full min-h-[500px] lg:sticky lg:top-8"
           >
-            <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-brand-green/10">
-              {/* Map Container */}
-              <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative">
-                {/* Placeholder for actual map */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <MapPin className="w-16 h-16 text-brand-green mx-auto mb-4" />
-                    <p className="text-brand-brown font-semibold mb-2">
-                      Mirotki, gm. Skórcz
-                    </p>
-                    <p className="text-brand-brown/60 text-sm mb-6">
-                      Autostrada A1, zjazd Kopytowo
-                    </p>
-                    <a 
-                      href="https://maps.google.com/?q=Mirotki,Skórcz"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-brand-green text-white px-6 py-3 rounded-xl font-semibold hover:bg-brand-green/90 transition-all shadow-lg"
-                    >
-                      <Navigation className="w-5 h-5" />
-                      <span>Nawiguj</span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* You can replace this with actual Google Maps iframe */}
-                {/* 
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=YOUR_EMBED_URL"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0"
-                />
-                */}
-              </div>
-
-              {/* Map Footer */}
-              <div className="p-6 bg-gradient-to-br from-gray-50 to-white border-t border-gray-200">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-brand-brown mb-1">
-                      Centrum północnej Polski
-                    </p>
-                    <p className="text-xs text-brand-brown/60">
-                      Równo oddaleni od Gdańska, Grudziądza, Torunia
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 bg-brand-green/10 rounded-full flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-brand-green" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2358.391141132372!2d18.57995651187279!3d53.76472384322259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470295c353c56b19%3A0x303da21a2fd86f14!2sBieli%C5%84scy%20Drewno%20(daw.%20Tartak%20Mirotki)!5e0!3m2!1spl!2spl!4v1768917900819!5m2!1spl!2spl"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: "500px" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa lokalizacji - Bielińscy Drewno, Mirotki"
+            />
           </motion.div>
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="mt-16 text-center bg-gradient-to-r from-brand-green/10 via-transparent to-brand-green/10 rounded-2xl p-8"
+        >
+          <h3 className="text-2xl font-bold text-brand-brown mb-4">
+            Nie jesteś pewien drogi?
+          </h3>
+          <p className="text-brand-brown/70 mb-6">
+            Zadzwoń - dokładnie pokierujemy jak dojechać do magazynu
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+48537593186"
+              className="btn-primary inline-flex items-center justify-center gap-2"
+            >
+              <Phone className="w-5 h-5" />
+              Zadzwoń: 537 593 186
+            </a>
+            <a
+              href="https://www.google.com/maps/place/Bieli%C5%84scy+Drewno+(daw.+Tartak+Mirotki)/@53.7647238,18.5799565,17z/data=!3m1!4b1!4m6!3m5!1s0x470295c353c56b19:0x303da21a2fd86f14!8m2!3d53.7647207!4d18.5825368!16s%2Fg%2F12hk8l_jj?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary inline-flex items-center justify-center gap-2"
+            >
+              <Navigation className="w-5 h-5" />
+              Nawigacja Google Maps
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function Phone({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
   );
 }

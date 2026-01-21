@@ -29,7 +29,7 @@ export default function OurStory() {
     {
       year: "Dziś",
       icon: CheckCircle,
-      title: "500+ dostaw rocznie",
+      title: "1000+ dostaw rocznie",
       description: "Od domów jednorodzinnych po duże projekty budowlane. Pomorze, Kujawy, północna Polska."
     }
   ];

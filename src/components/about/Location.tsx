@@ -7,11 +7,13 @@ export default function Location() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const cities = [
-    { name: "Gdańsk, Tczew, Starogard", time: "~1h", color: "from-brand-green to-brand-green/80" },
-    { name: "Grudziądz, Toruń, Bydgoszcz", time: "~1-1,5h", color: "from-brand-green/90 to-brand-green/70" },
-    { name: "Elbląg, Malbork, Kwidzyn", time: "~1h", color: "from-brand-green/80 to-brand-green/60" },
-    { name: "Olsztyn, Chojnice", time: "~1,5h", color: "from-brand-green/70 to-brand-green/50" }
+const cities = [
+    { name: "Starogard, Kwidzyn", time: "ok. 25min", color: "from-brand-green to-brand-green/80" },
+    { name: "Grudziądz, Świecie, Tczew", time: "ok. 30 min", color: "from-brand-green/90 to-brand-green/70" },
+    { name: "Gdańsk, Malbork", time: "ok. 45 min", color: "from-brand-green/80 to-brand-green/60" },
+    { name: "Bydgoszcz, Toruń, Kościerzyna, Tuchola", time: "ok. 60min", color: "from-brand-green/70 to-brand-green/50" },
+    { name: "Iława, Brodnica, Chojnice, Elbląg", time: "ok. 90min", color: "from-brand-green/60 to-brand-green/40" },
+    { name: "Olsztyn", time: "ok. 120 min", color: "from-brand-green/50 to-brand-green/30" }
   ];
 
   const benefits = [
@@ -51,12 +53,11 @@ export default function Location() {
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-6">
-            Gdzie nas znajdziesz?
-            <br />
-            <span className="text-brand-green">5 minut od autostrady.</span>
+            Gdzie dowozimy?
           </h2>
           <p className="text-lg md:text-xl text-brand-brown/70 max-w-2xl mx-auto px-4">
-            Mirotki, gmina Skórcz - idealnie między Gdańskiem a Bydgoszczą
+            Obsługujemy całe Pomorze, Kujawy i część warmińsko-mazurskiego. 
+            Czas dostawy zależy od odległości:
           </p>
         </motion.div>
 
@@ -75,45 +76,49 @@ export default function Location() {
                   <MapPin className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">Adres magazynu</h3>
-                  <p className="text-lg text-white/90 mb-1">Mirotki</p>
-                  <p className="text-white/80">gmina Skórcz, woj. pomorskie</p>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2">Magazyn w Mirotkach</h3>
+                  <p className="text-lg text-white/90 mb-1">gmina Skórcz, woj. pomorskie</p>
+                  <p className="text-white/80 text-sm">5 minut od zjazdu Kopytowo z A1</p>
                 </div>
               </div>
+
               <div className="pt-6 border-t border-white/20">
-                <p className="text-sm text-white/80 mb-2">Jak dojechać?</p>
-                <p className="text-white/90">
-                  Autostrada A1, zjazd <strong>Kopytowo</strong> (Grudziądz-Gdańsk), 
-                  następnie tylko <strong>5 minut</strong> lokalną drogą
+                <p className="text-sm text-white/80 mb-2 font-semibold">Idealna lokalizacja:</p>
+                <p className="text-white/90 text-sm leading-relaxed">
+                  Autostrada A1, zjazd <strong>Kopytowo</strong> (między Gdańskiem a Grudziądzem).
+                  Równo oddaleni od największych miast regionu.
                 </p>
               </div>
             </motion.div>
 
             {/* Benefits */}
-            <div className="space-y-4">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.7, delay: 0.3 + index * 0.1 }}
-                  className="bg-white border-2 border-brand-green/10 rounded-2xl p-6 hover:border-brand-green/30 hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <benefit.icon className="w-6 h-6 text-brand-green" />
+            <div className="grid gap-6">
+              {benefits.map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                    className="bg-cream rounded-2xl p-6 hover:shadow-lg transition-shadow"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="w-6 h-6 text-brand-green" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-brand-brown mb-1">{benefit.title}</h4>
+                        <p className="text-sm text-brand-brown/70">{benefit.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-brand-brown mb-1">{benefit.title}</h4>
-                      <p className="text-brand-brown/70">{benefit.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Right Column - Service Area */}
+          {/* Right Column - Cities */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

@@ -8,9 +8,9 @@ const regions = [
   { city: "Starogard, Kwidzyn", time: "ok. 25min" },
   { city: "Grudziądz, Świecie, Tczew", time: "ok. 30 min" },
   { city: "Gdańsk, Malbork", time: "ok. 45 min" },
-  { city: "Rydgoszcz, Toruń, Kościerzyna, Tuchola", time: "ok. 60min" },
-  { city: "Iława, Brodnica, Chojnice, Elbląg", time: "ok 90min" },
-  { city: "Olsztyn, Poznań", time: "ok 120 min" },
+  { city: "Bydgoszcz, Toruń, Kościerzyna, Tuchola", time: "ok. 60min" },
+  { city: "Iława, Brodnica, Chojnice, Elbląg", time: "ok. 90min" },
+  { city: "Olsztyn", time: "ok. 120 min" },
 ];
 
 export default function ServiceArea() {

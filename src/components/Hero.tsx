@@ -15,7 +15,7 @@ const backgroundMedia = [
 
 const socialProof = [
   "Realizacja w 2-3 dni",
-  "500+ dostaw rocznie",
+  "1000+ dostaw rocznie",
   "12 lat doświadczenia",
   "Własny transport"
 ];

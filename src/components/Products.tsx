@@ -1,61 +1,38 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const products = [
   {
     title: "Deska szorstka",
-    description: "Materiał budowlany - szalunki, deskowanie, konstrukcje. Niska cena, wysoka wszechstronność.",
-    icon: "🏗️",
-    href: "/oferta#deska-szorstka",
+    description: "Tarcica nieobrobiona - deskowanie, szalunki, konstrukcje",
+    image: "/deska-szorstka.jpg",
+    link: "/produkty/deska-szorstka",
+    badge: "Bestseller"
   },
   {
-    title: "Kantówka mokra szorstka",
-    description: "Więźby dachowe, konstrukcje gospodarcze. Standard budowlany w najlepszej cenie.",
-    icon: "🔨",
-    href: "/oferta#kantowka-mokra",
-  },
-  {
-    title: "Łata i kontrłata",
-    description: "Konstrukcje dachowe i elewacyjne. Mokra lub suszona - dobierz do projektu.",
-    icon: "📐",
-    href: "/oferta#lata-kontrlata",
+    title: "Kantówka mokra",
+    description: "Surowa kantówka - ogrodzenia, altany, konstrukcje",
+    image: "/kantowka-mokra-szorstka.jpg",
+    link: "/produkty/kantowka-mokra-szorstka"
   },
   {
     title: "Więźba dachowa",
-    description: "Kompletne konstrukcje dachowe. Mokra tradycyjna lub suszona C24 premium.",
-    icon: "🏠",
-    href: "/oferta#wiezba-dachowa",
-    popular: true,
+    description: "Konstrukcja nośna dachu - projekt + realizacja",
+    image: "/wiezba-dachowa.jpg",
+    link: "/produkty/wiezba-dachowa",
+    badge: "Premium"
   },
   {
-    title: "Deska strugana bez pióro-wpustu",
-    description: "Uniwersalny materiał czterostronnie strugany. Meble, okładziny, DIY.",
-    icon: "✨",
-    href: "/oferta#deska-strugana-bez",
-  },
-  {
-    title: "Deska strugana na pióro-wpust",
-    description: "Boazerie, elewacje, podbitki. Szczelne połączenie, estetyczne wykończenie.",
-    icon: "🎨",
-    href: "/oferta#deska-pioro-wpust",
-  },
-  {
-    title: "Deska tarasowa",
-    description: "Tarasy, balkony, ścieżki. Antypoślizgowa, z opcją impregnacji ciśnieniowej.",
-    icon: "🌳",
-    href: "/oferta#deska-tarasowa",
-    popular: true,
-  },
-  {
-    title: "Kantówka suszona C24/KVH/BSH",
-    description: "Premium konstrukcyjne. Domy szkieletowe, więźby, konstrukcje widoczne.",
-    icon: "⭐",
-    href: "/oferta#kantowka-suszona",
-    popular: true,
-  },
+    title: "Deski tarasowe",
+    description: "Prawdziwa impregnacja ciśnieniowa - gwarancja 10 lat",
+    image: "/deska-tarasowa.jpg",
+    link: "/produkty/deska-tarasowa",
+    badge: "Gwarancja"
+  }
 ];
 
 export default function Products() {
@@ -63,90 +40,70 @@ export default function Products() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section 
-      ref={ref} 
-      id="sortament" 
-      className="py-16 md:py-24 bg-gradient-to-br from-cream via-white to-cream relative overflow-hidden"
-    >
-      {/* Decorative Background */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={isInView ? { scale: 1, opacity: 1 } : {}}
-          transition={{ duration: 1.5 }}
-          className="absolute top-1/4 right-10 w-72 h-72 bg-brand-green/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={isInView ? { scale: 1, opacity: 1 } : {}}
-          transition={{ duration: 1.5, delay: 0.3 }}
-          className="absolute bottom-1/4 left-10 w-72 h-72 bg-brand-brown/20 rounded-full blur-3xl"
-        />
+    <section ref={ref} id="produkty" className="section-padding bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, var(--brand-brown) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
       <div className="container-wide relative z-10">
-        {/* Header */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="inline-block mb-4 px-6 py-2 bg-brand-green/10 text-brand-green font-semibold rounded-full text-sm"
-          >
-            Pełen asortyment
-          </motion.div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-6">
-            Co możemy dla Ciebie
-            <br className="sm:hidden" /> <span className="text-brand-green">przygotować?</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-brown mb-4">
+            Co oferujemy?
           </h2>
-          <p className="text-lg md:text-xl text-brand-brown/70 max-w-2xl mx-auto px-4">
-            Od podstawowych materiałów konstrukcyjnych po wykończenia premium
+          <p className="text-lg md:text-xl text-brand-brown/70 max-w-2xl mx-auto">
+            Drewno budowlane od konstrukcji po wykończenie
           </p>
         </motion.div>
 
         {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
           {products.map((product, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Link href={product.href}>
-                <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-green/10 h-full flex flex-col">
-                  {/* Popular Badge */}
-                  {product.popular && (
-                    <div className="absolute -top-2 -right-2 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                      TOP
-                    </div>
-                  )}
-
-                  {/* Icon */}
-                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {product.icon}
+              <Link href={product.link}>
+                <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-brand-green/30 h-full flex flex-col">
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden bg-gray-100">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {product.badge && (
+                      <div className="absolute top-4 right-4 bg-brand-green text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        {product.badge}
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-bold text-xl text-brand-brown mb-3 group-hover:text-brand-green transition-colors">
-                    {product.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-brand-brown/70 text-sm mb-4 flex-grow leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  {/* CTA */}
-                  <div className="flex items-center text-brand-green font-semibold text-sm group-hover:gap-2 transition-all">
-                    Zobacz więcej
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  {/* Content */}
+                  <div className="p-5 flex-1 flex flex-col">
+                    <h3 className="font-display text-xl font-bold text-brand-brown mb-2 group-hover:text-brand-green transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-sm text-brand-brown/70 mb-4 flex-1">
+                      {product.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-brand-green font-semibold text-sm group-hover:gap-3 transition-all">
+                      <span>Zobacz więcej</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -154,25 +111,20 @@ export default function Products() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* CTA Button */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center"
         >
-          <p className="text-brand-brown/70 mb-6 max-w-2xl mx-auto">
-            Każda dostawa sprawdzona przed wysyłką. Proste deski, zgodne wymiary, prawdziwa impregnacja.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/oferta" className="btn-primary inline-flex items-center justify-center gap-2">
-              Zobacz pełną ofertę
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <a href="tel:+48537593186" className="btn-secondary">
-              Zadzwoń: 537 593 186
-            </a>
-          </div>
+          <Link
+            href="/oferta"
+            className="inline-flex items-center gap-3 bg-brand-green text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-green/90 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+          >
+            <span>Zobacz pełną ofertę</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </motion.div>
       </div>
     </section>

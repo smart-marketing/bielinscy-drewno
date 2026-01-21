@@ -85,7 +85,7 @@ export default function AboutHero() {
               <div className="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <div className="text-3xl sm:text-4xl font-bold mb-2">500+</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-2">1000+</div>
               <div className="text-sm sm:text-base text-white/80">dostaw rocznie</div>
             </div>
 
