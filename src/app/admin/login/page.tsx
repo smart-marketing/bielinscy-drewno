@@ -1,7 +1,7 @@
 "use client";
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, User, AlertCircle } from "lucide-react";
+import { Lock, User, AlertCircle, Loader2 } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -12,10 +12,14 @@ export default function AdminLoginPage() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    console.log('🚀 KROK 1: handleSubmit started');
+    
     setError("");
     setLoading(true);
+    console.log('🚀 KROK 2: State updated, starting fetch');
 
     try {
+      console.log('🚀 KROK 3: Calling /api/auth/login with:', { username });
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
@@ -24,19 +28,32 @@ export default function AdminLoginPage() {
         body: JSON.stringify({ username, password }),
       });
 
+      console.log('🚀 KROK 4: Response received', {
+        status: response.status,
+        ok: response.ok,
+        statusText: response.statusText,
+        headers: Object.fromEntries(response.headers.entries())
+      });
+
       const data = await response.json();
+      console.log('🚀 KROK 5: Data parsed', data);
 
       if (response.ok && data.success) {
-        // Success - redirect to admin dashboard
-        router.push("/admin");
-        router.refresh();
+        console.log('✅ KROK 6: Success! Starting redirect...');
+        console.log('✅ KROK 6a: Using window.location.href for redirect');
+        
+        // Use window.location.href for direct navigation
+        window.location.href = '/admin';
+        
+        console.log('✅ KROK 6b: Redirect initiated to /admin');
       } else {
-        // Error
+        console.log('❌ KROK 7: Login failed', data.error);
         setError(data.error || "Nieprawidłowe dane logowania");
+        setLoading(false);
       }
     } catch (err) {
+      console.error('💥 KROK 8: ERROR!', err);
       setError("Błąd połączenia z serwerem");
-    } finally {
       setLoading(false);
     }
   };
@@ -84,6 +101,7 @@ export default function AdminLoginPage() {
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent"
                   placeholder="admin"
                   disabled={loading}
+                  autoComplete="username"
                 />
               </div>
             </div>
@@ -104,6 +122,7 @@ export default function AdminLoginPage() {
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent"
                   placeholder="••••••••"
                   disabled={loading}
+                  autoComplete="current-password"
                 />
               </div>
             </div>
@@ -112,16 +131,23 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-brand-green text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-brand-green/90 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-brand-green text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-brand-green/90 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {loading ? "Logowanie..." : "Zaloguj się"}
+              {loading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <span>Logowanie...</span>
+                </>
+              ) : (
+                "Zaloguj się"
+              )}
             </button>
           </form>
 
           {/* Footer */}
           <div className="mt-6 text-center">
             <p className="text-sm text-brand-brown/60">
-              Problemy z logowaniem? Skontaktuj się z administratorem.
+              Problemy z logowaniem? Sprawdź Console (F12)
             </p>
           </div>
         </div>

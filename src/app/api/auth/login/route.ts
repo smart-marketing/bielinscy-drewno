@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       // Set cookie with correct name: "session" not "admin-token"
       (await cookies()).set("session", token, {
         httpOnly: true,
-        secure: false,
+        secure: false, // False because Next.js runs on localhost:3000 behind Nginx proxy
         sameSite: 'lax',
         maxAge: 86400, // 24 hours
         path: '/',
