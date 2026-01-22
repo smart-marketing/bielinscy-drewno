@@ -1,21 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
-import {
-  Calculator,
-  Package,
-  ShoppingCart,
-  Phone,
-  Trash2,
-  Plus,
-  Edit2,
-  X,
-} from "lucide-react";
+import { Calculator, Package, ShoppingCart, Phone, Trash2, Plus, X } from "lucide-react";
 import Image from "next/image";
 
 interface ProductSize {
   dimension: string;
   price: number;
-  stock: number;
+  unit: string;
   available: boolean;
 }
 
@@ -27,10 +18,10 @@ interface Product {
 
 interface CartItem {
   id: string;
-  productId: number;
   productName: string;
   dimension: string;
   pricePerUnit: number;
+  unit: string;
   quantity: number;
 }
 
@@ -41,151 +32,74 @@ export default function KalkulatorPage() {
   const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [editingItemId, setEditingItemId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchProducts();
-    loadCartFromStorage();
+    loadCart();
   }, []);
 
   useEffect(() => {
-    saveCartToStorage();
+    saveCart();
   }, [cart]);
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("/api/pricing");
-      const data = await response.json();
-      console.log('📦 Loaded products:', data.products);
+      const res = await fetch("/api/pricing");
+      const data = await res.json();
       setProducts(data.products || []);
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error("Error:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  const loadCartFromStorage = () => {
-    const saved = localStorage.getItem("calculator-cart");
-    if (saved) {
-      setCart(JSON.parse(saved));
-    }
+  const loadCart = () => {
+    const saved = localStorage.getItem("calc-cart");
+    if (saved) setCart(JSON.parse(saved));
   };
 
-  const saveCartToStorage = () => {
-    localStorage.setItem("calculator-cart", JSON.stringify(cart));
-  };
-
-  const handleProductChange = (productId: string) => {
-    console.log('🔍 Selecting product:', productId);
-    const product = products.find((p) => p.id === parseInt(productId));
-    console.log('✅ Found product:', product);
-    setSelectedProduct(product || null);
-    setSelectedSize(null);
-    setQuantity(1);
-  };
-
-  const handleSizeChange = (dimension: string) => {
-    console.log('🔍 Selecting size:', dimension);
-    const size = selectedProduct?.sizes.find((s) => s.dimension === dimension);
-    console.log('✅ Found size:', size);
-    setSelectedSize(size || null);
+  const saveCart = () => {
+    localStorage.setItem("calc-cart", JSON.stringify(cart));
   };
 
   const addToCart = () => {
-    if (!selectedProduct || !selectedSize || !quantity) {
-      alert('Wybierz produkt, rozmiar i ilość');
-      return;
-    }
+    if (!selectedProduct || !selectedSize || !quantity) return;
 
-    const newItem: CartItem = {
+    setCart([...cart, {
       id: Date.now().toString(),
-      productId: selectedProduct.id,
       productName: selectedProduct.name,
       dimension: selectedSize.dimension,
       pricePerUnit: selectedSize.price,
-      quantity: quantity,
-    };
+      unit: selectedSize.unit,
+      quantity
+    }]);
 
-    console.log('➕ Adding to cart:', newItem);
-    setCart([...cart, newItem]);
-    
-    // Reset form
     setSelectedProduct(null);
     setSelectedSize(null);
     setQuantity(1);
   };
 
-  const removeFromCart = (itemId: string) => {
-    setCart(cart.filter((item) => item.id !== itemId));
+  const total = cart.reduce((sum, item) => sum + item.pricePerUnit * item.quantity, 0);
+  const vat = total * 0.23;
+
+  const sendWhatsApp = () => {
+    if (cart.length === 0) return;
+    const items = cart.map((item, i) =>
+      `${i+1}. ${item.productName} ${item.dimension}\n   ${item.quantity} ${item.unit} × ${item.pricePerUnit.toFixed(2)} zł = ${(item.pricePerUnit * item.quantity).toFixed(2)} zł`
+    ).join("\n\n");
+    const msg = `Dzień dobry! Wycena:\n\n${items}\n\nNetto: ${total.toFixed(2)} zł\nVAT 23%: ${vat.toFixed(2)} zł\nBrutto: ${(total+vat).toFixed(2)} zł`;
+    window.open(`https://wa.me/48537593186?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
-  const updateCartItem = (itemId: string, newQuantity: number) => {
-    setCart(
-      cart.map((item) =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      )
-    );
-    setEditingItemId(null);
-  };
-
-  const clearCart = () => {
-    setCart([]);
-    localStorage.removeItem("calculator-cart");
-  };
-
-  const calculateItemTotal = (item: CartItem) => {
-    return item.pricePerUnit * item.quantity;
-  };
-
-  const calculateSubtotal = () => {
-    return cart.reduce((sum, item) => sum + calculateItemTotal(item), 0);
-  };
-
-  const calculateVAT = () => {
-    return calculateSubtotal() * 0.23;
-  };
-
-  const calculateTotal = () => {
-    return calculateSubtotal() + calculateVAT();
-  };
-
-  const sendWhatsAppQuery = () => {
-    if (cart.length === 0) {
-      alert('Koszyk jest pusty!');
-      return;
-    }
-
-    const itemsList = cart
-      .map(
-        (item, idx) =>
-          `${idx + 1}. ${item.productName}\n   ${item.dimension}\n   ${item.quantity} szt × ${item.pricePerUnit.toFixed(2)} zł = ${calculateItemTotal(item).toFixed(2)} zł`
-      )
-      .join("\n\n");
-
-    const message = `Dzień dobry! Chciałbym zapytać o:\n\n${itemsList}\n\nPodsumowanie:\nWartość produktów: ${calculateSubtotal().toFixed(2)} zł netto\nVAT 23%: ${calculateVAT().toFixed(2)} zł\nRAZEM: ${calculateTotal().toFixed(2)} zł brutto\n\nProszę o kontakt.`;
-    
-    const url = `https://wa.me/48537593186?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
-
-  // Filter only available sizes
-  const availableSizes = selectedProduct?.sizes.filter(s => s.available) || [];
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-brand-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-brand-brown">Ładowanie kalkulatora...</p>
-        </div>
-      </div>
-    );
-  }
+  if (loading) return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="animate-spin w-12 h-12 border-4 border-brand-green border-t-transparent rounded-full" />
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero */}
       <section className="bg-gradient-to-br from-brand-green to-brand-green/90 text-white py-16 md:py-20">
         <div className="container-wide text-center">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
@@ -196,83 +110,83 @@ export default function KalkulatorPage() {
             Kalkulator Drewna
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            Dodaj produkty do koszyka i oblicz całkowitą wartość zamówienia
+            Dodaj produkty i oblicz wartość zamówienia
           </p>
         </div>
       </section>
 
       <main className="container-wide py-8 md:py-12">
         <div className="grid lg:grid-cols-2 gap-6">
-          {/* Lewa strona - Dodawanie produktu */}
           <div className="space-y-6">
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
               <h2 className="font-display text-xl font-bold text-brand-brown mb-4 flex items-center gap-2">
                 <Plus className="w-5 h-5 text-brand-green" />
-                Dodaj produkt do wyceny
+                Dodaj produkt
               </h2>
 
-              {/* Product Select */}
+              {/* Produkt */}
               <div className="mb-4">
                 <label className="block text-sm font-semibold text-brand-brown mb-2">
                   Rodzaj drewna
                 </label>
                 <select
                   value={selectedProduct?.id || ""}
-                  onChange={(e) => handleProductChange(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent bg-white cursor-pointer"
+                  onChange={(e) => {
+                    setSelectedProduct(products.find(p => p.id === +e.target.value) || null);
+                    setSelectedSize(null);
+                  }}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green bg-white"
                 >
                   <option value="">-- Wybierz produkt --</option>
-                  {products.map((product) => (
-                    <option key={product.id} value={product.id}>
-                      {product.name}
-                    </option>
+                  {products.map(p => (
+                    <option key={p.id} value={p.id}>{p.name}</option>
                   ))}
                 </select>
               </div>
 
-              {/* Size Select */}
-              {selectedProduct && availableSizes.length > 0 && (
+              {/* Rozmiar (z jednostką) */}
+              {selectedProduct && (
                 <div className="mb-4">
                   <label className="block text-sm font-semibold text-brand-brown mb-2">
                     Rozmiar
                   </label>
                   <select
                     value={selectedSize?.dimension || ""}
-                    onChange={(e) => handleSizeChange(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent bg-white cursor-pointer"
+                    onChange={(e) => setSelectedSize(selectedProduct.sizes.find(s => s.dimension === e.target.value) || null)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green bg-white"
                   >
                     <option value="">-- Wybierz rozmiar --</option>
-                    {availableSizes.map((size, idx) => (
-                      <option key={idx} value={size.dimension}>
-                        {size.dimension} - {size.price.toFixed(2)} zł/szt
-                        {size.stock > 0 && ` (dostępne: ${size.stock})`}
+                    {selectedProduct.sizes.filter(s => s.available).map((s, i) => (
+                      <option key={i} value={s.dimension}>
+                        {s.dimension} - {s.price.toFixed(2)} zł/{s.unit}
                       </option>
                     ))}
                   </select>
                 </div>
               )}
 
-              {/* Quantity */}
+              {/* Ilość (pokazuje jednostkę) */}
               {selectedSize && (
                 <div className="mb-4">
                   <label className="block text-sm font-semibold text-brand-brown mb-2">
-                    Ilość (sztuk)
+                    Ilość ({selectedSize.unit})
                   </label>
                   <input
                     type="number"
                     min="1"
+                    step="0.01"
                     value={quantity}
-                    onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                    onChange={(e) => setQuantity(parseFloat(e.target.value) || 1)}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green"
                   />
                 </div>
               )}
 
-              {/* Add Button */}
+              {/* Dodaj */}
               {selectedSize && (
                 <button
                   onClick={addToCart}
-                  className="w-full bg-brand-green text-white py-3 px-6 rounded-xl font-bold hover:bg-brand-green/90 transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                  className="w-full bg-brand-green text-white py-3 px-6 rounded-xl font-bold hover:bg-brand-green/90 flex items-center justify-center gap-2 shadow-lg"
                 >
                   <Plus className="w-5 h-5" />
                   Dodaj do wyceny
@@ -280,18 +194,15 @@ export default function KalkulatorPage() {
               )}
             </div>
 
-            {/* Koszyk - Lista produktów */}
+            {/* Koszyk */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex justify-between items-center mb-4">
                 <h2 className="font-display text-xl font-bold text-brand-brown flex items-center gap-2">
                   <ShoppingCart className="w-5 h-5 text-brand-green" />
-                  Produkty w wycenie ({cart.length})
+                  Koszyk ({cart.length})
                 </h2>
                 {cart.length > 0 && (
-                  <button
-                    onClick={clearCart}
-                    className="text-sm text-red-600 hover:text-red-700 flex items-center gap-1"
-                  >
+                  <button onClick={() => setCart([])} className="text-red-600 text-sm hover:text-red-700 flex items-center gap-1">
                     <Trash2 className="w-4 h-4" />
                     Wyczyść
                   </button>
@@ -301,76 +212,29 @@ export default function KalkulatorPage() {
               {cart.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
                   <Package className="w-12 h-12 mx-auto mb-2 opacity-30" />
-                  <p>Brak produktów w wycenie</p>
-                  <p className="text-sm">Dodaj produkty powyżej</p>
+                  <p>Brak produktów</p>
                 </div>
               ) : (
-                <div className="space-y-3">
-                  {cart.map((item, index) => (
-                    <div
-                      key={item.id}
-                      className="bg-gray-50 rounded-lg p-4 border border-gray-200"
-                    >
-                      <div className="flex justify-between items-start mb-2">
-                        <div className="flex-1">
-                          <p className="font-semibold text-brand-brown">
-                            {index + 1}. {item.productName}
-                          </p>
-                          <p className="text-sm text-gray-600">{item.dimension}</p>
-                        </div>
-                        <button
-                          onClick={() => removeFromCart(item.id)}
-                          className="text-red-600 hover:text-red-700 p-1"
-                        >
+                <div className="space-y-2">
+                  {cart.map((item, idx) => (
+                    <div key={item.id} className="bg-gray-50 p-4 rounded-lg flex justify-between items-center">
+                      <div className="flex-1">
+                        <p className="font-semibold text-brand-brown text-sm">
+                          {idx + 1}. {item.productName}
+                        </p>
+                        <p className="text-xs text-gray-600">{item.dimension}</p>
+                        <p className="text-xs text-gray-700 mt-1">
+                          {item.quantity} {item.unit} × {item.pricePerUnit.toFixed(2)} zł
+                        </p>
+                      </div>
+                      <div className="text-right flex items-center gap-2">
+                        <p className="font-bold text-brand-brown">
+                          {(item.pricePerUnit * item.quantity).toFixed(2)} zł
+                        </p>
+                        <button onClick={() => setCart(cart.filter(c => c.id !== item.id))} className="text-red-600 hover:text-red-700 p-1">
                           <X className="w-5 h-5" />
                         </button>
                       </div>
-
-                      {editingItemId === item.id ? (
-                        <div className="flex gap-2">
-                          <input
-                            type="number"
-                            min="1"
-                            defaultValue={item.quantity}
-                            onBlur={(e) =>
-                              updateCartItem(item.id, parseInt(e.target.value) || 1)
-                            }
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter") {
-                                updateCartItem(
-                                  item.id,
-                                  parseInt(e.currentTarget.value) || 1
-                                );
-                              }
-                            }}
-                            className="flex-1 px-3 py-1 border rounded"
-                            autoFocus
-                          />
-                          <button
-                            onClick={() => setEditingItemId(null)}
-                            className="text-sm text-gray-600"
-                          >
-                            Anuluj
-                          </button>
-                        </div>
-                      ) : (
-                        <div className="flex justify-between items-center">
-                          <p className="text-sm text-gray-700">
-                            {item.quantity} szt × {item.pricePerUnit.toFixed(2)} zł
-                          </p>
-                          <div className="flex items-center gap-2">
-                            <button
-                              onClick={() => setEditingItemId(item.id)}
-                              className="text-brand-green hover:text-brand-green/80 p-1"
-                            >
-                              <Edit2 className="w-4 h-4" />
-                            </button>
-                            <p className="font-bold text-brand-brown">
-                              {calculateItemTotal(item).toFixed(2)} zł
-                            </p>
-                          </div>
-                        </div>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -378,7 +242,7 @@ export default function KalkulatorPage() {
             </div>
           </div>
 
-          {/* Prawa strona - Podsumowanie */}
+          {/* Podsumowanie */}
           <div>
             <div className="bg-gradient-to-br from-brand-green to-brand-green/90 rounded-2xl shadow-2xl p-6 text-white sticky top-8">
               <h2 className="font-display text-2xl font-bold mb-6 flex items-center gap-2">
@@ -389,113 +253,50 @@ export default function KalkulatorPage() {
               {cart.length === 0 ? (
                 <div className="text-center py-12">
                   <Package className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                  <p className="text-white/80 text-lg">
-                    Dodaj produkty do wyceny
-                  </p>
+                  <p className="text-white/80 text-lg">Dodaj produkty</p>
                 </div>
               ) : (
                 <div className="space-y-6">
-                  {/* Stats */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-white/80">Liczba produktów:</span>
-                        <span className="font-semibold">{cart.length}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-white/80">Łączna ilość:</span>
-                        <span className="font-semibold">
-                          {cart.reduce((sum, item) => sum + item.quantity, 0)} szt
-                        </span>
-                      </div>
+                    <div className="flex justify-between">
+                      <span className="text-white/80">Produktów:</span>
+                      <span className="font-semibold">{cart.length}</span>
                     </div>
                   </div>
 
-                  {/* Pricing */}
                   <div className="space-y-3">
                     <div className="flex justify-between text-lg">
-                      <span className="text-white/90">Wartość netto:</span>
-                      <span className="font-bold">
-                        {calculateSubtotal().toFixed(2)} zł
-                      </span>
+                      <span className="text-white/90">Netto:</span>
+                      <span className="font-bold">{total.toFixed(2)} zł</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-white/80">VAT 23%:</span>
-                      <span className="font-semibold">
-                        {calculateVAT().toFixed(2)} zł
-                      </span>
+                      <span className="font-semibold">{vat.toFixed(2)} zł</span>
                     </div>
                     <div className="h-px bg-white/30" />
                     <div className="flex justify-between text-2xl font-bold">
                       <span>RAZEM:</span>
-                      <span>{calculateTotal().toFixed(2)} zł</span>
+                      <span>{(total + vat).toFixed(2)} zł</span>
                     </div>
                   </div>
 
-                  {/* Transport Info */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                    <p className="text-sm text-white/80 mb-2">
-                      💡 Zapytaj o cenę transportu
-                    </p>
-                    <p className="text-xs text-white/70">
-                      Wyceny transportu dokonujemy indywidualnie
-                    </p>
+                    <p className="text-sm text-white/80">💡 Transport obliczamy indywidualnie</p>
                   </div>
 
-                  {/* CTA Buttons */}
                   <div className="space-y-3 pt-4">
-                    <button
-                      onClick={sendWhatsAppQuery}
-                      className="w-full bg-white text-brand-green py-4 px-6 rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2"
-                    >
-                      <Image
-                        src="/whatsapp-svgrepo-com.svg"
-                        alt="WhatsApp"
-                        width={24}
-                        height={24}
-                        className="brightness-0"
-                      />
-                      Wyślij zapytanie WhatsApp
+                    <button onClick={sendWhatsApp} className="w-full bg-white text-brand-green py-4 px-6 rounded-xl font-bold hover:bg-gray-100 shadow-lg flex items-center justify-center gap-2">
+                      <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={24} height={24} className="brightness-0" />
+                      Wyślij WhatsApp
                     </button>
-
-                    <a
-                      href="tel:+48537593186"
-                      className="w-full bg-brand-brown text-white py-4 px-6 rounded-xl font-bold hover:bg-brand-brown/90 transition-all flex items-center justify-center gap-2"
-                    >
-                      <Phone className="w-5 h-5" />
-                      Zadzwoń: 537 593 186
+                    <a href="tel:+48537593186" className="block w-full bg-brand-brown text-white py-4 px-6 rounded-xl font-bold hover:bg-brand-brown/90 text-center">
+                      <Phone className="w-5 h-5 inline mr-2" />
+                      537 593 186
                     </a>
                   </div>
                 </div>
               )}
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Info */}
-        <div className="mt-12 bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-200">
-          <h3 className="font-display text-xl md:text-2xl font-bold text-brand-brown mb-3">
-            Potrzebujesz pomocy z wyceną?
-          </h3>
-          <p className="text-brand-brown/70 mb-6">
-            Nasi specjaliści chętnie pomogą Ci dobrać odpowiedni materiał i obliczyć dokładną
-            ilość potrzebną do Twojego projektu. Dzwoń, pisz - doradzimy za darmo!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href="tel:+48537593186" className="btn-primary text-center">
-              <Phone className="w-5 h-5 inline mr-2" />
-              Zadzwoń: 537 593 186
-            </a>
-            <a href="https://wa.me/48537593186" className="btn-whatsapp text-center">
-              <Image
-                src="/whatsapp-svgrepo-com.svg"
-                alt="WhatsApp"
-                width={20}
-                height={20}
-                className="brightness-0 invert inline mr-2"
-              />
-              WhatsApp
-            </a>
           </div>
         </div>
       </main>

@@ -4,294 +4,51 @@
       "id": 1,
       "name": "Deska szorstka",
       "sizes": [
-        {
-          "dimension": "25mm MIX szerokości x 3000mm",
-          "price": 5,
-          "stock": 500,
-          "available": true
-        },
-        {
-          "dimension": "25mm MIX szerokości x 4000mm",
-          "price": 20,
-          "stock": 450,
-          "available": true
-        },
-        {
-          "dimension": "25mm MIX szerokości x 5000mm",
-          "price": 25,
-          "stock": 300,
-          "available": true
-        },
-        {
-          "dimension": "25x150x4000mm",
-          "price": 18,
-          "stock": 600,
-          "available": true
-        },
-        {
-          "dimension": "32x140x6000mm",
-          "price": 34,
-          "stock": 250,
-          "available": true
-        }
+        { "dimension": "25mm MIX x 3m", "price": 15.00, "unit": "szt", "available": true },
+        { "dimension": "25mm MIX x 4m", "price": 20.00, "unit": "szt", "available": true },
+        { "dimension": "25x150x4000mm", "price": 18.00, "unit": "szt", "available": true },
+        { "dimension": "32x140x6000mm", "price": 34.00, "unit": "szt", "available": true }
       ]
     },
     {
       "id": 2,
-      "name": "Kantówka mokra szorstka",
+      "name": "Kantówka mokra",
       "sizes": [
-        {
-          "dimension": "38x63mm",
-          "price": 25,
-          "stock": 200,
-          "available": true
-        },
-        {
-          "dimension": "50x50mm",
-          "price": 28,
-          "stock": 180,
-          "available": true
-        },
-        {
-          "dimension": "50x100mm",
-          "price": 45,
-          "stock": 150,
-          "available": true
-        },
-        {
-          "dimension": "70x70mm",
-          "price": 50,
-          "stock": 120,
-          "available": true
-        },
-        {
-          "dimension": "100x100mm",
-          "price": 85,
-          "stock": 80,
-          "available": true
-        },
-        {
-          "dimension": "150x150mm",
-          "price": 150,
-          "stock": 40,
-          "available": true
-        }
+        { "dimension": "38x63mm", "price": 25.00, "unit": "mb", "available": true },
+        { "dimension": "50x100mm", "price": 45.00, "unit": "mb", "available": true },
+        { "dimension": "100x100mm", "price": 85.00, "unit": "mb", "available": true }
       ]
     },
     {
       "id": 3,
       "name": "Łaty i kontrłaty",
       "sizes": [
-        {
-          "dimension": "25x50mm (do 6m)",
-          "price": 8,
-          "stock": 800,
-          "available": true
-        },
-        {
-          "dimension": "32x50mm (do 6m)",
-          "price": 10,
-          "stock": 600,
-          "available": true
-        },
-        {
-          "dimension": "38x63mm (do 6m)",
-          "price": 12,
-          "stock": 500,
-          "available": true
-        },
-        {
-          "dimension": "50x50mm (do 6m)",
-          "price": 14,
-          "stock": 400,
-          "available": true
-        }
+        { "dimension": "25x50mm", "price": 8.00, "unit": "mb", "available": true },
+        { "dimension": "32x50mm", "price": 10.00, "unit": "mb", "available": true }
       ]
     },
     {
       "id": 4,
       "name": "Więźba dachowa",
       "sizes": [
-        {
-          "dimension": "50x100mm C24",
-          "price": 1200,
-          "stock": 50,
-          "available": true
-        },
-        {
-          "dimension": "50x150mm C24",
-          "price": 1350,
-          "stock": 45,
-          "available": true
-        },
-        {
-          "dimension": "70x140mm C24",
-          "price": 1500,
-          "stock": 40,
-          "available": true
-        },
-        {
-          "dimension": "100x100mm mokra",
-          "price": 1100,
-          "stock": 35,
-          "available": true
-        },
-        {
-          "dimension": "Projekt + cięcie CNC",
-          "price": 0,
-          "stock": 999,
-          "available": true
-        }
+        { "dimension": "50x100mm C24", "price": 1200.00, "unit": "m2", "available": true },
+        { "dimension": "50x150mm C24", "price": 1350.00, "unit": "m2", "available": true }
       ]
     },
     {
       "id": 5,
-      "name": "Deski strugane bez pióro-wpustu",
+      "name": "Deski strugane",
       "sizes": [
-        {
-          "dimension": "19x95mm (wilg. 18-22%)",
-          "price": 5.5,
-          "stock": 400,
-          "available": true
-        },
-        {
-          "dimension": "19x120mm (wilg. 18-22%)",
-          "price": 6,
-          "stock": 350,
-          "available": true
-        },
-        {
-          "dimension": "22x95mm (wilg. 18-22%)",
-          "price": 6.2,
-          "stock": 300,
-          "available": true
-        },
-        {
-          "dimension": "22x120mm (wilg. 18-22%)",
-          "price": 7,
-          "stock": 280,
-          "available": true
-        },
-        {
-          "dimension": "25x150mm (wilg. 18-22%)",
-          "price": 8.5,
-          "stock": 250,
-          "available": true
-        }
+        { "dimension": "19x95mm", "price": 5.50, "unit": "mb", "available": true },
+        { "dimension": "25x150mm", "price": 8.50, "unit": "mb", "available": true }
       ]
     },
     {
       "id": 6,
-      "name": "Deski strugane z pióro-wpustem",
-      "sizes": [
-        {
-          "dimension": "14x110mm Boazeria",
-          "price": 6.16,
-          "stock": 500,
-          "available": true
-        },
-        {
-          "dimension": "18x135mm Podbitka",
-          "price": 7.5,
-          "stock": 400,
-          "available": true
-        },
-        {
-          "dimension": "22x135mm Elewacja",
-          "price": 8.8,
-          "stock": 350,
-          "available": true
-        },
-        {
-          "dimension": "25x145mm Elewacja premium",
-          "price": 10.2,
-          "stock": 300,
-          "available": true
-        }
-      ]
-    },
-    {
-      "id": 7,
       "name": "Deski tarasowe",
       "sizes": [
-        {
-          "dimension": "28x145x3000mm rowkowana",
-          "price": 29,
-          "stock": 400,
-          "available": true
-        },
-        {
-          "dimension": "28x145x4000mm rowkowana",
-          "price": 38,
-          "stock": 350,
-          "available": true
-        },
-        {
-          "dimension": "28x145x5000mm rowkowana",
-          "price": 47,
-          "stock": 250,
-          "available": true
-        },
-        {
-          "dimension": "28x145x3000mm gładka",
-          "price": 27,
-          "stock": 300,
-          "available": true
-        },
-        {
-          "dimension": "28x145x4000mm gładka",
-          "price": 36,
-          "stock": 280,
-          "available": true
-        },
-        {
-          "dimension": "28x145x5000mm gładka",
-          "price": 45,
-          "stock": 200,
-          "available": true
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Kantówka suszona C24",
-      "sizes": [
-        {
-          "dimension": "45x70mm (wilg. 18-22%)",
-          "price": 48,
-          "stock": 150,
-          "available": true
-        },
-        {
-          "dimension": "45x95mm (wilg. 18-22%)",
-          "price": 55,
-          "stock": 130,
-          "available": true
-        },
-        {
-          "dimension": "45x120mm (wilg. 18-22%)",
-          "price": 65,
-          "stock": 110,
-          "available": true
-        },
-        {
-          "dimension": "45x145mm (wilg. 18-22%)",
-          "price": 75,
-          "stock": 100,
-          "available": true
-        },
-        {
-          "dimension": "70x145mm (wilg. 18-22%)",
-          "price": 110,
-          "stock": 80,
-          "available": true
-        },
-        {
-          "dimension": "95x95mm (wilg. 18-22%)",
-          "price": 95,
-          "stock": 70,
-          "available": true
-        }
+        { "dimension": "28x145x3000mm rowkowana", "price": 29.00, "unit": "szt", "available": true },
+        { "dimension": "28x145x4000mm rowkowana", "price": 38.00, "unit": "szt", "available": true }
       ]
     }
   ]
