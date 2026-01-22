@@ -435,10 +435,10 @@ export default function KalkulatorPage() {
                   {/* Transport Info */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                     <p className="text-sm text-white/80 mb-2">
-                      💡 Transport obliczamy indywidualnie
+                      💡 Zapytaj o cenę transportu
                     </p>
                     <p className="text-xs text-white/70">
-                      Dla zamówień powyżej 5000 zł - darmowa dostawa w regionie!
+                      Wyceny transportu dokonujemy indywidualnie
                     </p>
                   </div>
 
