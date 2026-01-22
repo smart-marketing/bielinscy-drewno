@@ -202,7 +202,7 @@ export default function AdminDashboard() {
                 Zarządzanie produktami i cenami
               </p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 pt-30">
               <button
                 onClick={saveProducts}
                 disabled={saving}
