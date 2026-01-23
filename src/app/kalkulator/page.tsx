@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Calculator, Package, ShoppingCart, Phone, Trash2, Plus, X } from "lucide-react";
+import { Calculator, Package, ShoppingCart, Phone, Trash2, Plus, X, Mail, Printer, Download } from "lucide-react";
 import Image from "next/image";
 
 interface ProductSize {
@@ -92,6 +92,137 @@ export default function KalkulatorPage() {
     window.open(`https://wa.me/48537593186?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
+  const sendEmail = () => {
+    if (cart.length === 0) return;
+    const items = cart.map((item, i) =>
+      `${i+1}. ${item.productName} ${item.dimension} - ${item.quantity} ${item.unit} × ${item.pricePerUnit.toFixed(2)} zł = ${(item.pricePerUnit * item.quantity).toFixed(2)} zł`
+    ).join("\n");
+    
+    const subject = encodeURIComponent("Wycena drewna - Bielińscy Drewno");
+    const body = encodeURIComponent(
+      `Dzień dobry!\n\nPrzesyłam wycenę z kalkulatora:\n\n${items}\n\nPodsumowanie:\nWartość netto: ${total.toFixed(2)} zł\nVAT 23%: ${vat.toFixed(2)} zł\nRAZEM brutto: ${(total+vat).toFixed(2)} zł\n\nProszę o kontakt.\n\nPozdrawiam`
+    );
+    
+    window.location.href = `mailto:biuro@bielinscy-drewno.pl?subject=${subject}&body=${body}`;
+  };
+
+  const printQuote = () => {
+    if (cart.length === 0) return;
+    
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) return;
+
+    const html = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Wycena - Bielińscy Drewno</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; }
+          .header { text-align: center; margin-bottom: 30px; border-bottom: 3px solid #2B6650; padding-bottom: 20px; }
+          .header h1 { color: #2B6650; margin: 0; font-size: 32px; }
+          .header p { color: #4C3B34; margin: 5px 0; }
+          .date { text-align: right; color: #666; margin-bottom: 20px; font-size: 14px; }
+          table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+          th { background: #2B6650; color: white; padding: 12px; text-align: left; }
+          td { padding: 10px; border-bottom: 1px solid #ddd; }
+          tr:hover { background: #f9f9f9; }
+          .total-section { margin-top: 30px; text-align: right; }
+          .total-row { display: flex; justify-content: flex-end; margin: 8px 0; font-size: 16px; }
+          .total-row span:first-child { margin-right: 20px; color: #666; }
+          .total-row span:last-child { font-weight: bold; min-width: 120px; text-align: right; }
+          .grand-total { font-size: 24px; color: #2B6650; padding-top: 10px; border-top: 2px solid #2B6650; margin-top: 10px; }
+          .footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 14px; color: #666; }
+          .footer-row { display: flex; justify-content: space-between; margin: 5px 0; }
+          @media print {
+            body { padding: 20px; }
+            button { display: none; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="header">
+          <h1>BIELIŃSCY DREWNO</h1>
+          <p>Wycena produktów</p>
+        </div>
+        
+        <div class="date">
+          Data: ${new Date().toLocaleDateString('pl-PL')}
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Lp.</th>
+              <th>Produkt</th>
+              <th>Wymiar</th>
+              <th>Ilość</th>
+              <th>Cena jedn.</th>
+              <th>Wartość</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${cart.map((item, i) => `
+              <tr>
+                <td>${i + 1}</td>
+                <td>${item.productName}</td>
+                <td>${item.dimension}</td>
+                <td>${item.quantity} ${item.unit}</td>
+                <td>${item.pricePerUnit.toFixed(2)} zł</td>
+                <td>${(item.pricePerUnit * item.quantity).toFixed(2)} zł</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+
+        <div class="total-section">
+          <div class="total-row">
+            <span>Wartość netto:</span>
+            <span>${total.toFixed(2)} zł</span>
+          </div>
+          <div class="total-row">
+            <span>VAT 23%:</span>
+            <span>${vat.toFixed(2)} zł</span>
+          </div>
+          <div class="total-row grand-total">
+            <span>RAZEM brutto:</span>
+            <span>${(total + vat).toFixed(2)} zł</span>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="footer-row">
+            <span><strong>Bielińscy Drewno</strong></span>
+            <span>Tel: 537 593 186</span>
+          </div>
+          <div class="footer-row">
+            <span>Mirotki, woj. Pomorskie</span>
+            <span>www.bielinscy-drewno.pl</span>
+          </div>
+          <p style="margin-top: 20px; font-size: 12px; color: #999;">
+            * Ceny orientacyjne. Ostateczna wycena po kontakcie z biurem.<br>
+            * Transport obliczany indywidualnie.
+          </p>
+        </div>
+
+        <script>
+          window.onload = function() {
+            window.print();
+          }
+        </script>
+      </body>
+      </html>
+    `;
+
+    printWindow.document.write(html);
+    printWindow.document.close();
+  };
+
+  const downloadPDF = () => {
+    // Używa tej samej funkcji co print - przeglądarki mają opcję "Zapisz jako PDF"
+    printQuote();
+  };
+
   if (loading) return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="animate-spin w-12 h-12 border-4 border-brand-green border-t-transparent rounded-full" />
@@ -124,7 +255,6 @@ export default function KalkulatorPage() {
                 Dodaj produkt
               </h2>
 
-              {/* Produkt */}
               <div className="mb-4">
                 <label className="block text-sm font-semibold text-brand-brown mb-2">
                   Rodzaj drewna
@@ -144,7 +274,6 @@ export default function KalkulatorPage() {
                 </select>
               </div>
 
-              {/* Rozmiar (z jednostką) */}
               {selectedProduct && (
                 <div className="mb-4">
                   <label className="block text-sm font-semibold text-brand-brown mb-2">
@@ -165,7 +294,6 @@ export default function KalkulatorPage() {
                 </div>
               )}
 
-              {/* Ilość (pokazuje jednostkę) */}
               {selectedSize && (
                 <div className="mb-4">
                   <label className="block text-sm font-semibold text-brand-brown mb-2">
@@ -182,7 +310,6 @@ export default function KalkulatorPage() {
                 </div>
               )}
 
-              {/* Dodaj */}
               {selectedSize && (
                 <button
                   onClick={addToCart}
@@ -194,7 +321,6 @@ export default function KalkulatorPage() {
               )}
             </div>
 
-            {/* Koszyk */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="font-display text-xl font-bold text-brand-brown flex items-center gap-2">
@@ -242,7 +368,6 @@ export default function KalkulatorPage() {
             </div>
           </div>
 
-          {/* Podsumowanie */}
           <div>
             <div className="bg-gradient-to-br from-brand-green to-brand-green/90 rounded-2xl shadow-2xl p-6 text-white sticky top-8">
               <h2 className="font-display text-2xl font-bold mb-6 flex items-center gap-2">
@@ -287,11 +412,22 @@ export default function KalkulatorPage() {
                   <div className="space-y-3 pt-4">
                     <button onClick={sendWhatsApp} className="w-full bg-white text-brand-green py-4 px-6 rounded-xl font-bold hover:bg-gray-100 shadow-lg flex items-center justify-center gap-2">
                       <Image src="/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={24} height={24} className="brightness-0" />
-                      Wyślij WhatsApp
+                      Napisz do nas na Whatsapp
                     </button>
-                    <a href="tel:+48537593186" className="block w-full bg-brand-brown text-white py-4 px-6 rounded-xl font-bold hover:bg-brand-brown/90 text-center">
+
+                    <button onClick={sendEmail} className="w-full bg-brand-brown text-white py-4 px-6 rounded-xl font-bold hover:bg-brand-brown/90 flex items-center justify-center gap-2">
+                      <Mail className="w-5 h-5" />
+                      Wyślij Email
+                    </button>
+
+                    <button onClick={printQuote} className="w-full bg-white/20 backdrop-blur text-white py-4 px-6 rounded-xl font-bold hover:bg-white/30 border-2 border-white/30 flex items-center justify-center gap-2">
+                      <Printer className="w-5 h-5" />
+                      Drukuj / Zapisz PDF
+                    </button>
+
+                    <a href="tel:+48537593186" className="block w-full bg-white/10 backdrop-blur text-white py-4 px-6 rounded-xl font-bold hover:bg-white/20 border border-white/20 text-center">
                       <Phone className="w-5 h-5 inline mr-2" />
-                      537 593 186
+                      Zadzwoń teraz: 537 593 186
                     </a>
                   </div>
                 </div>

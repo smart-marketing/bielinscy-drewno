@@ -48,7 +48,7 @@ const productData = {
     },
     {
       title: "Z impregnacją",
-      description: "Możliwość zamówienia z impregnacją ciśnieniową"
+      description: "Możliwość zamówienia z impregnacją"
     }
   ],
 

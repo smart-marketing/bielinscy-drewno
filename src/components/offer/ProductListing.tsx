@@ -18,7 +18,7 @@ const products = [
       "Impregnacja ciśnieniowa",
       "Dostępna od ręki"
     ],
-    price: "od 18 zł/szt",
+    price: "Skorzystaj z kalkulatora i oblicz cenę",
     badge: "Bestseller"
   },
   {
@@ -33,7 +33,7 @@ const products = [
       "Impregnowana lub naturalna",
       "Cięcie na wymiar"
     ],
-    price: "od 25 zł/szt"
+    price: "Skorzystaj z kalkulatora i oblicz cenę"
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const products = [
       "Drewno świerkowe",
       "Realizacja 24h"
     ],
-    price: "od 8 zł/mb"
+    price: "Skorzystaj z kalkulatora i oblicz cenę"
   },
   {
     id: 4,
@@ -57,11 +57,10 @@ const products = [
     image: "/wiezba-dachowa.jpg",
     features: [
       "Projekt + wycena gratis",
-      "Cięcie CNC",
       "Dostawa na budowę",
       "Klasa C24 dostępna"
     ],
-    price: "od 1200 zł/m²",
+    price: "Skorzystaj z kalkulatora i oblicz cenę",
     badge: "Premium"
   },
   {
@@ -76,7 +75,7 @@ const products = [
       "Gładka powierzchnia",
       "Szeroki wybór wymiarów"
     ],
-    price: "od 6 zł/szt"
+    price: "Skorzystaj z kalkulatora i oblicz cenę"
   },
   {
     id: 6,
@@ -90,7 +89,7 @@ const products = [
       "Podbitka 18x135mm",
       "Elewacja 22x135mm"
     ],
-    price: "od 6.16 zł/szt"
+    price: "Skorzystaj z kalkulatora i oblicz cenę"
   },
   {
     id: 7,
@@ -104,8 +103,8 @@ const products = [
       "Gwarancja 10 lat",
       "Rowkowana lub gładka"
     ],
-    price: "od 29 zł/szt",
-    badge: "Gwarancja"
+    price: "Skorzystaj z kalkulatora i oblicz cenę",
+    badge: "Często wybierane do ogrodu"
   },
   {
     id: 8,
@@ -119,7 +118,7 @@ const products = [
       "Wymiary dokładne",
       "Bez żywicy"
     ],
-    price: "od 48 zł/szt",
+    price: "Skorzystaj z kalkulatora i oblicz cenę",
     badge: "Premium"
   }
 ];
@@ -203,7 +202,7 @@ export default function ProductListing() {
 
                     {/* Price & CTA */}
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div className="text-2xl font-bold text-brand-green">
+                      <div className="text-xs font-bold text-brand-green">
                         {product.price}
                       </div>
                       <div className="flex items-center gap-2 text-brand-brown group-hover:text-brand-green transition-colors font-semibold">

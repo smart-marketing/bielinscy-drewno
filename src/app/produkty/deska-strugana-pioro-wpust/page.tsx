@@ -150,8 +150,7 @@ const productData = {
   limitations: [
     "Trzeba zostawić szczelinę dylatacyjną przy ścianach",
     "Na zewnątrz konieczna impregnacja/olejowanie",
-    "Grubość dobieraj do zastosowania",
-    "Droższe niż deski bez pióro-wpustu"
+    "Grubość dobieraj do zastosowania"
   ],
 
   practicalTip: {

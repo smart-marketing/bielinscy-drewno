@@ -58,10 +58,10 @@ const productData = {
       size: "Wymiary indywidualne",
       specs: "Według projektu konstrukcyjnego",
       details: "Dobór przekrojów pod obciążenia śniegiem i wiatrem",
-      availability: "Konsultacja z konstruktorem"
+      availability: "?"
     },
     {
-      size: "Krokwie 50x140-80x180",
+      size: "Krokwie",
       specs: "Mokra lub suszona C24, sosna/świerk",
       details: "Najpopularniejsze przekroje konstrukcyjne",
       availability: "Wycena po podaniu długości"
@@ -69,14 +69,8 @@ const productData = {
     {
       size: "Płatwie, jętki, murłaty",
       specs: "Pełen zakres wymiarów konstrukcyjnych",
-      details: "Długości do 6m, większe na zamówienie",
+      details: "Długości do 6m dostępne od ręki, większe na zamówienie",
       availability: "Wycena indywidualna"
-    },
-    {
-      size: "Więźby prefabrykowane",
-      specs: "Gotowe konstrukcje dachowe",
-      details: "Szybki montaż, wysoka precyzja",
-      availability: "Na zamówienie - konsultacja"
     }
   ],
 
@@ -130,13 +124,12 @@ const productData = {
   limitations: [
     "Mokra paczy i pęka po montażu",
     "Mokra zmienia geometrię dachu",
-    "Suszona droższa od mokrej",
-    "Wymaga zabezpieczenia przy ekspozycji"
+    "Suszona droższa od mokrej"
   ],
 
   practicalTip: {
-    title: "💡 Która więźba dla Twojego dachu?",
-    content: "Stan surowy + budynek gospodarczy → mokra (z dobrą impregnacją). Dom całoroczny + poddasze użytkowe + płyty GK → ZDECYDOWANIE suszona C24. Mokra więźba schnąc w dachu może popękać płyty i zmienić geometrię pokrycia. Oszczędność na drewnie = wydatek na naprawy!"
+    title: "💡 Jaka więźba na Twój dach? Wybierz mądrze!",
+    content: "Stan surowy lub budynek gospodarczy: Możesz postawić na więźbę mokrą (pod warunkiem solidnej impregnacji). Dom całoroczny z poddaszem użytkowym i zabudową GK: Tutaj wybór jest tylko jeden – drewno suszone komorowo w klasie C24."
   }
 };
 

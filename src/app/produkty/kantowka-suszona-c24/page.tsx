@@ -45,7 +45,7 @@ const productData = {
     },
     {
       title: "Strugana",
-      description: "Gotowa do użycia, gładka powierzchnia, ostre krawędzie"
+      description: "Gotowa do użycia, gładka powierzchnia, nieostre krawędzie"
     },
     {
       title: "Mało pęknięć",
@@ -168,7 +168,7 @@ export default function KantowkaSuszonaPage() {
   name={productData.name}
   tagline={productData.tagline}
   description={productData.description}
-  image="/kantowka-c24.jpg"
+  image="/kantowka-c24-new.jpeg"
 />
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />

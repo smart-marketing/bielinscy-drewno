@@ -69,7 +69,7 @@ const productData = {
     {
       size: "40x60x4000 mokra szorstka",
       specs: "sosna, wilgotność >20%, na przekładkach",
-      details: "Grubszy przekrój, większa nośność",
+      details: "Grubszy przekrój",
       availability: "Z impregnacją"
     },
     {
@@ -121,7 +121,6 @@ const productData = {
   limitations: [
     "Mokra paczy podczas schnięcia",
     "Suszona wymaga impregnacji na zewnątrz",
-    "Nierówne wymiary (mokra)",
     "Wyższa cena (suszona)"
   ],
 
