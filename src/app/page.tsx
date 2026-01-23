@@ -7,6 +7,7 @@ import Products from "@/components/Products";
 import ServiceArea from "@/components/ServiceArea";
 import FinalCTA from "@/components/FinalCTA";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import Reviews from "@/components/Reviews";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <ForWhom />
         <HowWeWork />
         <Products />
+        <Reviews />
         <ServiceArea />
         <FinalCTA />
       </main>

@@ -378,6 +378,21 @@ export default function FinalCTA() {
                 <ArrowRight className="w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all" />
               </motion.a>
 
+
+{/* Link OLX */}
+<div className="mt-6 text-center">
+  
+    <a href="https://www.olx.pl/d/oferta/deska-strugana-heblowana-22x120x4000-2-2cmx12cmx4m-CID628-IDIqENX.html"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 text-white hover:text-brand-green transition-colors text-sm font-semibold"
+  >
+    <span>🛒</span>
+    <span>Zobacz także naszą ofertę na OLX</span>
+    <ArrowRight className="w-4 h-4" />
+  </a>
+</div>
+
               {/* Info Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
