@@ -13,7 +13,7 @@ const guarantees = [
 ];
 
 const stats = [
-  { number: "500+", label: "Dostaw rocznie", icon: Zap },
+  { number: "1000+", label: "Dostaw rocznie", icon: Zap },
   { number: "12", label: "Lat doświadczenia", icon: Shield },
   { number: "2-3", label: "Dni realizacji", icon: Clock },
 ];
