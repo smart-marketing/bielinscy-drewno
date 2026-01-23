@@ -378,20 +378,23 @@ export default function FinalCTA() {
                 <ArrowRight className="w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all" />
               </motion.a>
 
-
-{/* Link OLX */}
-<div className="mt-6 text-center">
-  
-    <a href="https://www.olx.pl/d/oferta/deska-strugana-heblowana-22x120x4000-2-2cmx12cmx4m-CID628-IDIqENX.html"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 text-white hover:text-brand-green transition-colors text-sm font-semibold"
-  >
-    <span>🛒</span>
-    <span>Zobacz także naszą ofertę na OLX</span>
-    <ArrowRight className="w-4 h-4" />
-  </a>
-</div>
+{/* OLX Button */}
+<motion.a
+  href="https://www.olx.pl/d/oferta/deska-strugana-heblowana-22x120x4000-2-2cmx12cmx4m-CID628-IDIqENX.html"
+  target="_blank"
+  rel="noopener noreferrer"
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+  transition={{ duration: 0.5, delay: 0.5 }}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="flex items-center justify-center gap-3 px-6 py-4 bg-white text-brand-brown rounded-2xl font-bold hover:bg-gray-50 transition-all shadow-xl hover:shadow-2xl border-2 border-white/20"
+>
+  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+  </svg>
+  <span>Zobacz na OLX</span>
+</motion.a>
 
               {/* Info Badge */}
               <motion.div

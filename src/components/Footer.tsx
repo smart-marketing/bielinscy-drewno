@@ -103,7 +103,7 @@ export default function Footer() {
                 </div>
               </div>
               <a
-                href="https://maps.google.com/?q=Mirotki,Skórcz"
+                href="https://www.google.com/maps?client=firefox-b-d&hs=CCYU&sca_esv=09a4dc9e07e27686&sxsrf=ANbL-n43RV5caBqo1ybKJS34clSPmkyntQ:1769169382599&si=AL3DRZFIhG6pAqfNLal55wUTwygCG0fClF3UxiOmgw9Hq7nbWfVuVj_mYb498RgwTlpnVJqk9Miiunm89pVTQlypGPUIJC-YBn9b8uBehPLQDwEvM6ioAzI9CEsAOusMGmzItDo-XQMenryI9ajt0G7KNQJs3Hb6nmdrSTNltFP2TfX6lDhplSo%3D&biw=1485&bih=703&dpr=1.25&aic=0&um=1&ie=UTF-8&fb=1&gl=pl&sa=X&geocode=KRlrxVPDlQJHMRRv2C8aoj0w&daddr=Mirotki+49,+83-225+Mirotki"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-brand-green hover:text-cream text-sm font-semibold transition-colors"

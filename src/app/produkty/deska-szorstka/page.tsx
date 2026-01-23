@@ -51,7 +51,7 @@ const productData = {
     },
     {
       title: "Dobra do dalszej obróbki",
-      description: "Można strugar, ciąć, frezować według potrzeb"
+      description: "Można strugać, ciąć, frezować według potrzeb"
     }
   ],
 

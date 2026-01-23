@@ -20,7 +20,7 @@ const benefits = [
     icon: CheckCircle2,
     title: "Jakość sprawdzona przed wysyłką",
     description:
-      "Wybieramy proste deski, zgodne wymiary, prawdziwa impregnacja ciśnieniowa. Każdą dostawę kontrolujemy - dostajesz tylko materiał, na którym można polegać.",
+      "Wybieramy proste deski, zgodne wymiary, prawdziwa impregnacja. Każdą dostawę kontrolujemy - dostajesz tylko materiał, na którym można polegać.",
   },
   {
     icon: CreditCard,
