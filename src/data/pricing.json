@@ -3,53 +3,311 @@
     {
       "id": 1,
       "name": "Deska szorstka",
+      "unit": "szt",
       "sizes": [
-        { "dimension": "25mm MIX x 3m", "price": 15.00, "unit": "szt", "available": true },
-        { "dimension": "25mm MIX x 4m", "price": 20.00, "unit": "szt", "available": true },
-        { "dimension": "25x150x4000mm", "price": 18.00, "unit": "szt", "available": true },
-        { "dimension": "32x140x6000mm", "price": 34.00, "unit": "szt", "available": true }
+        {
+          "dimension": "25mmx100mmx3000mm",
+          "price": 12.50,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "25mmx100mmx4000mm",
+          "price": 16.00,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "25mmx100mmx5000mm",
+          "price": 20.00,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "25mmx150mmx4000mm",
+          "price": 24.00,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "32mmx140mmx6000mm",
+          "price": 38.00,
+          "unit": "szt",
+          "available": true
+        }
       ]
     },
     {
       "id": 2,
-      "name": "Kantówka mokra",
+      "name": "Kantówka mokra szorstka",
+      "unit": "mb",
       "sizes": [
-        { "dimension": "38x63mm", "price": 25.00, "unit": "mb", "available": true },
-        { "dimension": "50x100mm", "price": 45.00, "unit": "mb", "available": true },
-        { "dimension": "100x100mm", "price": 85.00, "unit": "mb", "available": true }
+        {
+          "dimension": "38mmx63mmx6000mm",
+          "price": 6.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "50mmx50mmx6000mm",
+          "price": 7.20,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "50mmx100mmx6000mm",
+          "price": 12.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "70mmx70mmx6000mm",
+          "price": 11.80,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "80mmx160mmx6000mm",
+          "price": 31.20,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "100mmx100mmx6000mm",
+          "price": 24.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "150mmx150mmx6000mm",
+          "price": 52.00,
+          "unit": "mb",
+          "available": true
+        }
       ]
     },
     {
       "id": 3,
       "name": "Łaty i kontrłaty",
+      "unit": "mb",
       "sizes": [
-        { "dimension": "25x50mm", "price": 8.00, "unit": "mb", "available": true },
-        { "dimension": "32x50mm", "price": 10.00, "unit": "mb", "available": true }
+        {
+          "dimension": "25mmx50mmx6000mm",
+          "price": 2.80,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "32mmx50mmx6000mm",
+          "price": 3.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "38mmx63mmx6000mm",
+          "price": 4.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "50mmx50mmx6000mm",
+          "price": 5.20,
+          "unit": "mb",
+          "available": true
+        }
       ]
     },
     {
       "id": 4,
       "name": "Więźba dachowa",
+      "unit": "mb",
       "sizes": [
-        { "dimension": "50x100mm C24", "price": 1200.00, "unit": "m2", "available": true },
-        { "dimension": "50x150mm C24", "price": 1350.00, "unit": "m2", "available": true }
+        {
+          "dimension": "50mmx100mmx6000mm",
+          "price": 12.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "50mmx150mmx6000mm",
+          "price": 18.00,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "70mmx140mmx6000mm",
+          "price": 23.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "80mmx160mmx6000mm",
+          "price": 31.20,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "100mmx100mmx6000mm",
+          "price": 24.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "Projekt i wycena indywidualna",
+          "price": 0,
+          "unit": "projekt",
+          "available": true
+        }
       ]
     },
     {
       "id": 5,
-      "name": "Deski strugane",
+      "name": "Deski strugane bez pióro-wpustu",
+      "unit": "mb",
       "sizes": [
-        { "dimension": "19x95mm", "price": 5.50, "unit": "mb", "available": true },
-        { "dimension": "25x150mm", "price": 8.50, "unit": "mb", "available": true }
+        {
+          "dimension": "19mmx90mmx3000mm",
+          "price": 8.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "19mmx140mmx3000mm",
+          "price": 12.80,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "28mmx90mmx3000mm",
+          "price": 11.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "28mmx140mmx3000mm",
+          "price": 17.20,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "45mmx90mmx3000mm",
+          "price": 16.50,
+          "unit": "mb",
+          "available": true
+        }
       ]
     },
     {
       "id": 6,
-      "name": "Deski tarasowe",
+      "name": "Deski strugane z pióro-wpustem",
+      "unit": "mb",
       "sizes": [
-        { "dimension": "28x145x3000mm rowkowana", "price": 29.00, "unit": "szt", "available": true },
-        { "dimension": "28x145x4000mm rowkowana", "price": 38.00, "unit": "szt", "available": true }
+        {
+          "dimension": "14mmx110mm Boazeria",
+          "price": 14.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "18mmx135mm Podbitka",
+          "price": 18.00,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "22mmx135mm Elewacja",
+          "price": 22.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "28mmx140mm Elewacja",
+          "price": 28.00,
+          "unit": "mb",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Deski tarasowe",
+      "unit": "mb",
+      "sizes": [
+        {
+          "dimension": "27mmx120mm Gładka",
+          "price": 24.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "27mmx120mm Rowkowana",
+          "price": 26.00,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "27mmx145mm Gładka",
+          "price": 28.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "27mmx145mm Rowkowana",
+          "price": 30.00,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "45mmx120mm Premium",
+          "price": 38.00,
+          "unit": "mb",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Kantówka suszona C24",
+      "unit": "mb",
+      "sizes": [
+        {
+          "dimension": "45mmx70mmx3000mm",
+          "price": 14.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "45mmx95mmx3000mm",
+          "price": 18.00,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "45mmx120mmx3000mm",
+          "price": 22.00,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "45mmx145mmx3000mm",
+          "price": 26.50,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "45mmx195mmx3000mm",
+          "price": 35.00,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "70mmx145mmx3000mm",
+          "price": 38.50,
+          "unit": "mb",
+          "available": true
+        }
       ]
     }
-  ]
+  ],
+  "lastUpdated": "2026-01-24T12:00:00.000Z"
 }
