@@ -6,6 +6,20 @@ import Link from "next/link";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const cityLinks = [
+    { name: "Gdańsk", slug: "gdansk" },
+    { name: "Tczew", slug: "tczew" },
+    { name: "Starogard Gdański", slug: "starogard" },
+    { name: "Grudziądz", slug: "grudziadz" },
+    { name: "Toruń", slug: "torun" },
+    { name: "Bydgoszcz", slug: "bydgoszcz" },
+    { name: "Elbląg", slug: "elblag" },
+    { name: "Malbork", slug: "malbork" },
+    { name: "Kwidzyn", slug: "kwidzyn" },
+    { name: "Olsztyn", slug: "olsztyn" },
+    { name: "Chojnice", slug: "chojnice" },
+  ];
+
   return (
     <footer className="bg-brand-brown text-white/80">
       <div className="container-wide py-12 md:py-16">
@@ -44,33 +58,6 @@ export default function Footer() {
                   </div>
                   <span className="font-medium">537 593 186</span>
                 </a>
-                
-                <a
-                  href="tel:+48695-467-337"
-                  className="flex items-center gap-3 hover:text-white transition-colors group"
-                >
-                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
-                    <Phone className="w-4 h-4 text-brand-green group-hover:text-white" />
-                  </div>
-                  <span className="font-medium">695 467 337</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/48537593186"
-                  className="flex items-center gap-3 hover:text-white transition-colors group"
-                >
-                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
-                    <Image 
-                      src="/whatsapp-svgrepo-com.svg" 
-                      alt="WhatsApp" 
-                      width={16} 
-                      height={16}
-                      className="brightness-0 invert opacity-70 group-hover:opacity-100"
-                    />
-                  </div>
-                  <span className="font-medium">WhatsApp</span>
-                </a>
               </li>
               <li>
                 <a
@@ -80,79 +67,119 @@ export default function Footer() {
                   <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
                     <Mail className="w-4 h-4 text-brand-green group-hover:text-white" />
                   </div>
-                  <span className="font-medium text-sm">biuro@bielinscydrewno.pl</span>
+                  <span className="font-medium">biuro@bielinscydrewno.pl</span>
                 </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.google.com/maps?client=firefox-b-d&hs=CCYU&sca_esv=09a4dc9e07e27686&sxsrf=ANbL-n43RV5caBqo1ybKJS34clSPmkyntQ:1769169382599&si=AL3DRZFIhG6pAqfNLal55wUTwygCG0fClF3UxiOmgw9Hq7nbWfVuVj_mYb498RgwTlpnVJqk9Miiunm89pVTQlypGPUIJC-YBn9b8uBehPLQDwEvM6ioAzI9CEsAOusMGmzItDo-XQMenryI9ajt0G7KNQJs3Hb6nmdrSTNltFP2TfX6lDhplSo%3D&biw=1485&bih=703&dpr=1.25&aic=0&um=1&ie=UTF-8&fb=1&gl=pl&sa=X&geocode=KRlrxVPDlQJHMRRv2C8aoj0w&daddr=Mirotki+49,+83-225+Mirotki"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:text-white transition-colors group"
+                >
+                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors flex-shrink-0">
+                    <MapPin className="w-4 h-4 text-brand-green group-hover:text-white" />
+                  </div>
+                  <span className="font-medium text-sm leading-relaxed">
+                    Mirotki, gm. Skórcz<br />
+                    woj. Pomorskie
+                  </span>
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 text-brand-green" />
+                </div>
+                <span className="font-medium text-sm leading-relaxed">
+                  Pon-Pt: 7:00-17:00<br />
+                  Sobota: 7:00-13:00
+                </span>
               </li>
             </ul>
           </div>
 
-          {/* Location */}
+          {/* Navigation */}
           <div>
             <h4 className="font-display font-bold text-white text-lg mb-5">
-              Lokalizacja
+              Menu
             </h4>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-brand-green" />
-                </div>
-                <div>
-                  <p className="text-white font-semibold">Mirotki</p>
-                  <p className="text-white/60 text-sm">gm. Skórcz, woj. pomorskie</p>
-                  <p className="text-white/50 text-xs mt-1">Zjazd Kopytowo z A1</p>
-                </div>
-              </div>
-              <a
-                href="https://www.google.com/maps?client=firefox-b-d&hs=CCYU&sca_esv=09a4dc9e07e27686&sxsrf=ANbL-n43RV5caBqo1ybKJS34clSPmkyntQ:1769169382599&si=AL3DRZFIhG6pAqfNLal55wUTwygCG0fClF3UxiOmgw9Hq7nbWfVuVj_mYb498RgwTlpnVJqk9Miiunm89pVTQlypGPUIJC-YBn9b8uBehPLQDwEvM6ioAzI9CEsAOusMGmzItDo-XQMenryI9ajt0G7KNQJs3Hb6nmdrSTNltFP2TfX6lDhplSo%3D&biw=1485&bih=703&dpr=1.25&aic=0&um=1&ie=UTF-8&fb=1&gl=pl&sa=X&geocode=KRlrxVPDlQJHMRRv2C8aoj0w&daddr=Mirotki+49,+83-225+Mirotki"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-brand-green hover:text-cream text-sm font-semibold transition-colors"
-              >
-                Zobacz na mapie →
-              </a>
-            </div>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-white transition-colors hover:translate-x-1 inline-block"
+                >
+                  Strona główna
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/o-nas"
+                  className="hover:text-white transition-colors hover:translate-x-1 inline-block"
+                >
+                  O nas
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/oferta"
+                  className="hover:text-white transition-colors hover:translate-x-1 inline-block"
+                >
+                  Oferta
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/kalkulator"
+                  className="hover:text-white transition-colors hover:translate-x-1 inline-block"
+                >
+                  Kalkulator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/kontakt"
+                  className="hover:text-white transition-colors hover:translate-x-1 inline-block"
+                >
+                  Kontakt
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/polityka-prywatnosci"
+                  className="hover:text-white transition-colors hover:translate-x-1 inline-block"
+                >
+                  Polityka prywatności
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Hours */}
+          {/* Miasta - Drewno Budowlane */}
           <div>
             <h4 className="font-display font-bold text-white text-lg mb-5">
-              Godziny otwarcia
+              Drewno budowlane
             </h4>
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Clock className="w-4 h-4 text-brand-green" />
-              </div>
-              <div className="space-y-2 text-sm">
-              <div className="flex justify-between gap-6">
-                  <span className="text-white font-medium">Pon - Pt</span>
-                  <span className="text-white/60">8:00 - 16:00</span>
-                </div>
-                <div className="flex justify-between gap-6">
-                  <span className="text-white font-medium">Sobota</span>
-                  <span className="text-white/60">8:00 - 13:00</span>
-                </div>
-                <div className="flex justify-between gap-6">
-                  <span className="text-white font-medium">Niedziela</span>
-                  <span className="text-white/60">Zamknięte</span>
-                </div>
-              </div>
-            </div>
+            <ul className="space-y-2.5">
+              {cityLinks.map((city) => (
+                <li key={city.slug}>
+                  <Link
+                    href={`/drewno-budowlane/${city.slug}`}
+                    className="hover:text-white transition-colors hover:translate-x-1 inline-block text-sm"
+                  >
+                    {city.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container-wide py-5">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-white/50">
-            <p>© {currentYear} Bielińscy Drewno. Wszystkie prawa zastrzeżone.</p>
-            <Link 
-              href="/polityka-prywatnosci" 
-              className="hover:text-white transition-colors"
-            >
-              Polityka prywatności
-            </Link>
-          </div>
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-white/10 text-center">
+          <p className="text-white/60 text-sm">
+            © {currentYear} Bielińscy Drewno. Wszelkie prawa zastrzeżone.
+          </p>
         </div>
       </div>
     </footer>
