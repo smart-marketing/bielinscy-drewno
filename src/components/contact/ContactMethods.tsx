@@ -172,8 +172,6 @@ export default function ContactMethods() {
             <div className="mt-4 pt-4 border-t border-brand-green/10">
               <p className="text-sm text-brand-brown/60">
                 <strong className="text-brand-brown">Niedziela:</strong> Nieczynne
-                <br />
-                <strong className="text-brand-brown">Telefon i WhatsApp:</strong> Odpowiadamy również poza godzinami pracy
               </p>
             </div>
           </div>

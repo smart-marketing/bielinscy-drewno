@@ -29,7 +29,7 @@ const segments = [
     benefits: [
       "Pomożemy dobrać materiał",
       "Nie przepłacisz",
-      "Nie kupis \"kota w worku\"",
+      "Nie kupisz \"kota w worku\"",
       "Budujesz na lata, nie na pokaz"
     ],
     cta: "Bezpłatne doradztwo"

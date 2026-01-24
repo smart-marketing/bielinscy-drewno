@@ -111,7 +111,7 @@ const products = [
     name: "Kantówka suszona C24",
     slug: "kantowka-suszona-c24",
     description: "Suszone, stabilne, gotowe do montażu - bez skręcania i pękania.",
-    image: "/kantowka-c24.jpg",
+    image: "/kantowka-c24-new.jpeg",
     features: [
       "Wilgotność 18-22%",
       "Klasa wytrzymałości C24",

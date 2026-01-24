@@ -305,6 +305,7 @@ export default function KalkulatorPage() {
                     step="0.01"
                     value={quantity}
                     onChange={(e) => setQuantity(parseFloat(e.target.value) || 1)}
+                    onFocus={(e) => e.target.select()}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green"
                   />
                 </div>
@@ -406,7 +407,7 @@ export default function KalkulatorPage() {
                   </div>
 
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                    <p className="text-sm text-white/80">💡 Transport obliczamy indywidualnie</p>
+                    <p className="text-sm text-white/80">💡 Przy większych zamówieniach możliwy rabat i transport gratis!</p>
                   </div>
 
                   <div className="space-y-3 pt-4">

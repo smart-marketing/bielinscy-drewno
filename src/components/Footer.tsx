@@ -91,8 +91,8 @@ export default function Footer() {
                   <Clock className="w-4 h-4 text-brand-green" />
                 </div>
                 <span className="font-medium text-sm leading-relaxed">
-                  Pon-Pt: 7:00-17:00<br />
-                  Sobota: 7:00-13:00
+                  Pon-Pt: 8:00-16:00<br />
+                  Sobota: 8:00-13:00
                 </span>
               </li>
             </ul>
