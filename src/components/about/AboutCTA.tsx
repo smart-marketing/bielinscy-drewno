@@ -77,7 +77,7 @@ export default function AboutCTA() {
                 <div className="flex-grow">
                   <h3 className="text-xl font-bold text-white mb-2">Zadzwoń teraz</h3>
                   <p className="text-2xl font-bold text-white mb-1">537 593 186</p>
-                  <p className="text-sm text-white/70">Pon-Pt 7:00-17:00, Sob 8:00-14:00</p>
+                  <p className="text-sm text-white/70">Pon-Pt 8:00-16:00, Sob 8:00-13:00</p>
                 </div>
                 <ArrowRight className="w-6 h-6 text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all" />
               </div>

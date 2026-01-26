@@ -25,7 +25,7 @@ const cities = [
     {
       icon: Navigation,
       title: "Centrum północy",
-      description: "Równo oddaleni od Gdańska, Grudziądza, Torunia i Olsztyna"
+      description: "Równo oddaleni od dużych miast Trójmiasta, Bydgoszczy i Torunia"
     },
     {
       icon: Clock,
