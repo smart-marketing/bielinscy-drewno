@@ -52,44 +52,51 @@ const productData = {
     }
   ],
 
-  sizes: [
-    {
-      size: "Boazeria 14x110",
-      specs: "świerk/sosna, profil Softline/Faza, wilgotność <16%",
-      details: "Prawa gładka, lewa ryflowana, strugana z 4 stron",
-      availability: "Zapytaj o dostępną długość"
-    },
-    {
-      size: "Podbitka 18x135x4000",
-      specs: "sosna, wilgotność <16%",
-      details: "Prawa gładka, lewa ryflowana, pakowana po 4 szt",
-      availability: "W magazynie - 4m"
-    },
-    {
-      size: "Podbitka 19x110",
-      specs: "sosna/świerk, wilgotność <16%",
-      details: "Prawa gładka, lewa ryflowana",
-      availability: "Zapytaj o dostępną długość"
-    },
-    {
-      size: "Podbitka 19x136",
-      specs: "sosna/świerk, wilgotność <16%",
-      details: "Prawa gładka, lewa ryflowana",
-      availability: "Zapytaj o dostępną długość"
-    },
-    {
-      size: "Elewacja 22x135x4000",
-      specs: "sosna, wilgotność <16%",
-      details: "Prawa i lewa gładka, możliwość łączenia na długość",
-      availability: "Pakowana po 4 szt"
-    },
-    {
-      size: "Stropopodłoga 28x137",
-      specs: "świerk, wilgotność <16%",
-      details: "Prawa i lewa gładka, grubszy przekrój",
-      availability: "Zapytaj o dostępną długość"
-    }
-  ],
+
+sizes: [
+  {
+    size: "Boazeria 14x110mm",
+    specs: "świerk/sosna, profil Softline, wilgotność <16%",
+    details: "Prawa gładka, lewa ryflowana, strugana z 4 stron",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Boazeria 14mmx110mm.jpg"
+  },
+  {
+    size: "Boazeria 14x110mm Faza",
+    specs: "świerk/sosna, profil Faza, wilgotność <16%",
+    details: "Prawa gładka, lewa ryflowana, strugana z 4 stron",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Boazeria 14mmx110mm Faza.jpg"
+  },
+  {
+    size: "Podbitka 18mmx135mmx4000mm",
+    specs: "sosna, wilgotność <16%",
+    details: "Prawa gładka, lewa ryflowana, pakowana po 4 szt",
+    availability: "W magazynie - 4m",
+    image: "/Podbitka 18mmx135mmx4000mm.jpg"
+  },
+  {
+    size: "Podbitka 19mmx110mmx4000mm",
+    specs: "sosna/świerk, wilgotność <16%",
+    details: "Prawa gładka, lewa ryflowana",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Podbitka 19mmx110mmx4000mm.jpg"
+  },
+  {
+    size: "Podbitka 20mmx113mm",
+    specs: "sosna, wilgotność <16%",
+    details: "Prawa gładka, lewa ryflowana",
+    availability: "W magazynie",
+    image: "/Podbitka 20mmx113mm.jpg"
+  },
+  {
+    size: "Deska elewacyjna 22mmx135mmx4000mm",
+    specs: "sosna, wilgotność <16%",
+    details: "Prawa gładka, lewa ryflowana, do elewacji",
+    availability: "W magazynie - 4m",
+    image: "/Deska elewacyjna 22mmx135mmx4000mm.jpg"
+  }
+],
 
   applications: [
     {
@@ -166,7 +173,7 @@ export default function DeskaPioroWpustPage() {
   name={productData.name}
   tagline={productData.tagline}
   description={productData.description}
-  image="/deska-strugana-wpust.jpg"
+  image="/Boazeria 14mmx110mm.jpg"
 />
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />

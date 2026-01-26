@@ -53,44 +53,71 @@ const productData = {
     }
   ],
 
-  sizes: [
-    {
-      size: "45x70/95/120/145/195",
-      specs: "sosna/świerk, wilgotność <18%, na przekładkach",
-      details: "Pełen zakres szerokości przy grubości 45mm",
-      availability: "Bez impregnacji - zapytaj o dostępną długość"
-    },
-    {
-      size: "60x120/140",
-      specs: "sosna/świerk, wilgotność <18%, na przekładkach",
-      details: "Większe przekroje konstrukcyjne",
-      availability: "Bez impregnacji - zapytaj o dostępną długość"
-    },
-    {
-      size: "100x100",
-      specs: "sosna/świerk, wilgotność <18%, na przekładkach",
-      details: "Przekrój kwadratowy - słupy, belki",
-      availability: "Bez impregnacji - zapytaj o dostępną długość"
-    },
-    {
-      size: "120x120",
-      specs: "sosna/świerk, wilgotność <18%, na przekładkach",
-      details: "Duży przekrój nośny",
-      availability: "Bez impregnacji - zapytaj o dostępną długość"
-    },
-    {
-      size: "140x140",
-      specs: "sosna/świerk, wilgotność <18%, na przekładkach",
-      details: "Największy dostępny przekrój standardowy",
-      availability: "Bez impregnacji - zapytaj o dostępną długość"
-    },
-    {
-      size: "Inne wymiary",
-      specs: "Pod zamówienie",
-      details: "Specjalne przekroje na indywidualne zlecenie",
-      availability: "Konsultacja - wycena indywidualna"
-    }
-  ],
+// src/app/produkty/kantowka-suszona-c24/page.tsx
+
+sizes: [
+  {
+    size: "Kantówka C24",
+    specs: "sosna/świerk, suszona komorowo, wilgotność 12-18%, klasa C24",
+    details: "Wysokiej jakości drewno konstrukcyjne, strugane 4 strony, stabilne wymiarowo",
+    availability: "Zapytaj o dostępne przekroje i długości",
+    image: "/Kantówka C24.png"
+  },
+  {
+    size: "45x70mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Najmniejszy przekrój suszonej kantówki",
+    availability: "Na zamówienie - 5-7 dni"
+  },
+  {
+    size: "45x95mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Konstrukcje szkieletowe, więźby lekkie",
+    availability: "Na zamówienie - 5-7 dni"
+  },
+  {
+    size: "45x120mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Krokwie, konstrukcje szkieletowe",
+    availability: "Na zamówienie - 5-7 dni"
+  },
+  {
+    size: "45x145mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Szersze krokwie, belki stropowe",
+    availability: "Na zamówienie - 5-7 dni"
+  },
+  {
+    size: "45x195mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Bardzo szeroka kantówka konstrukcyjna",
+    availability: "Na zamówienie - 7-10 dni"
+  },
+  {
+    size: "60x120mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Mocniejsza konstrukcja, większa nośność",
+    availability: "Na zamówienie - 5-7 dni"
+  },
+  {
+    size: "60x140mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Belki stropowe, konstrukcje widoczne",
+    availability: "Na zamówienie - 7-10 dni"
+  },
+  {
+    size: "100x100mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Kwadratowe słupy, belki nośne",
+    availability: "Na zamówienie - 7-10 dni"
+  },
+  {
+    size: "140x140mm C24",
+    specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
+    details: "Duże słupy konstrukcyjne premium",
+    availability: "Na zamówienie - 10-14 dni"
+  }
+],
 
   applications: [
     {

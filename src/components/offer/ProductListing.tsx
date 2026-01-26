@@ -82,7 +82,7 @@ const products = [
     name: "Deski strugane z pióro-wpustem",
     slug: "deska-strugana-pioro-wpust",
     description: "Boazerie, elewacje, podbitki dachowe - szczelne połączenie na pióro.",
-    image: "/deska-strugana-wpust.jpg",
+    image: "/Boazeria 14mmx110mm.jpg",
     features: [
       "System pióro-wpust",
       "Boazeria 14x110mm",

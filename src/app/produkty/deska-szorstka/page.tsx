@@ -55,26 +55,37 @@ const productData = {
     }
   ],
 
-  sizes: [
-    {
-      size: "25mm MIX szerokości",
-      specs: "sosna/świerk, wilgotność >20%, mix szerokości",
-      details: "Deska boczna, jednakowa długość 3m/4m/5m",
-      availability: "Z impregnacją lub bez"
-    },
-    {
-      size: "25x150x4000",
-      specs: "sosna/świerk, wilgotność >20%",
-      details: "Cięta na pile tarczowej, z głównego cięcia",
-      availability: "Z impregnacją lub bez"
-    },
-    {
-      size: "32x140x6000",
-      specs: "sosna/świerk, wilgotność >20%",
-      details: "Jednakowy wymiar, z głównego cięcia",
-      availability: "Z impregnacją lub bez"
-    }
-  ],
+  // src/app/produkty/deska-szorstka/page.tsx
+
+sizes: [
+  {
+    size: "Deska szalunkowa 25mm",
+    specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
+    details: "Szerokość MIX, długości 3-6m",
+    availability: "W magazynie - duże ilości",
+    image: "/Deska szalunkowa 25mm.jpg"
+  },
+  {
+    size: "Deska 32mmx140mm",
+    specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
+    details: "Grubsza deska konstrukcyjna",
+    availability: "W magazynie - długości 4-6m",
+    image: "/Deska 32mmx140mm.jpg"
+  },
+  {
+    size: "Deska 25mmx150mmx4000mm",
+    specs: "sosna/świerk, nieheblowana",
+    details: "Szeroka deska szalunkowa, długość 4m",
+    availability: "W magazynie",
+    image: "/Deska 25mmx150mmx4000mm.jpg"
+  },
+  {
+    size: "Deska 25mm MIX szerokości",
+    specs: "sosna/świerk, nieheblowana",
+    details: "Mieszane szerokości 100-150mm, ekonomiczny wybór",
+    availability: "Duże ilości od ręki"
+  }
+],
 
   applications: [
     {

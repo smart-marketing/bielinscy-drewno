@@ -54,19 +54,19 @@ const productData = {
 
   sizes: [
     {
-      size: "27x145",
+      size: "27x145 mm",
       specs: "sosna/świerk, wilgotność <16%",
       details: "Prawa i lewa strona ryflowana (obustronna)",
       availability: "Z impregnacją ciśnieniową brązową lub bez - zapytaj o długość"
     },
     {
-      size: "28x145x4000",
+      size: "28x145x4000 mm",
       specs: "sosna/świerk, wilgotność <16%",
       details: "Prawa ryflowana, lewa gładka",
       availability: "Z impregnacją ciśnieniową brązową lub bez - zapytaj o długość"
     },
     {
-      size: "28x120",
+      size: "28x120 mm",
       specs: "sosna/świerk, wilgotność <16%",
       details: "Prawa ryflowana, lewa gładka",
       availability: "Z impregnacją ciśnieniową brązową lub bez - zapytaj o długość"

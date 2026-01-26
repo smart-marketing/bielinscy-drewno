@@ -54,43 +54,43 @@ const productData = {
 
   sizes: [
     {
-      size: "40x140x6000",
+      size: "40x140x6000 mm",
       specs: "sosna/świerk, wilgotność >20%",
       details: "Na przekładkach",
       availability: "Z impregnacją lub bez"
     },
     {
-      size: "50x140x6000",
+      size: "50x140x6000 mm",
       specs: "sosna/świerk, wilgotność >20%",
       details: "Na przekładkach",
       availability: "Z impregnacją lub bez"
     },
     {
-      size: "50x100",
+      size: "50x100 mm",
       specs: "sosna/świerk, wilgotność >20%, 4000/6000",
       details: "Na przekładkach",
       availability: "Z impregnacją lub bez"
     },
     {
-      size: "60x120",
+      size: "60x120 mm",
       specs: "sosna/świerk, wilgotność >20%, 4000/6000",
       details: "Na przekładkach",
       availability: "Z impregnacją lub bez"
     },
     {
-      size: "70x140",
+      size: "70x140 mm",
       specs: "sosna/świerk, wilgotność >20%, 4000/6000",
       details: "Na przekładkach",
       availability: "Z impregnacją lub bez"
     },
     {
-      size: "80x80 / 80x160 / 80x180",
+      size: "80x80 / 80x160 / 80x180 mm",
       specs: "sosna/świerk, wilgotność >20%, 6000",
       details: "Na przekładkach",
       availability: "Z impregnacją lub bez"
     },
     {
-      size: "100x100 / 120x120 / 140x140",
+      size: "100x100 / 120x120 / 140x140 mm",
       specs: "sosna/świerk, wilgotność >20%, 4000/6000",
       details: "Na przekładkach, duże przekroje",
       availability: "Z impregnacją lub bez"
