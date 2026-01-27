@@ -17,7 +17,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Blokuj scroll gdy menu otwarte
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -40,21 +39,19 @@ export default function Header() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <div className={`flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? 'h-16' : 'h-16 lg:h-20'
-          }`}>
+          <div className="flex items-center justify-between h-16 lg:h-20">
             
-            {/* Logo */}
-            <Link href="/" className="flex items-center relative z-50">
-              <Image
-                src="/logo.webp"
-                alt="Bielińscy Drewno"
-                width={200}
-                height={50}
-                className="h-8 w-auto rounded-lg transition-all duration-300 lg:h-10"
-                priority
-              />
-            </Link>
+{/* Logo */}
+<Link href="/" className="flex items-center relative z-50">
+  <Image
+    src="/logo.webp"
+    alt="Bielińscy Drewno"
+    width={150}
+    height={38}
+    className="h-10 w-auto rounded-lg transition-all duration-300"
+    priority
+  />
+</Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -77,7 +74,7 @@ export default function Header() {
                 className="font-medium text-brand-brown hover:text-brand-green transition-colors relative group"
               >
                 Kalkulator
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-green group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0.5 bg-brand-green group-hover:w-full transition-all duration-300"></span>
               </Link>
               <Link 
                 href="/kontakt" 
@@ -99,10 +96,10 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Mobile Menu Button - Hamburger Only */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden p-2 relative z-50 -mr-2 text-brand-brown"
+              className="lg:hidden p-2 -mr-2 text-brand-brown"
               aria-label="Menu"
             >
               <Menu className="w-7 h-7" />
@@ -115,7 +112,7 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Close Button X - Fixed Position */}
+            {/* Close Button X */}
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -166,7 +163,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-4 px-4 text-lg font-medium text-white hover:bg-white/10 hover:text-white rounded-xl transition-all"
+                        className="block py-4 px-4 text-lg font-medium text-white hover:bg-white/10 rounded-xl transition-all"
                       >
                         {item.label}
                       </Link>
@@ -181,6 +178,7 @@ export default function Header() {
                   transition={{ delay: 0.5 }}
                   className="mt-auto space-y-3"
                 >
+                  
                   <a
                     href="tel:+48537593186"
                     className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl font-bold bg-brand-green text-white shadow-lg hover:shadow-xl hover:bg-brand-green/90 transition-all"
