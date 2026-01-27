@@ -11,33 +11,54 @@ interface CityProductsProps {
   city: CityData;
 }
 
-const products = [
+const products: Array<{ title: string; description: string; image: string; link: string; badge?: string }> = [
   {
-    title: "Tarcica C24",
-    description: "Konstrukcyjna, suszona, klasa wytrzymałości C24",
-    image: "/kantowka-c24-new.jpeg",
-    badge: "Premium",
-    link: "/produkty/kantowka-suszona-c24"
+    title: "Deska szorstka",
+    description: "Tarcica nieobrobiona - deskowanie, szalunki, konstrukcje",
+    image: "/deska-szorstka.jpg",
+    link: "/produkty/deska-szorstka"
+  },
+  {
+    title: "Kantówka mokra",
+    description: "Surowa kantówka - ogrodzenia, altany, konstrukcje",
+    image: "/kantowka-mokra-szorstka.jpg",
+    link: "/produkty/kantowka-mokra-szorstka"
+  },
+  {
+    title: "Łaty i kontrłaty",
+    description: "Konstrukcje dachowe, podkonstrukcje, ruszty",
+    image: "/lata.jpg",
+    link: "/produkty/lata-kontrlata"
   },
   {
     title: "Więźba dachowa",
-    description: "Projekt + realizacja, dostawa na budowę",
+    description: "Konstrukcja nośna dachu - projekt + realizacja",
     image: "/wiezba-dachowa.jpg",
-    badge: "Bestseller",
     link: "/produkty/wiezba-dachowa"
   },
   {
+    title: "Deski strugane",
+    description: "Gładkie deski bez pióro-wpustu - elewacje, wnętrza",
+    image: "/deska-strugana-bez-wpustu.jpg",
+    link: "/produkty/deska-strugana-bez-pioro-wpustu"
+  },
+  {
+    title: "Boazeria i podbitka",
+    description: "Deski z pióro-wpustem - boazeria, elewacje, podbitki",
+    image: "/Boazeria 14mmx110mm.jpg",
+    link: "/produkty/deska-strugana-pioro-wpust"
+  },
+  {
     title: "Deski tarasowe",
-    description: "Impregnacja ciśnieniowa, gwarancja 10 lat",
+    description: "Prawdziwa impregnacja ciśnieniowa - gwarancja 10 lat",
     image: "/deska-tarasowa.jpg",
-    badge: "Gwarancja",
     link: "/produkty/deska-tarasowa"
   },
   {
-    title: "Kantówka budowlana",
-    description: "Mokra lub suszona, różne przekroje",
-    image: "/kantowka-mokra-szorstka.jpg",
-    link: "/produkty/kantowka-mokra-szorstka"
+    title: "Kantówka C24",
+    description: "Suszona, klasa wytrzymałości C24 - konstrukcje nośne",
+    image: "/kantowka-c24-new.jpeg",
+    link: "/produkty/kantowka-suszona-c24"
   },
 ];
 

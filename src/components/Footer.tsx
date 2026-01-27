@@ -18,6 +18,7 @@ export default function Footer() {
     { name: "Kwidzyn", slug: "kwidzyn" },
     { name: "Olsztyn", slug: "olsztyn" },
     { name: "Chojnice", slug: "chojnice" },
+    { name: "Poznań", slug: "poznan" },
   ];
 
   return (
@@ -178,7 +179,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 text-center">
           <p className="text-white/60 text-sm">
-            © {currentYear} Bielińscy Drewno. Wszelkie prawa zastrzeżone.
+            © {currentYear} Bielińscy Drewno. Wszelkie prawa zastrzeżone. Realizacja <a href="https://smart-marketing.pl">Smart Marketing</a>
           </p>
         </div>
       </div>

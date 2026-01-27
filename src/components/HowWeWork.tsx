@@ -188,22 +188,21 @@ export default function HowWeWork() {
             ))}
           </div>
 
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {steps.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToCard(index)}
-                className={`transition-all duration-300 ${
-                  currentCard === index 
-                    ? 'w-8 h-2 bg-white rounded-full' 
-                    : 'w-2 h-2 bg-white/40 rounded-full hover:bg-white/60'
-                }`}
-                aria-label={`Go to step ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Navigation Dots */}
+      <div className="flex justify-center gap-2 mt-6">
+        {steps.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => scrollToCard(index)}
+            className={`h-0.5 rounded-full transition-all duration-500 ease-out ${
+              currentCard === index 
+                ? 'w-6 bg-white' 
+                : 'w-2 bg-white/40 hover:bg-white/60'
+            }`}
+            aria-label={`Go to step ${index + 1}`}
+          />
+        ))}
+      </div></div>
 
         {/* CTA */}
         <motion.div

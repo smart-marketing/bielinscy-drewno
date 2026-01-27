@@ -198,19 +198,21 @@ export default function Reviews() {
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-brand-green w-6' : 'bg-gray-300'
-                }`}
-                aria-label={`Przejdź do opinii ${index + 1}`}
-              />
-            ))}
-          </div>
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {reviews.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToSlide(index)}
+              className={`h-0.5 rounded-full transition-all duration-500 ease-out ${
+                index === currentSlide 
+                  ? 'w-6 bg-brand-green' 
+                  : 'w-2 bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Przejdź do opinii ${index + 1}`}
+            />
+          ))}
+        </div>
         </div>
 
         {/* Desktop Grid */}

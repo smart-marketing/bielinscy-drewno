@@ -32,13 +32,13 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-        <motion.header
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          className={`fixed left-0 right-0 z-50 bg-white transition-all duration-300 ${
-            isScrolled ? 'top-0 shadow-lg' : 'top-0 md:top-10 shadow-sm'
-          }`}
-        >
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed left-0 right-0 z-50 bg-white transition-all duration-300 ${
+          isScrolled ? 'top-0 shadow-lg' : 'top-0 md:top-10 shadow-sm'
+        }`}
+      >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <div className={`flex items-center justify-between transition-all duration-300 ${
             isScrolled ? 'h-16' : 'h-16 lg:h-20'
@@ -99,37 +99,13 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Hamburger Only */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 relative z-50 -mr-2 transition-colors ${
-                isMobileMenuOpen ? 'text-white' : 'text-brand-brown'
-              }`}
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="lg:hidden p-2 relative z-50 -mr-2 text-brand-brown"
               aria-label="Menu"
-            > 
-              <AnimatePresence mode="wait">
-                {isMobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="w-7 h-7" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className="w-7 h-7" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            >
+              <Menu className="w-7 h-7" />
             </button>
           </div>
         </div>
@@ -139,6 +115,19 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
+            {/* Close Button X - Fixed Position */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed top-4 right-4 z-[70] p-3 bg-white rounded-xl shadow-2xl lg:hidden"
+              aria-label="Zamknij menu"
+            >
+              <X className="w-6 h-6 text-brand-brown" />
+            </motion.button>
+
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -228,9 +217,9 @@ export default function Header() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
-                  className="mt-6 pt-6 border-t border-gray-200 text-center text-sm text-gray-500"
+                  className="mt-6 pt-6 border-t border-white/20 text-center text-sm text-white/70"
                 >
-                  <p className="font-semibold text-brand-green">Od 2013 roku</p>
+                  <p className="font-semibold text-white">Od 2013 roku</p>
                   <p className="mt-1">Mirotki k. Skórcza</p>
                 </motion.div>
               </div>

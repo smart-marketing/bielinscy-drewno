@@ -237,23 +237,21 @@ export default function ProblemSolution() {
               </motion.div>
             ))}
           </div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {benefits.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToCard(index)}
-                className={`transition-all duration-300 ${
-                  currentCard === index 
-                    ? 'w-8 h-2 bg-brand-green rounded-full' 
-                    : 'w-2 h-2 bg-brand-brown/20 rounded-full hover:bg-brand-brown/40'
-                }`}
-                aria-label={`Go to card ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+{/* Navigation Dots */}
+<div className="flex justify-center gap-2 mt-6">
+  {benefits.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => scrollToCard(index)}
+      className={`h-0.5 rounded-full transition-all duration-500 ease-out ${
+        currentCard === index 
+          ? 'w-6 bg-brand-green' 
+          : 'w-2 bg-brand-brown/20 hover:bg-brand-brown/40'
+      }`}
+      aria-label={`Go to card ${index + 1}`}
+    />
+  ))}
+</div></div>
 
         {/* CTA */}
         <motion.div

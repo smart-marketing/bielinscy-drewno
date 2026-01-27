@@ -82,22 +82,21 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
       </div>
 
-      {/* Progress indicators (kropki nawigacyjne) */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-        {backgroundMedia.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? 'w-8 bg-white' 
-                : 'w-4 bg-white/40 hover:bg-white/60'
-            }`}
-            aria-label={`Przejdź do slajdu ${index + 1}`}
-          />
-        ))}
-      </div>
-
+{/* Progress indicators (kropki nawigacyjne) */}
+<div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+  {backgroundMedia.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => setCurrentIndex(index)}
+      className={`h-0.5 rounded-full transition-all duration-500 ease-out ${
+        index === currentIndex 
+          ? 'w-6 bg-white' 
+          : 'w-2 bg-white/30 hover:bg-white/50'
+      }`}
+      aria-label={`Przejdź do slajdu ${index + 1}`}
+    />
+  ))}
+</div>
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto sm:px-2 lg:px-2 py-4">
         <div className="max-w-6xl mx-auto text-center flex flex-col justify-center min-h-[calc(100vh-10px)]">
