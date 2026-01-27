@@ -49,9 +49,9 @@ export default function Header() {
               <Image
                 src="/logo.webp"
                 alt="Bielińscy Drewno"
-                width={isScrolled ? 140 : 150}
-                height={isScrolled ? 35 : 38}
-                className="rounded-lg transition-all duration-300 lg:w-auto"
+                width={200}
+                height={50}
+                className="h-8 w-auto rounded-lg transition-all duration-300 lg:h-10"
                 priority
               />
             </Link>
