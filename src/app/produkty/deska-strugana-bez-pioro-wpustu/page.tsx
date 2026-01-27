@@ -56,53 +56,53 @@ const productData = {
 
 sizes: [
   {
-    size: "Deska strugana 22mmx90mmx4000mm",
-    specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
-    details: "Gładka powierzchnia, równe krawędzie",
+    size: "22mmx68mmx4000mm",
+    specs: "sosna, 4 strony strugane, wilgotność do 16%",
+    details: "Prawa i lewa strona gładka",
     availability: "W magazynie - 4m",
     image: "/Deska strugana 22mmx90mmx4000mm.jpg"
   },
   {
-    size: "Deska strugana 22mmx120mmx4000mm",
-    specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
-    details: "Szerszy przekrój, uniwersalne zastosowanie",
+    size: "22mmx90mmx4000mm",
+    specs: "sosna, 4 strony strugane, wilgotność do 16%",
+    details: "Prawa i lewa strona gładka",
+    availability: "W magazynie - 4m",
+    image: "/Deska strugana 22mmx90mmx4000mm.jpg"
+  },
+  {
+    size: "22mmx120mmx4000mm",
+    specs: "sosna, 4 strony strugane, wilgotność do 16%",
+    details: "Prawa i lewa strona gładka",
     availability: "W magazynie - 4m",
     image: "/Deska strugana 22mmx120mmx4000mm.jpg"
   },
   {
-    size: "Deska strugana 22mmx145mmx4000mm",
-    specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
-    details: "Najszerszy przekrój, idealna do mebli",
-    availability: "W magazynie - 4m",
+    size: "18mmx145mm",
+    specs: "sosna/świerk, 4 strony strugane, wilgotność do 16%",
+    details: "Prawa i lewa strona gładka",
+    availability: "Zapytaj o dostępną długość",
     image: "/Deska strugana 22mmx145mmx4000mm.jpg"
   },
   {
-    size: "Deska strugana 27mmx140mmx4000",
-    specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
-    details: "Grubsza deska, większa stabilność",
+    size: "27mmx145mm",
+    specs: "sosna/świerk, 4 strony strugane, wilgotność do 16%",
+    details: "Prawa i lewa strona gładka",
     availability: "Zapytaj o dostępną długość",
-    image: "/Deska strugana 27mmx140mmx4000.jpg"
+    image: "/Deska strugana 22mmx145mmx4000mm.jpg"
   },
   {
-    size: "Deska strugana czołowa 28mmx195mmx4000mm",
-    specs: "sosna, 4 strony strugane, wilgotność <18%",
-    details: "Szeroka deska czołowa, premium jakość",
-    availability: "W magazynie - 4m",
+    size: "28mmx120mm",
+    specs: "sosna/świerk, 4 strony strugane, wilgotność do 16%",
+    details: "Prawa i lewa strona gładka",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Deska strugana 22mmx120mmx4000mm.jpg"
+  },
+  {
+    size: "28mmx195mm",
+    specs: "sosna/świerk, 4 strony strugane, wilgotność do 16%",
+    details: "Prawa i lewa strona gładka",
+    availability: "Zapytaj o dostępną długość",
     image: "/Deska strugana czołowa 28mmx195mmx4000mm.jpg"
-  },
-  {
-    size: "Deska strugana 28mmx140mmx4000mm",
-    specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
-    details: "Grubsza deska konstrukcyjna",
-    availability: "W magazynie - 4m",
-    image: "/Deska strugana czołowa test28mmx195mmx4000mm.jpg"
-  },
-  {
-    size: "Deska strugana 28mmx195mmx4000mm",
-    specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
-    details: "Bardzo szeroka deska, zastosowania specjalne",
-    availability: "W magazynie - 4m",
-    image: "/Deska strugana czołowa test28mmx195mmx4000mm.jpg"
   }
 ],
 

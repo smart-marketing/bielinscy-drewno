@@ -55,46 +55,46 @@ const productData = {
 
 sizes: [
   {
-    size: "Boazeria 14x110mm",
-    specs: "świerk/sosna, profil Softline, wilgotność <16%",
-    details: "Prawa gładka, lewa ryflowana, strugana z 4 stron",
+    size: "Boazeria 14mmx110mm",
+    specs: "pióro-wpust, strugana z czterech stron, prawa strona gładka, lewa strona ryflowana",
+    details: "profil Softline/Faza, świerk/sosna, wilgotność do 16%",
     availability: "Zapytaj o dostępną długość",
     image: "/Boazeria 14mmx110mm.jpg"
   },
   {
-    size: "Boazeria 14x110mm Faza",
-    specs: "świerk/sosna, profil Faza, wilgotność <16%",
-    details: "Prawa gładka, lewa ryflowana, strugana z 4 stron",
+    size: "Podbitka 18x135x4000",
+    specs: "pióro-wpust, strugana z czterech stron, prawa strona gładka, lewa strona ryflowana",
+    details: "sosna, wilgotność do 16%, pakowana po cztery sztuki",
     availability: "Zapytaj o dostępną długość",
-    image: "/Boazeria 14mmx110mm Faza.jpg"
-  },
-  {
-    size: "Podbitka 18mmx135mmx4000mm",
-    specs: "sosna, wilgotność <16%",
-    details: "Prawa gładka, lewa ryflowana, pakowana po 4 szt",
-    availability: "W magazynie - 4m",
     image: "/Podbitka 18mmx135mmx4000mm.jpg"
   },
   {
-    size: "Podbitka 19mmx110mmx4000mm",
-    specs: "sosna/świerk, wilgotność <16%",
-    details: "Prawa gładka, lewa ryflowana",
+    size: "Podbitka 19x110",
+    specs: "pióro-wpust, strugana z czterech stron, prawa strona gładka, lewa strona ryflowana",
+    details: "sosna/świerk, wilgotność do 16%",
     availability: "Zapytaj o dostępną długość",
     image: "/Podbitka 19mmx110mmx4000mm.jpg"
   },
   {
-    size: "Podbitka 20mmx113mm",
-    specs: "sosna, wilgotność <16%",
-    details: "Prawa gładka, lewa ryflowana",
-    availability: "W magazynie",
+    size: "Podbitka 19x136",
+    specs: "pióro-wpust, strugana z czterech stron, prawa strona gładka, lewa strona ryflowana",
+    details: "sosna/świerk, wilgotność do 16%",
+    availability: "Zapytaj o dostępną długość",
     image: "/Podbitka 20mmx113mm.jpg"
   },
   {
-    size: "Deska elewacyjna 22mmx135mmx4000mm",
-    specs: "sosna, wilgotność <16%",
-    details: "Prawa gładka, lewa ryflowana, do elewacji",
-    availability: "W magazynie - 4m",
+    size: "Elewacja 22x135x4000",
+    specs: "pióro-wpust, strugana z czterech stron, prawa i lewa strona gładka",
+    details: "możliwość łączenia na długość, sosna, wilgotność do 16%, pakowana po cztery sztuki",
+    availability: "Zapytaj o dostępną długość",
     image: "/Deska elewacyjna 22mmx135mmx4000mm.jpg"
+  },
+  {
+    size: "Stropopodłoga 28x137",
+    specs: "pióro-wpust, strugana z czterech stron, prawa i lewa strona gładka",
+    details: "świerk, wilgotność do 16%",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Stropopodłoga 25mmx113mmx4000mm.jpg"
   }
 ],
 

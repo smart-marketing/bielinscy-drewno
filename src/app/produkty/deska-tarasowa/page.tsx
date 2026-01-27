@@ -52,38 +52,29 @@ const productData = {
     }
   ],
 
-  // ⬇️⬇️⬇️ SIZES TUTAJ - WEWNĄTRZ productData ⬇️⬇️⬇️
-  sizes: [
-    {
-      size: "Deska tarasowa 27mmx145mmx4000mm",
-      specs: "sosna/świerk, rowkowana antypoślizgowa, impregnacja ciśnieniowa",
-      details: "Profil rowkowany, idealna na tarasy mokre",
-      availability: "W magazynie - 4m",
-      image: "/Deska tarasowa 27mmx145mmx4000mm.jpg"
-    },
-    {
-      size: "Deska tarasowa 28mmx145mmx4000mm",
-      specs: "sosna/świerk, rowkowana antypoślizgowa, impregnacja ciśnieniowa",
-      details: "Grubsza wersja, większa wytrzymałość",
-      availability: "W magazynie - 4m",
-      image: "/Deska tarasowa 28mmx145mmx4000mm.jpg"
-    },
-    {
-      size: "Deska tarasowa 27mmx120mm",
-      specs: "sosna/świerk, rowkowana lub gładka, impregnacja ciśnieniowa",
-      details: "Węższy przekrój, klasyczny wymiar",
-      availability: "Zapytaj o dostępną długość",
-      image: "/Deska trasowa 28mmx145mmx4000mm.jpg"
-    },
-    {
-      size: "Deska tarasowa 28mmx120mm",
-      specs: "sosna/świerk, rowkowana lub gładka, impregnacja ciśnieniowa",
-      details: "Grubsza wersja wąskiej deski",
-      availability: "Zapytaj o dostępną długość",
-      image: "/Deska trasowa 28mmx145mmx4000mm.jpg"
-    }
-  ],
-  // ⬆️⬆️⬆️ KONIEC SIZES ⬆️⬆️⬆️
+sizes: [
+  {
+    size: "27x145",
+    specs: "strugana z czterech stron, prawa i lewa strona ryflowana",
+    details: "sosna/świerk, wilgotność do 16%, możliwość impregnacji ciśnieniowej na kolor brązowy",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Deska tarasowa 27mmx145mmx4000mm.jpg"
+  },
+  {
+    size: "28x145x4000",
+    specs: "strugana z czterech stron, prawa strona ryflowana, lewa strona gładka",
+    details: "sosna/świerk, wilgotność do 16%, możliwość impregnacji ciśnieniowej na kolor brązowy",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Deska tarasowa 28mmx145mmx4000mm.jpg"
+  },
+  {
+    size: "28x120",
+    specs: "strugana z czterech stron, prawa strona ryflowana, lewa strona gładka",
+    details: "sosna/świerk, wilgotność do 16%, możliwość impregnacji ciśnieniowej na kolor brązowy",
+    availability: "Zapytaj o dostępną długość",
+    image: "/Deska tarasowa 28mmx145mmx4000mm.jpg"
+  }
+],
 
   applications: [
     {

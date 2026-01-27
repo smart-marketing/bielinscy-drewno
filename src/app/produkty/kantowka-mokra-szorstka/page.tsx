@@ -52,87 +52,85 @@ const productData = {
     }
   ],
 
-  // ⬇️⬇️⬇️ SIZES MUSI BYĆ TUTAJ - WEWNĄTRZ productData ⬇️⬇️⬇️
-  sizes: [
-    {
-      size: "40mmx140mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Płaska kantówka konstrukcyjna",
-      availability: "W magazynie - długości 3-6m",
-      image: "/Kantówka 40mmx140mm.jpg"
-    },
-    {
-      size: "50mmx100mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Belka konstrukcyjna, tarasy, pergole",
-      availability: "W magazynie - długości 4-6m",
-      image: "/Kantówka 50mmx100mm.jpg"
-    },
-    {
-      size: "60mmx120mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Mocniejsza belka, konstrukcje altany",
-      availability: "W magazynie - długości 4-6m",
-      image: "/Kantówka 60mmx120mm.jpg"
-    },
-    {
-      size: "70mmx140mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Gruba belka konstrukcyjna",
-      availability: "W magazynie - długości 5-6m",
-      image: "/Kantówka 70mmx140mm.jpg"
-    },
-    {
-      size: "80mmx160mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Bardzo mocna belka nośna",
-      availability: "W magazynie - długości 5-6m",
-      image: "/Kantówka 80mmx160mm.jpg"
-    },
-    {
-      size: "80mmx180mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Szeroka belka konstrukcyjna",
-      availability: "W magazynie - długości 5-6m",
-      image: "/Kantówka 80mmx180mm.jpg"
-    },
-    {
-      size: "80mmx80mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Kwadratowa kantówka, słupy",
-      availability: "W magazynie - długości 3-6m",
-      image: "/Kantówka 80mmx80mm.jpg"
-    },
-    {
-      size: "100mmx100mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Duża kantówka kwadratowa, słupy nośne",
-      availability: "W magazynie - długości 4-6m",
-      image: "/Kantówka 100mmx100mm.jpg"
-    },
-    {
-      size: "120mmx120mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Bardzo mocne słupy konstrukcyjne",
-      availability: "Na zamówienie - 5-7 dni",
-      image: "/Kantówka 120mmx120mm.jpg"
-    },
-    {
-      size: "140mmx140mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Największe słupy, konstrukcje ciężkie",
-      availability: "Na zamówienie - 5-7 dni",
-      image: "/Kantówka 140mmx140mm.jpg"
-    },
-    {
-      size: "160mmx160mm",
-      specs: "sosna/świerk, nieheblowana, wilgotność naturalna",
-      details: "Słupy premium, konstrukcje specjalne",
-      availability: "Na zamówienie - 7-10 dni",
-      image: "/Kantówka 160mmx160mm.jpg"
-    }
-  ],
-  // ⬆️⬆️⬆️ KONIEC SIZES ⬆️⬆️⬆️
+sizes: [
+  {
+    size: "40x140x6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 6m",
+    image: "/Kantówka 40mmx140mm.jpg"
+  },
+  {
+    size: "50x140x6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 6m",
+    image: "/Kantówka 50mmx100mm.jpg"
+  },
+  {
+    size: "50x100x4000/6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 4m/6m",
+    image: "/Kantówka 50mmx100mm.jpg"
+  },
+  {
+    size: "100x100x4000/6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 4m/6m",
+    image: "/Kantówka 100mmx100mm.jpg"
+  },
+  {
+    size: "60x120x4000/6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 4m/6m",
+    image: "/Kantówka 60mmx120mm.jpg"
+  },
+  {
+    size: "120x120x4000/6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 4m/6m",
+    image: "/Kantówka 120mmx120mm.jpg"
+  },
+  {
+    size: "70x140x4000/6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 4m/6m",
+    image: "/Kantówka 70mmx140mm.jpg"
+  },
+  {
+    size: "140x140x6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 6m",
+    image: "/Kantówka 140mmx140mm.jpg"
+  },
+  {
+    size: "80x160x6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 6m",
+    image: "/Kantówka 80mmx160mm.jpg"
+  },
+  {
+    size: "80x180x6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 6m",
+    image: "/Kantówka 80mmx180mm.jpg"
+  },
+  {
+    size: "80x80x6000",
+    specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
+    details: "impregnowana lub bez impregnacji",
+    availability: "W magazynie - 6m",
+    image: "/Kantówka 80mmx80mm.jpg"
+  }
+],
 
   applications: [
     {

@@ -31,108 +31,99 @@ export const metadata: Metadata = {
 const productData = {
   name: "Więźba dachowa",
   category: "Konstrukcja nośna dachu",
-  tagline: "Tradycyjna mokra lub premium suszona C24",
-  description: "Kompletna konstrukcja nośna dachu - krokwie, płatwie, jętki, murłaty. Wybór rodzaju drewna ma ogromny wpływ na trwałość, stabilność i późniejsze problemy eksploatacyjne. Pomożemy dobrać odpowiednie przekroje pod Twój projekt.",
+  tagline: "Mokra szorstka lub suszona C24 - wybierz standard",
+  description: "Więźba dachowa to konstrukcja nośna dachu (krokwie, płatwie, jętki, murłaty). Wybór rodzaju drewna ma ogromny wpływ na trwałość, stabilność i późniejsze problemy eksploatacyjne.",
   
   features: [
     {
-      title: "Dwa standardy",
-      description: "Mokra tradycyjna (tańsza) lub suszona C24 (stabilna)"
+      title: "Dwa standardy dostępne",
+      description: "Mokra szorstka (ekonomiczna) lub suszona C24 (premium)"
     },
     {
-      title: "Kompletna konstrukcja",
-      description: "Wszystkie elementy więźby - krokwie, płatwie, jętki, murłaty"
+      title: "Kompleksowe doradztwo",
+      description: "Pomożemy dobrać odpowiednie przekroje pod projekt"
     },
     {
-      title: "Konsultacja techniczna",
-      description: "Pomoc w doborze przekrojów wg projektu i obciążeń"
+      title: "Dostawa z magazynu",
+      description: "Różne przekroje i długości zawsze dostępne"
     },
     {
-      title: "Wysoka nośność",
-      description: "Zgodnie z normami budowlanymi, akceptowana w projektach"
+      title: "Jakość konstrukcyjna",
+      description: "Sosna/świerk iglaste klasy konstrukcyjnej"
     }
   ],
 
   sizes: [
     {
-      size: "Wymiary indywidualne",
-      specs: "Według projektu konstrukcyjnego",
-      details: "Dobór przekrojów pod obciążenia śniegiem i wiatrem",
-      availability: "Na zamówienie - wycena indywidualna",
-      image: "/Wiezba dachowa.jpg"
+      size: "Więźba mokra szorstka",
+      specs: "drewno niesuszone, nieheblowane, wilgotność naturalna (powyżej 20%)",
+      details: "Krokwie, płatwie, murłaty - najczęściej spotykane rozwiązanie w Polsce",
+      availability: "Różne przekroje - zapytaj o dostępność"
     },
     {
-      size: "Krokwie",
-      specs: "Mokra lub suszona C24, sosna/świerk",
-      details: "Najpopularniejsze przekroje konstrukcyjne",
-      availability: "Wycena po podaniu długości",
-      image: "/Wiezba dachowa.jpg"
+      size: "Więźba suszona C24",
+      specs: "drewno suszone komorowo (12-15%), heblowane, klasa C24",
+      details: "Standard premium - poddasza użytkowe, domy energooszczędne",
+      availability: "Różne przekroje - zapytaj o dostępność"
     },
     {
-      size: "Płatwie, jętki, murłaty",
-      specs: "Pełen zakres wymiarów konstrukcyjnych",
-      details: "Długości do 6m dostępne od ręki, większe na zamówienie",
-      availability: "Wycena indywidualna",
-      image: "/Wiezba dachowa.jpg"
+      size: "Projekt i dobór przekrojów",
+      specs: "Indywidualna konsultacja techniczna",
+      details: "Pomoc w doborze odpowiednich wymiarów pod Twój projekt budowlany",
+      availability: "Skontaktuj się z nami - 537 593 186"
     }
   ],
 
   applications: [
     {
-      icon: "🏠",
-      title: "Domy mieszkalne",
+      icon: "🟤",
+      title: "Więźba mokra szorstka - zastosowania",
       items: [
-        "Poddasze użytkowe - suszona C24",
-        "Dachy energooszczędne",
-        "Stabilna geometria przez lata"
+        "Tradycyjna więźba dachowa - stan surowy",
+        "Dachy domów jednorodzinnych (bez poddasza użytkowego)",
+        "Budynki gospodarcze - stodoły, hale, wiaty",
+        "Garaże wolnostojące"
       ]
     },
     {
-      icon: "🏗️",
-      title: "Budynki gospodarcze",
+      icon: "🟡",
+      title: "Więźba suszona C24 - zastosowania",
       items: [
-        "Garaże - mokra wystarczy",
-        "Stodoły, wiaty",
-        "Hale magazynowe"
+        "Dachy z poddaszem użytkowym",
+        "Dachy energooszczędne i pasywne",
+        "Belki dekoracyjne, antresole, stropy",
+        "Domy szkieletowe, prefabrykaty dachowe"
       ]
     },
     {
-      icon: "⭐",
-      title: "Konstrukcje widoczne",
+      icon: "⚠️",
+      title: "Mokra - nie polecana do:",
       items: [
-        "Belki dekoracyjne",
-        "Antresole",
-        "Prefabrykaty dachowe"
-      ]
-    },
-    {
-      icon: "🏘️",
-      title: "Domy szkieletowe",
-      items: [
-        "Konstrukcje prefabrykowane",
-        "Systemy modułowe",
-        "Precyzja montażu"
+        "Dachów z poddaszem użytkowym",
+        "Nowoczesnych domów energooszczędnych",
+        "Konstrukcji wymagających dużej dokładności"
       ]
     }
   ],
 
   advantages: [
-    "Kompletna dostawa wszystkich elementów",
-    "Doradztwo techniczne w doborze przekrojów",
-    "Szybka realizacja - własny transport",
-    "Możliwość odbioru osobistego",
-    "Suszona C24 = brak problemów z GK i pokryciem"
+    "MOKRA: niższa cena, duża dostępność, wysoka nośność na start",
+    "SUSZONA: wilgotność 12-15%, minimalna praca drewna",
+    "SUSZONA: brak sinizny i grzybów, lepsza odporność ogniowa",
+    "SUSZONA: akceptowana w projektach (C24), stabilna geometria przez lata",
+    "Doradztwo techniczne w doborze przekrojów"
   ],
 
   limitations: [
-    "Mokra paczy i pęka po montażu",
-    "Mokra zmienia geometrię dachu",
-    "Suszona droższa od mokrej"
+    "MOKRA: drewno schnie już w dachu - skręcanie, paczenie, pękanie",
+    "MOKRA: zmiana geometrii dachu, ryzyko problemów z pokryciem i GK",
+    "SUSZONA: wyższa cena",
+    "SUSZONA: konieczność zabezpieczenia przy ekspozycji zewnętrznej"
   ],
 
   practicalTip: {
-    title: "💡 Jaka więźba na Twój dach? Wybierz mądrze!",
-    content: "Stan surowy lub budynek gospodarczy: Możesz postawić na więźbę mokrą (pod warunkiem solidnej impregnacji). Dom całoroczny z poddaszem użytkowym i zabudową GK: Tutaj wybór jest tylko jeden – drewno suszone komorowo w klasie C24."
+    title: "🧠 Praktyczna rada - którą wybrać?",
+    content: "Stan surowy + dach bez poddasza → mokra szorstka (z dobrą impregnacją). Dom całoroczny, poddasze użytkowe, płyty GK → zdecydowanie suszona strugana C24. Różnica w stabilności i trwałości jest ogromna!"
   }
 };
 
@@ -140,11 +131,11 @@ export default function WiezbaDachowaPage() {
   return (
     <main>
       <ProductHero 
-  name={productData.name}
-  tagline={productData.tagline}
-  description={productData.description}
-  image="/wiezba-dachowa.jpg"
-/>
+        name={productData.name}
+        tagline={productData.tagline}
+        description={productData.description}
+        image="/wiezba-dachowa.jpg"
+      />
       <ProductDetails product={productData} />
       <ProductSizes sizes={productData.sizes} />
       <ProductApplications applications={productData.applications} />

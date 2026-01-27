@@ -57,56 +57,34 @@ const productData = {
 
 sizes: [
   {
-    size: "Kontrłata 25mmx50mm",
-    specs: "sosna/świerk, wilgotność naturalna lub suszona",
-    details: "Standardowa kontrłata dachowa, szczelina wentylacyjna",
-    availability: "W magazynie - długości do 6m",
+    size: "25x50x4000 mokra szorstka",
+    specs: "sosna, na przekładkach, impregnowana",
+    details: "Wilgotność naturalna, standard budowlany",
+    availability: "W magazynie - 4m",
     image: "/Kontrłata 25mmx50mm.jpg"
   },
   {
-    size: "Łata 40mmx60mm",
-    specs: "sosna/świerk, wilgotność naturalna lub suszona",
-    details: "Mocniejsza łata pod dachówkę, elewacje wentylowane",
-    availability: "W magazynie - długości do 6m",
+    size: "25x50x4000 suszona strugana",
+    specs: "sosna/świerk, na przekładkach, bez impregnacji",
+    details: "Suszona komorowo, gładka powierzchnia",
+    availability: "W magazynie - 4m",
+    image: "/Kontrłata 25mmx50mm.jpg"
+  },
+  {
+    size: "40x60x4000 mokra szorstka",
+    specs: "sosna, na przekładkach, impregnowana",
+    details: "Wilgotność naturalna, mocniejszy przekrój",
+    availability: "W magazynie - 4m",
     image: "/Łata 40mmx60mm.jpg"
   },
   {
-    size: "Łata strugana 40mmx60mmx4000mm",
-    specs: "sosna/świerk, suszona, strugana 4 strony, wilgotność <18%",
-    details: "Premium łata strugana, elewacje widoczne",
+    size: "40x60x4000 suszona strugana",
+    specs: "sosna/świerk, na przekładkach, bez impregnacji",
+    details: "Suszona komorowo, stabilna wymiarowo",
     availability: "W magazynie - 4m",
-    image: "/Łata strugana 40mmx60mmx4000mm.jpg"
-  },
-  {
-    size: "25x50mm standard",
-    specs: "sosna/świerk, wilgotność naturalna",
-    details: "Podstawowa łata/kontrłata ekonomiczna",
-    availability: "Duże ilości od ręki",
-    image: "/Łata.jpg"
-  },
-  {
-    size: "32x50mm",
-    specs: "sosna/świerk, wilgotność naturalna",
-    details: "Wzmocniona wersja standardowej łaty",
-    availability: "W magazynie - długości do 6m",
-    image: "/Łata.jpg"
-  },
-  {
-    size: "38x63mm",
-    specs: "sosna/świerk, wilgotność naturalna",
-    details: "Mocna łata pod ciężkie pokrycia",
-    availability: "W magazynie - długości do 6m",
-    image: "/Łata.jpg"
-  },
-  {
-    size: "50x50mm",
-    specs: "sosna/świerk, wilgotność naturalna",
-    details: "Kwadratowa łata, konstrukcje szkieletowe",
-    availability: "W magazynie - długości do 6m",
-    image: "/Łata.jpg"
+    image: "/Łata 40mmx60mm.jpg"
   }
 ],
-
   applications: [
     {
       icon: "🏠",
