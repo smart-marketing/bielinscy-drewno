@@ -64,8 +64,7 @@ export default function KalkulatorPage() {
   };
 
 const addToCart = () => {
-  if (!selectedProduct || !selectedSize || !quantity || quantity === "") return;
-
+if (!selectedProduct || !selectedSize || !quantity || quantity <= 0) return;
     setCart([...cart, {
       id: Date.now().toString(),
       productName: selectedProduct.name,
