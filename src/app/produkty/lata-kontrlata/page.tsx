@@ -81,25 +81,29 @@ sizes: [
     size: "25x50mm standard",
     specs: "sosna/świerk, wilgotność naturalna",
     details: "Podstawowa łata/kontrłata ekonomiczna",
-    availability: "Duże ilości od ręki"
+    availability: "Duże ilości od ręki",
+    image: "/Łata.jpg"
   },
   {
     size: "32x50mm",
     specs: "sosna/świerk, wilgotność naturalna",
     details: "Wzmocniona wersja standardowej łaty",
-    availability: "W magazynie - długości do 6m"
+    availability: "W magazynie - długości do 6m",
+    image: "/Łata.jpg"
   },
   {
     size: "38x63mm",
     specs: "sosna/świerk, wilgotność naturalna",
     details: "Mocna łata pod ciężkie pokrycia",
-    availability: "W magazynie - długości do 6m"
+    availability: "W magazynie - długości do 6m",
+    image: "/Łata.jpg"
   },
   {
     size: "50x50mm",
     specs: "sosna/świerk, wilgotność naturalna",
     details: "Kwadratowa łata, konstrukcje szkieletowe",
-    availability: "W magazynie - długości do 6m"
+    availability: "W magazynie - długości do 6m",
+    image: "/Łata.jpg"
   }
 ],
 

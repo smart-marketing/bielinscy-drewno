@@ -30,7 +30,7 @@ export default function KalkulatorPage() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedSize, setSelectedSize] = useState<ProductSize | null>(null);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState<number | "">(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -63,8 +63,8 @@ export default function KalkulatorPage() {
     localStorage.setItem("calc-cart", JSON.stringify(cart));
   };
 
-  const addToCart = () => {
-    if (!selectedProduct || !selectedSize || !quantity) return;
+const addToCart = () => {
+  if (!selectedProduct || !selectedSize || !quantity || quantity === "") return;
 
     setCart([...cart, {
       id: Date.now().toString(),
@@ -77,7 +77,7 @@ export default function KalkulatorPage() {
 
     setSelectedProduct(null);
     setSelectedSize(null);
-    setQuantity(1);
+    setQuantity("");
   };
 
   const total = cart.reduce((sum, item) => sum + item.pricePerUnit * item.quantity, 0);
@@ -301,14 +301,25 @@ export default function KalkulatorPage() {
                   </label>
                   <input
                     type="number"
-                    min="1"
+                    min="0.01"
                     step="0.01"
                     value={quantity}
-                    onChange={(e) => setQuantity(parseFloat(e.target.value) || 1)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (val === "") {
+                        setQuantity("");
+                      } else {
+                        const num = parseFloat(val);
+                        if (!isNaN(num) && num > 0) {
+                          setQuantity(num);
+                        }
+                      }
+                    }}
                     onFocus={(e) => e.target.select()}
+                    placeholder="Wpisz ilość"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green"
                   />
-                </div>
+                                  </div>
               )}
 
               {selectedSize && (

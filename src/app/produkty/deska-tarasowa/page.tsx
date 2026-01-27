@@ -52,26 +52,38 @@ const productData = {
     }
   ],
 
+  // ⬇️⬇️⬇️ SIZES TUTAJ - WEWNĄTRZ productData ⬇️⬇️⬇️
   sizes: [
     {
-      size: "27x145 mm",
-      specs: "sosna/świerk, wilgotność <16%",
-      details: "Prawa i lewa strona ryflowana (obustronna)",
-      availability: "Z impregnacją ciśnieniową brązową lub bez - zapytaj o długość"
+      size: "Deska tarasowa 27mmx145mmx4000mm",
+      specs: "sosna/świerk, rowkowana antypoślizgowa, impregnacja ciśnieniowa",
+      details: "Profil rowkowany, idealna na tarasy mokre",
+      availability: "W magazynie - 4m",
+      image: "/Deska tarasowa 27mmx145mmx4000mm.jpg"
     },
     {
-      size: "28x145x4000 mm",
-      specs: "sosna/świerk, wilgotność <16%",
-      details: "Prawa ryflowana, lewa gładka",
-      availability: "Z impregnacją ciśnieniową brązową lub bez - zapytaj o długość"
+      size: "Deska tarasowa 28mmx145mmx4000mm",
+      specs: "sosna/świerk, rowkowana antypoślizgowa, impregnacja ciśnieniowa",
+      details: "Grubsza wersja, większa wytrzymałość",
+      availability: "W magazynie - 4m",
+      image: "/Deska tarasowa 28mmx145mmx4000mm.jpg"
     },
     {
-      size: "28x120 mm",
-      specs: "sosna/świerk, wilgotność <16%",
-      details: "Prawa ryflowana, lewa gładka",
-      availability: "Z impregnacją ciśnieniową brązową lub bez - zapytaj o długość"
+      size: "Deska tarasowa 27mmx120mm",
+      specs: "sosna/świerk, rowkowana lub gładka, impregnacja ciśnieniowa",
+      details: "Węższy przekrój, klasyczny wymiar",
+      availability: "Zapytaj o dostępną długość",
+      image: "/Deska trasowa 28mmx145mmx4000mm.jpg"
+    },
+    {
+      size: "Deska tarasowa 28mmx120mm",
+      specs: "sosna/świerk, rowkowana lub gładka, impregnacja ciśnieniowa",
+      details: "Grubsza wersja wąskiej deski",
+      availability: "Zapytaj o dostępną długość",
+      image: "/Deska trasowa 28mmx145mmx4000mm.jpg"
     }
   ],
+  // ⬆️⬆️⬆️ KONIEC SIZES ⬆️⬆️⬆️
 
   applications: [
     {
@@ -140,7 +152,7 @@ const productData = {
     title: "✨ BARDZO WAŻNE!",
     content: "Montaż ZAWSZE na legarach - nigdy bezpośrednio na gruncie! Zachowaj szczeliny dylatacyjne między deskami (5-8mm). Dobra wentylacja od spodu to klucz do długiej trwałości. DOSTĘPNA IMPREGNACJA CIŚNIENIOWA NA KOLOR BRĄZOWY - prawdziwa ochrona na lata, nie kosmetyczny barwnik!"
   }
-};
+}; // ← KONIEC productData
 
 export default function DeskaTarasowaPage() {
   return (

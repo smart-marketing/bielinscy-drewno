@@ -67,55 +67,64 @@ sizes: [
     size: "45x70mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Najmniejszy przekrój suszonej kantówki",
-    availability: "Na zamówienie - 5-7 dni"
+    availability: "Na zamówienie - 5-7 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "45x95mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Konstrukcje szkieletowe, więźby lekkie",
-    availability: "Na zamówienie - 5-7 dni"
+    availability: "Na zamówienie - 5-7 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "45x120mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Krokwie, konstrukcje szkieletowe",
-    availability: "Na zamówienie - 5-7 dni"
+    availability: "Na zamówienie - 5-7 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "45x145mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Szersze krokwie, belki stropowe",
-    availability: "Na zamówienie - 5-7 dni"
+    availability: "Na zamówienie - 5-7 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "45x195mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Bardzo szeroka kantówka konstrukcyjna",
-    availability: "Na zamówienie - 7-10 dni"
+    availability: "Na zamówienie - 7-10 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "60x120mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Mocniejsza konstrukcja, większa nośność",
-    availability: "Na zamówienie - 5-7 dni"
+    availability: "Na zamówienie - 5-7 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "60x140mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Belki stropowe, konstrukcje widoczne",
-    availability: "Na zamówienie - 7-10 dni"
+    availability: "Na zamówienie - 7-10 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "100x100mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Kwadratowe słupy, belki nośne",
-    availability: "Na zamówienie - 7-10 dni"
+    availability: "Na zamówienie - 7-10 dni",
+    image: "/Kantówka C24.png"
   },
   {
     size: "140x140mm C24",
     specs: "sosna/świerk, wilgotność <18%, klasa wytrzymałości C24",
     details: "Duże słupy konstrukcyjne premium",
-    availability: "Na zamówienie - 10-14 dni"
+    availability: "Na zamówienie - 10-14 dni",
+    image: "/Kantówka C24.png"
   }
 ],
 

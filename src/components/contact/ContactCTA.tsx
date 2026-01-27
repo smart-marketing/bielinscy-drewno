@@ -2,6 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Phone, MessageCircle, Mail, Star } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export default function ContactCTA() {
   const ref = useRef(null);
@@ -156,9 +157,42 @@ export default function ContactCTA() {
                 <span>Doradztwo 0 zł</span>
               </div>
             </div>
+            
           </motion.div>
         </div>
+        
       </div>
+      
+            {/* Contact Form Section */}
+            <section className="py-16 md:py-20 bg-gray-50">
+              <div className="container-wide">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center mb-12"
+                >
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-brown mb-4">
+                    Lub napisz do nas
+                  </h2>
+                  <p className="text-lg text-brand-brown/70">
+                    Wypełnij formularz, a oddzwonimy w ciągu 24h
+                  </p>
+                </motion.div>
+      
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="w-full lg:w-1/2 mx-auto"
+                >
+                  <ContactForm />
+                </motion.div>
+              </div>
+            </section>
     </section>
+    
   );
 }

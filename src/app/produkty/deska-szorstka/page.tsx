@@ -83,7 +83,8 @@ sizes: [
     size: "Deska 25mm MIX szerokości",
     specs: "sosna/świerk, nieheblowana",
     details: "Mieszane szerokości 100-150mm, ekonomiczny wybór",
-    availability: "Duże ilości od ręki"
+    availability: "Duże ilości od ręki",
+    image: "/Deska 25mmx150mmx4000mm.jpg"
   }
 ],
 

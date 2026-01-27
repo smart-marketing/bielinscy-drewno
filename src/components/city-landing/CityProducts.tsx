@@ -14,7 +14,7 @@ const products = [
   {
     title: "Tarcica C24",
     description: "Konstrukcyjna, suszona, klasa wytrzymałości C24",
-    image: "/kantowka-c24.jpg",
+    image: "/kantowka-c24-new.jpeg",
     badge: "Premium"
   },
   {

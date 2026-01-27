@@ -94,13 +94,15 @@ sizes: [
     size: "Deska strugana 28mmx140mmx4000mm",
     specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
     details: "Grubsza deska konstrukcyjna",
-    availability: "W magazynie - 4m"
+    availability: "W magazynie - 4m",
+    image: "/Deska strugana czołowa test28mmx195mmx4000mm.jpg"
   },
   {
     size: "Deska strugana 28mmx195mmx4000mm",
     specs: "sosna/świerk, 4 strony strugane, wilgotność <18%",
     details: "Bardzo szeroka deska, zastosowania specjalne",
-    availability: "W magazynie - 4m"
+    availability: "W magazynie - 4m",
+    image: "/Deska strugana czołowa test28mmx195mmx4000mm.jpg"
   }
 ],
 

@@ -8,7 +8,7 @@ import ContactCTA from "@/components/contact/ContactCTA";
 export const metadata: Metadata = {
   title: "Kontakt - Drewno Budowlane | Bielińscy Drewno",
   description:
-    "Skontaktuj się z nami: tel. 537 593 186, WhatsApp, email. Magazyn w Mirotkach przy A1. Wycena w 24h, realizacja w 2-3 dni. Doradzamy za darmo.",
+    "Skontaktuj się z nami: tel. 537 593 186, WhatsApp, email, Facebook. Magazyn w Mirotkach przy A1. Wycena w 24h, realizacja w 2-3 dni. Doradzamy za darmo.",
   keywords: [
     "kontakt drewno",
     "Bielińscy Drewno telefon",

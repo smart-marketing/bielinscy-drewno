@@ -58,19 +58,22 @@ const productData = {
       size: "Wymiary indywidualne",
       specs: "Według projektu konstrukcyjnego",
       details: "Dobór przekrojów pod obciążenia śniegiem i wiatrem",
-      availability: "?"
+      availability: "Na zamówienie - wycena indywidualna",
+      image: "/Wiezba dachowa.jpg"
     },
     {
       size: "Krokwie",
       specs: "Mokra lub suszona C24, sosna/świerk",
       details: "Najpopularniejsze przekroje konstrukcyjne",
-      availability: "Wycena po podaniu długości"
+      availability: "Wycena po podaniu długości",
+      image: "/Wiezba dachowa.jpg"
     },
     {
       size: "Płatwie, jętki, murłaty",
       specs: "Pełen zakres wymiarów konstrukcyjnych",
       details: "Długości do 6m dostępne od ręki, większe na zamówienie",
-      availability: "Wycena indywidualna"
+      availability: "Wycena indywidualna",
+      image: "/Wiezba dachowa.jpg"
     }
   ],
 

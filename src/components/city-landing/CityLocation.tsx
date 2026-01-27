@@ -28,10 +28,10 @@ export default function CityLocation({ city }: CityLocationProps) {
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-brown mb-4 md:mb-6">
               Blisko {city.nameGenitive}
               <br className="sm:hidden" />
-              <span className="text-brand-green"> – {city.driveTime} od Twoich wrót budowy</span>
+              <span className="text-brand-green"> – {city.driveTime} od Twojej budowy</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-brand-brown/70 max-w-3xl mx-auto">
-              Mirotka → {city.name} = {city.driveTime} {city.specificInfo}.
+              Mirotki → {city.name} = {city.driveTime} {city.specificInfo}.
               <br className="hidden sm:block" />
               To oznacza, że drewno budowlane dociera do Ciebie szybciej niż z wielu lokalnych składów 
               obciążonych kolejkami i opóźnieniami.
