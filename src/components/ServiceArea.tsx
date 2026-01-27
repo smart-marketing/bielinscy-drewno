@@ -10,7 +10,7 @@ const regions = [
   { city: "Gdańsk, Malbork", time: "ok. 45 min" },
   { city: "Bydgoszcz, Toruń, Kościerzyna, Tuchola", time: "ok. 60min" },
   { city: "Iława, Brodnica, Chojnice, Elbląg", time: "ok. 90min" },
-  { city: "Olsztyn", time: "ok. 120 min" },
+  { city: "Olsztyn, Poznań", time: "ok. 120 min" },
 ];
 
 export default function ServiceArea() {
