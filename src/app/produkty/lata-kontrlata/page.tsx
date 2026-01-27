@@ -82,7 +82,7 @@ sizes: [
     specs: "sosna/świerk, na przekładkach, bez impregnacji",
     details: "Suszona komorowo, stabilna wymiarowo",
     availability: "Zapytaj o wymiar",
-    image: "/Lata strugana 40mmx60mmx4000mm.jpeg"
+    image: "/Lata strugana 40mmx60mmx4000mm.jpg"
   }
 ],
   applications: [
