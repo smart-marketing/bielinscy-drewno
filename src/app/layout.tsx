@@ -5,6 +5,23 @@ import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import { GoogleTagManager } from '@next/third-parties/google'
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="pl">
+      <body>{children}</body>
+      
+      {/* 2. Tutaj wstawiasz tylko ten jeden komponent: */}
+      <GoogleTagManager gtmId="GTM-KWNWLL9K" />
+      
+    </html>
+  )
+}
 
 const manrope = Manrope({
   variable: "--font-manrope",
