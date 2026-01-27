@@ -237,21 +237,9 @@ export default function ProblemSolution() {
               </motion.div>
             ))}
           </div>
-{/* Navigation Dots */}
-<div className="flex justify-center gap-2 mt-6">
-  {benefits.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => scrollToCard(index)}
-      className={`h-0.5 rounded-full transition-all duration-500 ease-out ${
-        currentCard === index 
-          ? 'w-6 bg-brand-green' 
-          : 'w-2 bg-brand-brown/20 hover:bg-brand-brown/40'
-      }`}
-      aria-label={`Go to card ${index + 1}`}
-    />
-  ))}
-</div></div>
+
+
+</div>
 
         {/* CTA */}
         <motion.div

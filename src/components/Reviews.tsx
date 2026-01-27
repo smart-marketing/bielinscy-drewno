@@ -182,37 +182,6 @@ export default function Reviews() {
             ))}
           </div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all z-10"
-            aria-label="Poprzednia opinia"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all z-10"
-            aria-label="Następna opinia"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {reviews.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollToSlide(index)}
-              className={`h-0.5 rounded-full transition-all duration-500 ease-out ${
-                index === currentSlide 
-                  ? 'w-6 bg-brand-green' 
-                  : 'w-2 bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Przejdź do opinii ${index + 1}`}
-            />
-          ))}
-        </div>
         </div>
 
         {/* Desktop Grid */}

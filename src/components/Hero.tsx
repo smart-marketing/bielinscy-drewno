@@ -82,41 +82,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
       </div>
 
-{/* Navigation Arrows */}
-<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-4">
-  {/* Previous */}
-  <button
-    onClick={() => {
-      setCurrentIndex((prev) => 
-        prev === 0 ? backgroundMedia.length - 1 : prev - 1
-      );
-    }}
-    className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
-    aria-label="Poprzedni slajd"
-  >
-    <ChevronLeft className="w-6 h-6 text-white" />
-  </button>
 
-  {/* Slide counter */}
-  <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
-    <span className="text-white font-semibold">
-      {currentIndex + 1} / {backgroundMedia.length}
-    </span>
-  </div>
-
-  {/* Next */}
-  <button
-    onClick={() => {
-      setCurrentIndex((prev) => 
-        (prev + 1) % backgroundMedia.length
-      );
-    }}
-    className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all"
-    aria-label="Następny slajd"
-  >
-    <ChevronRight className="w-6 h-6 text-white" />
-  </button>
-</div>
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto sm:px-2 lg:px-2 py-4">
         <div className="max-w-6xl mx-auto text-center flex flex-col justify-center min-h-[calc(100vh-10px)]">
