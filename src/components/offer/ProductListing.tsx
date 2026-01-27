@@ -96,9 +96,9 @@ const products = [
     image: "/deska-tarasowa.jpg",
     features: [
       "Klasa użytkowa 3 i 4",
-      "Impregnacja Tanalith E",
+      "Impregnacja",
       "Gwarancja 10 lat",
-      "Rowkowana lub gładka"
+      "Ryflowana lub gładka"
     ],
     price: "Skorzystaj z kalkulatora i oblicz cenę",
     badge: "Często wybierane do ogrodu"
@@ -112,8 +112,7 @@ const products = [
     features: [
       "Wilgotność 18-22%",
       "Klasa wytrzymałości C24",
-      "Wymiary dokładne",
-      "Bez żywicy"
+      "Wymiary dokładne"
     ],
     price: "Skorzystaj z kalkulatora i oblicz cenę",
     badge: "Premium"

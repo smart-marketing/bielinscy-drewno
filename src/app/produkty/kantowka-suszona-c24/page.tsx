@@ -61,7 +61,7 @@ sizes: [
     specs: "sosna/świerk, na przekładkach, bez impregnacji, wilgotność do 18%",
     details: "Dostępne przekroje: 70mm, 95mm, 120mm, 145mm, 195mm",
     availability: "Zapytaj o dostępną długość",
-    image: "/kantowka-c24.jpg"
+    image: "/45x.jpg"
   },
   {
     size: "60x120/140",

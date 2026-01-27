@@ -10,7 +10,7 @@ const audiences = [
     description:
       "Kompleksowa dostawa drewna na więźbę, deski na deskowanie, tarcicę konstrukcyjną. Doradzamy wymiary i przekroje pod Twój projekt.",
     cta: "Zobacz drewno konstrukcyjne",
-    href: "#tarcica",
+    href: "/oferta",
   },
   {
     icon: Wrench,
@@ -18,7 +18,7 @@ const audiences = [
     description:
       "Nie blokujesz budowy czekaniem na materiał. Realizacja w 3 dni, transport własny, możliwość odbioru osobistego. Stała jakość na każde zamówienie.",
     cta: "Oferta dla firm i fachowców",
-    href: "#sortament",
+    href: "/oferta",
   },
   {
     icon: TreePine,
@@ -26,7 +26,7 @@ const audiences = [
     description:
       "Deski tarasowe, kantówka, tarcica - suszona, strugana, impregnowana. Dowieziemy gotowy materiał. Nawet małe zamówienia realizujemy ekspresowo.",
     cta: "Zobacz deski i kantówkę",
-    href: "#deski",
+    href: "/oferta",
   },
 ];
 

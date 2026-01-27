@@ -87,7 +87,7 @@ sizes: [
     specs: "pióro-wpust, strugana z czterech stron, prawa i lewa strona gładka",
     details: "możliwość łączenia na długość, sosna, wilgotność do 16%, pakowana po cztery sztuki",
     availability: "Zapytaj o dostępną długość",
-    image: "/Deska elewacyjna 22mmx135mmx4000mm.jpg"
+    image: "/ewewacja22x35.jpg"
   },
   {
     size: "Stropopodłoga 28x137",

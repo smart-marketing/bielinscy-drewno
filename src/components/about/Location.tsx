@@ -13,7 +13,7 @@ const cities = [
     { name: "Gdańsk, Malbork", time: "ok. 45 min", color: "from-brand-green/80 to-brand-green/60" },
     { name: "Bydgoszcz, Toruń, Kościerzyna, Tuchola", time: "ok. 60min", color: "from-brand-green/70 to-brand-green/50" },
     { name: "Iława, Brodnica, Chojnice, Elbląg", time: "ok. 90min", color: "from-brand-green/60 to-brand-green/40" },
-    { name: "Olsztyn", time: "ok. 120 min", color: "from-brand-green/50 to-brand-green/30" }
+    { name: "Olsztyn, Poznań", time: "ok. 120 min", color: "from-brand-green/50 to-brand-green/30" }
   ];
 
   const benefits = [
