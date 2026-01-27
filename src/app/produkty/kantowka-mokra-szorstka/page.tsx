@@ -44,7 +44,7 @@ const productData = {
     },
     {
       title: "Duże przekroje",
-      description: "Dostępne wymiary do 140x140mm"
+      description: "Dostępne wymiary do 140x140mm na placu od ręki"
     },
     {
       title: "Z impregnacją",
@@ -57,14 +57,14 @@ sizes: [
     size: "40x140x6000",
     specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
     details: "impregnowana lub bez impregnacji",
-    availability: "W magazynie - 6m",
+    availability: "Zapytaj o wymiar",
     image: "/Kantówka 40mmx140mm.jpg"
   },
   {
     size: "50x140x6000",
     specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
     details: "impregnowana lub bez impregnacji",
-    availability: "W magazynie - 6m",
+    availability: "Zapytaj o wymiar",
     image: "/Kantówka 50mmx100mm.jpg"
   },
   {
@@ -106,28 +106,28 @@ sizes: [
     size: "140x140x6000",
     specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
     details: "impregnowana lub bez impregnacji",
-    availability: "W magazynie - 6m",
+    availability: "Zapytaj o wymiar",
     image: "/Kantówka 140mmx140mm.jpg"
   },
   {
     size: "80x160x6000",
     specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
     details: "impregnowana lub bez impregnacji",
-    availability: "W magazynie - 6m",
+    availability: "Zapytaj o wymiar",
     image: "/Kantówka 80mmx160mm.jpg"
   },
   {
     size: "80x180x6000",
     specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
     details: "impregnowana lub bez impregnacji",
-    availability: "W magazynie - 6m",
+    availability: "Zapytaj o wymiar",
     image: "/Kantówka 80mmx180mm.jpg"
   },
   {
     size: "80x80x6000",
     specs: "sosna/świerk, na przekładkach, wilgotność powyżej 20%",
     details: "impregnowana lub bez impregnacji",
-    availability: "W magazynie - 6m",
+    availability: "Zapytaj o wymiar",
     image: "/Kantówka 80mmx80mm.jpg"
   }
 ],

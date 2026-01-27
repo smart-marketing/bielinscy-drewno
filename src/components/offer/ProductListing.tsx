@@ -15,7 +15,7 @@ const products = [
     features: [
       "Sosna/świerk klasa C24",
       "Szeroki zakres wymiarów",
-      "Impregnacja ciśnieniowa",
+      "Impregnowana lub naturalna",
       "Dostępna od ręki"
     ],
     price: "Skorzystaj z kalkulatora i oblicz cenę",
@@ -28,7 +28,6 @@ const products = [
     description: "Surowa kantówka na konstrukcje - ogrodzenia, altany, pergole, tarasy.",
     image: "/kantowka-mokra-szorstka.jpg",
     features: [
-      "Przekroje od 38x63 do 150x150",
       "Długości 3-6m",
       "Impregnowana lub naturalna",
       "Cięcie na wymiar"
@@ -43,9 +42,7 @@ const products = [
     image: "/lata.jpg",
     features: [
       "Wymiary standardowe",
-      "Długości do 6m",
-      "Drewno świerkowe",
-      "Realizacja 24h"
+      "Drewno świerkowe"
     ],
     price: "Skorzystaj z kalkulatora i oblicz cenę"
   },
