@@ -5,6 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { CityData } from "@/data/cities";
+import Link from "next/link";
 
 interface CityProductsProps {
   city: CityData;
@@ -15,24 +16,28 @@ const products = [
     title: "Tarcica C24",
     description: "Konstrukcyjna, suszona, klasa wytrzymałości C24",
     image: "/kantowka-c24-new.jpeg",
-    badge: "Premium"
+    badge: "Premium",
+    link: "/produkty/kantowka-suszona-c24"
   },
   {
     title: "Więźba dachowa",
     description: "Projekt + realizacja, dostawa na budowę",
     image: "/wiezba-dachowa.jpg",
-    badge: "Bestseller"
+    badge: "Bestseller",
+    link: "/produkty/wiezba-dachowa"
   },
   {
     title: "Deski tarasowe",
     description: "Impregnacja ciśnieniowa, gwarancja 10 lat",
     image: "/deska-tarasowa.jpg",
-    badge: "Gwarancja"
+    badge: "Gwarancja",
+    link: "/produkty/deska-tarasowa"
   },
   {
     title: "Kantówka budowlana",
     description: "Mokra lub suszona, różne przekroje",
-    image: "/kantowka-mokra-szorstka.jpg"
+    image: "/kantowka-mokra-szorstka.jpg",
+    link: "/produkty/kantowka-mokra-szorstka"
   },
 ];
 
@@ -69,37 +74,40 @@ export default function CityProducts({ city }: CityProductsProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-brand-green/30 h-full flex flex-col"
             >
-              {/* Image */}
-              <div className="relative h-48 md:h-56 overflow-hidden bg-gray-100">
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                {product.badge && (
-                  <div className="absolute top-4 right-4 bg-brand-green text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                    {product.badge}
+              <Link href={product.link}>
+                <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-brand-green/30 h-full flex flex-col cursor-pointer">
+                  {/* Image */}
+                  <div className="relative h-48 md:h-56 overflow-hidden bg-gray-100">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {product.badge && (
+                      <div className="absolute top-4 right-4 bg-brand-green text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        {product.badge}
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
 
-              {/* Content */}
-              <div className="p-5 flex-1 flex flex-col">
-                <h3 className="font-display text-lg md:text-xl font-bold text-brand-brown mb-2 group-hover:text-brand-green transition-colors">
-                  {product.title}
-                </h3>
-                <p className="text-sm text-brand-brown/70 mb-4 flex-1">
-                  {product.description}
-                </p>
-                <div className="flex items-center gap-2 text-brand-green font-semibold text-sm group-hover:gap-3 transition-all">
-                  <span>Zobacz więcej</span>
-                  <ArrowRight className="w-4 h-4" />
+                  {/* Content */}
+                  <div className="p-5 flex-1 flex flex-col">
+                    <h3 className="font-display text-lg md:text-xl font-bold text-brand-brown mb-2 group-hover:text-brand-green transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-sm text-brand-brown/70 mb-4 flex-1">
+                      {product.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-brand-green font-semibold text-sm group-hover:gap-3 transition-all">
+                      <span>Zobacz więcej</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -75,7 +75,7 @@ export const cities: Record<string, CityData> = {
     distance: "110 km",
     driveTime: "60 minut",
     nearbyDistricts: [],
-    specificInfo: "przez A1",
+    specificInfo: "przez S5/A1",
     metaKeywords: ["drewno budowlane Bydgoszcz", "skład drewna Bydgoszcz", "tarcica Bydgoszcz"],
   },
   elblag: {
@@ -97,7 +97,7 @@ export const cities: Record<string, CityData> = {
     distance: "35 km",
     driveTime: "45 minut",
     nearbyDistricts: [],
-    specificInfo: "przez A1",
+    specificInfo: "przez DK22/A1",
     metaKeywords: ["drewno budowlane Malbork", "skład drewna Malbork", "tarcica Malbork"],
   },
   kwidzyn: {
@@ -108,7 +108,7 @@ export const cities: Record<string, CityData> = {
     distance: "40 km",
     driveTime: "25 minut",
     nearbyDistricts: [],
-    specificInfo: "przez A1",
+    specificInfo: "drogą krajową ",
     metaKeywords: ["drewno budowlane Kwidzyn", "skład drewna Kwidzyn", "tarcica Kwidzyn"],
   },
   olsztyn: {
@@ -132,6 +132,17 @@ export const cities: Record<string, CityData> = {
     nearbyDistricts: [],
     specificInfo: "przez DK22",
     metaKeywords: ["drewno budowlane Chojnice", "skład drewna Chojnice", "tarcica Chojnice"],
+  },
+  poznan: {
+    slug: "poznan",
+    name: "Poznań",
+    nameGenitive: "Poznania",
+    region: "Wielkopolska",
+    distance: "240 km",
+    driveTime: "120 minut",
+    nearbyDistricts: [],
+    specificInfo: "przez S5/A1",
+    metaKeywords: ["drewno budowlane Poznań", "skład drewna Poznań", "tarcica Poznań"],
   },
 };
 

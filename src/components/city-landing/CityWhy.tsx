@@ -52,7 +52,7 @@ export default function CityWhy({ city }: CityWhyProps) {
             <span className="text-brand-green"> wybierają Bielińskich?</span>
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-brand-brown/70 max-w-3xl mx-auto px-4">
-            Wiemy, że hurtowni drewna w {city.name} nie brakuje. 
+            Wiemy, że hurtowni drewna w okolicy nie brakuje. 
             Ale my nie jesteśmy kolejną „budowlanką z drewnem w rogu". 
             <strong className="text-brand-brown"> Jesteśmy rodziną</strong>, która od lat żyje tym biznesem.
           </p>

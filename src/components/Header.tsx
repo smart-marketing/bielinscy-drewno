@@ -102,9 +102,11 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-brand-brown relative z-50 -mr-2"
+              className={`lg:hidden p-2 relative z-50 -mr-2 transition-colors ${
+                isMobileMenuOpen ? 'text-white' : 'text-brand-brown'
+              }`}
               aria-label="Menu"
-            >
+            > 
               <AnimatePresence mode="wait">
                 {isMobileMenuOpen ? (
                   <motion.div
@@ -175,7 +177,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-4 px-4 text-lg font-medium text-brand-brown hover:bg-brand-green/5 hover:text-brand-green rounded-xl transition-all"
+                        className="block py-4 px-4 text-lg font-medium text-white hover:bg-white/10 hover:text-white rounded-xl transition-all"
                       >
                         {item.label}
                       </Link>

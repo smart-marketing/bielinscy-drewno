@@ -50,7 +50,7 @@ export default function CityFinalCTA({ city }: CityFinalCTAProps) {
               <span className="text-white/90">do {city.nameGenitive}</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-6">
-              Przestań szukać „idealnego składu drewna w {city.name}".
+              Przestań szukać „idealnego składu drewna w okolicy".
               <br className="hidden sm:block" />
               <strong className="text-white">Znalazłeś go właśnie teraz.</strong>
             </p>
