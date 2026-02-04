@@ -64,7 +64,7 @@ export const metadata: Metadata = {
       "Drewno budowlane na czas. Jakość, która nie zawiedzie. Realizacja w 3 dni z własnym transportem. Od 2013 roku.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bielińscy Drewno - Skład drewna budowlanego",
