@@ -202,7 +202,7 @@ export default function ServiceArea() {
                   </div>
                   <div>
                     <p className="font-semibold text-brand-brown text-sm">Magazyn Mirotki</p>
-                    <p className="text-xs text-brand-brown/60">Zjazd Kopytowo z A1</p>
+                    <p className="text-xs text-brand-brown/60">Zjazd Kopytkowo z A1</p>
                   </div>
                 </div>
               </div>
