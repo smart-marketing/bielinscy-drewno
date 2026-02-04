@@ -60,6 +60,18 @@ export default function Footer() {
                   <span className="font-medium">537 593 186</span>
                 </a>
               </li>
+              
+              <li>
+                <a
+                  href="tel:+48695467337"
+                  className="flex items-center gap-3 hover:text-white transition-colors group"
+                >
+                  <div className="w-8 h-8 bg-brand-green/20 rounded-lg flex items-center justify-center group-hover:bg-brand-green transition-colors">
+                    <Phone className="w-4 h-4 text-brand-green group-hover:text-white" />
+                  </div>
+                  <span className="font-medium">695 467 337</span>
+                </a>
+              </li>
               <li>
                 <a
                   href="mailto:biuro@bielinscydrewno.pl"

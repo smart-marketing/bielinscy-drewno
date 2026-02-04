@@ -33,7 +33,7 @@ export default function ServiceArea() {
 
             <p className="text-lg text-brand-brown/70 mb-8 leading-relaxed">
               Nasz magazyn w Mirotkach (gm. Skórcz) to strategiczny punkt na
-              mapie Pomorza i Kujaw. Tuż przy zjeździe Kopytowo z autostrady A1
+              mapie Pomorza i Kujaw. Tuż przy zjeździe Kopytkowo z autostrady A1
               Grudziądz-Gdańsk.
             </p>
 
