@@ -16,7 +16,7 @@ interface Product {
   sizes: ProductSize[];
 }
 
-const UNITS = ["szt", "mb", "m2", "m3"];
+const UNITS = ["szt", "mb", "m2", "m3", "mm"];
 
 export default function AdminDashboard() {
   const router = useRouter();
