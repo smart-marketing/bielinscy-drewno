@@ -28,7 +28,7 @@ const products = [
   },
   {
     title: "Deski tarasowe",
-    description: "Prawdziwa impregnacja ciśnieniowa - gwarancja 10 lat",
+    description: "Prawdziwa impregnacja - gwarancja 10 lat",
     image: "/deska-tarasowa.jpg",
     link: "/produkty/deska-tarasowa",
     badge: "Gwarancja"
