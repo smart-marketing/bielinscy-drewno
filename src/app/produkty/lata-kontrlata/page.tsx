@@ -61,28 +61,28 @@ sizes: [
     specs: "sosna, na przekładkach, impregnowana",
     details: "Wilgotność naturalna, standard budowlany",
     availability: "Zapytaj o wymiar",
-    image: "/Kontrłata 25mmx50mm.jpg"
+    image: "/Kontrlata 25mmx50mm.jpg"
   },
   {
     size: "25x50x4000 suszona strugana",
     specs: "sosna/świerk, na przekładkach, bez impregnacji",
     details: "Suszona komorowo, gładka powierzchnia",
     availability: "Zapytaj o wymiar",
-    image: "/Kontrłata 25mmx50mm.jpg"
+    image: "/Kontrlata 25mmx50mm.jpg"
   },
   {
     size: "40x60x4000 mokra szorstka",
     specs: "sosna, na przekładkach, impregnowana",
     details: "Wilgotność naturalna, mocniejszy przekrój",
     availability: "Zapytaj o wymiar",
-    image: "/Łata 40mmx60mm.jpg"
+    image: "/Lata40mmx60mm.jpg"
   },
   {
     size: "40x60x4000 suszona strugana",
     specs: "sosna/świerk, na przekładkach, bez impregnacji",
     details: "Suszona komorowo, stabilna wymiarowo",
     availability: "Zapytaj o wymiar",
-    image: "/Lata strugana 40mmx60mmx4000mm.jpg"
+    image: "/Latastrugana40mmx60mmx4000mm.jpg"
   }
 ],
   applications: [
