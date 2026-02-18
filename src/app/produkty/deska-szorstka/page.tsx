@@ -70,7 +70,7 @@ sizes: [
     specs: "sosna/świerk, wilgotność powyżej 20%, jednakowy wymiar wszystkich desek",
     details: "cięta na pile tarczowej, deska z głównego cięcia, impregnowane lub bez impregnacji",
     availability: "Zapytaj o dostępną długość",
-    image: "/Deska 25mmx150mmx4000mm.jpg"
+    image: "/Deska-szalunkowa-25mm.jpg"
   },
   {
     size: "32x140x6000",
