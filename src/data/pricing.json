@@ -1,3 +1,4 @@
+
 {
   "products": [
     {
@@ -6,32 +7,20 @@
       "unit": "szt",
       "sizes": [
         {
-          "dimension": "25mmx100mmx3000mm",
-          "price": 12.50,
+          "dimension": "Deska mokra szorstka impregnowana 25mm MIX szerokości ",
+          "price": 24.75,
+          "unit": "m2",
+          "available": true
+        },
+        {
+          "dimension": "Deska mokra szorstka impregnowana 25mmx150mmx4000mm",
+          "price": 18.75,
           "unit": "szt",
           "available": true
         },
         {
-          "dimension": "25mmx100mmx4000mm",
-          "price": 16.00,
-          "unit": "szt",
-          "available": true
-        },
-        {
-          "dimension": "25mmx100mmx5000mm",
-          "price": 20.00,
-          "unit": "szt",
-          "available": true
-        },
-        {
-          "dimension": "25mmx150mmx4000mm",
-          "price": 24.00,
-          "unit": "szt",
-          "available": true
-        },
-        {
-          "dimension": "32mmx140mmx6000mm",
-          "price": 38.00,
+          "dimension": "Deska mokra szorstka impregnowana 32mmx140mmx6000mm",
+          "price": 40.05,
           "unit": "szt",
           "available": true
         }
@@ -43,45 +32,99 @@
       "unit": "mb",
       "sizes": [
         {
-          "dimension": "38mmx63mmx6000mm",
-          "price": 6.50,
-          "unit": "mb",
+          "dimension": "Kantówka mokra szorstka impregnowana 40mmx140mmx6000mm",
+          "price": 50.06,
+          "unit": "szt",
           "available": true
         },
         {
-          "dimension": "50mmx50mmx6000mm",
-          "price": 7.20,
-          "unit": "mb",
+          "dimension": "Kantówka mokra szorstka impregnowana 50mmx140mmx6000mm",
+          "price": 62.58,
+          "unit": "szt",
           "available": true
         },
         {
-          "dimension": "50mmx100mmx6000mm",
-          "price": 12.50,
-          "unit": "mb",
+          "dimension": "Kantówka mokra szorstka impregnowana 50mmx100mmx4000mm",
+          "price": 29.8,
+          "unit": "szt",
           "available": true
         },
         {
-          "dimension": "70mmx70mmx6000mm",
-          "price": 11.80,
-          "unit": "mb",
+          "dimension": "Kantówka mokra szorstka impregnowana 50mmx100mmx6000mm",
+          "price": 44.7,
+          "unit": "szt",
           "available": true
         },
         {
-          "dimension": "80mmx160mmx6000mm",
-          "price": 31.20,
-          "unit": "mb",
+          "dimension": "Kantówka mokra szorstka impregnowana 100mmx100mmx4000mm",
+          "price": 59.6,
+          "unit": "szt",
           "available": true
         },
         {
-          "dimension": "100mmx100mmx6000mm",
-          "price": 24.50,
-          "unit": "mb",
+          "dimension": "Kantówka mokra szorstka impregnowana 100mmx100mmx6000mm",
+          "price": 89.4,
+          "unit": "szt",
           "available": true
         },
         {
-          "dimension": "150mmx150mmx6000mm",
-          "price": 52.00,
-          "unit": "mb",
+          "dimension": "Kantówka mokra szorstka impregnowana 60mmx120mmx4000mm",
+          "price": 42.91,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 60mmx120mmx6000mm",
+          "price": 64.36,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 120mmx120mmx4000mm",
+          "price": 85.82,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 120mmx120mmx6000mm",
+          "price": 128.73,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 70mmx140mmx4000mm",
+          "price": 58.408,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 70mmx140mmx6000mm",
+          "price": 87.61,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 140mmx140mmx6000mm",
+          "price": 175.22,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 80mmx80mmx6000mm",
+          "price": 57.21,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 80mmx160mmx6000mm",
+          "price": 114.43,
+          "unit": "szt",
+          "available": true
+        },
+        {
+          "dimension": "Kantówka mokra szorstka impregnowana 80mmx180mmx6000mm",
+          "price": 128.73,
+          "unit": "szt",
           "available": true
         }
       ]
@@ -92,26 +135,32 @@
       "unit": "mb",
       "sizes": [
         {
-          "dimension": "25mmx50mmx6000mm",
-          "price": 2.80,
+          "dimension": "Kontrłata mokra szorstka impregnowana 25mmx50mm",
+          "price": 1.7,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "32mmx50mmx6000mm",
-          "price": 3.50,
+          "dimension": "Kontrłata suszona strugana bez impregnacji 25mmx50mm",
+          "price": 2.5,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "38mmx63mmx6000mm",
-          "price": 4.50,
+          "dimension": "Łata mokra szorstka impregnowana 40mmx60mm",
+          "price": 3.2,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "50mmx50mmx6000mm",
-          "price": 5.20,
+          "dimension": "Łata suszona strugana bez impregnacji 40mmx60mm",
+          "price": 5,
+          "unit": "mb",
+          "available": true
+        },
+        {
+          "dimension": "Łata suszona strugana bez impregnacji 42mmx42mm",
+          "price": 4.2,
           "unit": "mb",
           "available": true
         }
@@ -123,39 +172,15 @@
       "unit": "mb",
       "sizes": [
         {
-          "dimension": "50mmx100mmx6000mm",
-          "price": 12.50,
-          "unit": "mb",
+          "dimension": "Więźba mokra szorstka bez impregnacji - Zgodnie ze specyfikcja klienta ",
+          "price": 1340,
+          "unit": "m3",
           "available": true
         },
         {
-          "dimension": "50mmx150mmx6000mm",
-          "price": 18.00,
-          "unit": "mb",
-          "available": true
-        },
-        {
-          "dimension": "70mmx140mmx6000mm",
-          "price": 23.50,
-          "unit": "mb",
-          "available": true
-        },
-        {
-          "dimension": "80mmx160mmx6000mm",
-          "price": 31.20,
-          "unit": "mb",
-          "available": true
-        },
-        {
-          "dimension": "100mmx100mmx6000mm",
-          "price": 24.50,
-          "unit": "mb",
-          "available": true
-        },
-        {
-          "dimension": "Projekt i wycena indywidualna",
-          "price": 0,
-          "unit": "projekt",
+          "dimension": "Więźba mokra szorstka impregnowana - Zgodnie ze specyfikcja klienta",
+          "price": 1390,
+          "unit": "m3",
           "available": true
         }
       ]
@@ -166,33 +191,39 @@
       "unit": "mb",
       "sizes": [
         {
-          "dimension": "19mmx90mmx3000mm",
-          "price": 8.50,
-          "unit": "mb",
+          "dimension": "Deska suszona strugana bez impregnacji 22mmx68mmx4000mm",
+          "price": 54,
+          "unit": "m2",
           "available": true
         },
         {
-          "dimension": "19mmx140mmx3000mm",
-          "price": 12.80,
-          "unit": "mb",
+          "dimension": "Deska suszona strugana bez impregnacji 22mmx90mmx4000mm",
+          "price": 54,
+          "unit": "m2",
           "available": true
         },
         {
-          "dimension": "28mmx90mmx3000mm",
-          "price": 11.50,
-          "unit": "mb",
+          "dimension": "Deska suszona strugana bez impregnacji 22mmx120mmx4000mm",
+          "price": 54,
+          "unit": "m2",
           "available": true
         },
         {
-          "dimension": "28mmx140mmx3000mm",
-          "price": 17.20,
-          "unit": "mb",
+          "dimension": "Deska suszona strugana bez impregnacji 18mmx145mm",
+          "price": 54,
+          "unit": "m2",
           "available": true
         },
         {
-          "dimension": "45mmx90mmx3000mm",
-          "price": 16.50,
-          "unit": "mb",
+          "dimension": "Deska suszona strugana bez impregnacji 27mmx140mm",
+          "price": 65,
+          "unit": "m2",
+          "available": true
+        },
+        {
+          "dimension": "Deska suszona strugana bez impregnacji 28mmx195mm",
+          "price": 65,
+          "unit": "m2",
           "available": true
         }
       ]
@@ -204,26 +235,26 @@
       "sizes": [
         {
           "dimension": "14mmx110mm Boazeria",
-          "price": 14.50,
-          "unit": "mb",
+          "price": 43,
+          "unit": "m2",
           "available": true
         },
         {
           "dimension": "18mmx135mm Podbitka",
-          "price": 18.00,
-          "unit": "mb",
+          "price": 49,
+          "unit": "m2",
           "available": true
         },
         {
           "dimension": "22mmx135mm Elewacja",
-          "price": 22.50,
-          "unit": "mb",
+          "price": 58,
+          "unit": "m2",
           "available": true
         },
         {
-          "dimension": "28mmx140mm Elewacja",
-          "price": 28.00,
-          "unit": "mb",
+          "dimension": "28mmx137mm Stropopodłoga",
+          "price": 70,
+          "unit": "m2",
           "available": true
         }
       ]
@@ -234,80 +265,90 @@
       "unit": "mb",
       "sizes": [
         {
-          "dimension": "27mmx120mm Gładka",
-          "price": 24.50,
+          "dimension": "Deska tarasowa suszona strugana bez impregnacji 28mmx120mm ",
+          "price": 65,
+          "unit": "m2",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 1771838313685,
+      "name": "Kantówka suszona strugana lita C24",
+      "sizes": [
+        {
+          "dimension": "Kantówka suszona strugana bez impregnacji 45mmx70mm",
+          "price": 6.14,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "27mmx120mm Rowkowana",
-          "price": 26.00,
+          "dimension": "Kantówka suszona strugana bez impregnacji 45mmx95mm",
+          "price": 8.33,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "27mmx145mm Gładka",
-          "price": 28.50,
+          "dimension": "Kantówka suszona strugana bez impregnacji 45mmx120mm",
+          "price": 10.53,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "27mmx145mm Rowkowana",
-          "price": 30.00,
+          "dimension": "Kantówka suszona strugana bez impregnacji 45mmx145mm",
+          "price": 12.72,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "45mmx120mm Premium",
-          "price": 38.00,
+          "dimension": "Kantówka suszona strugana bez impregnacji 45mmx195mm",
+          "price": 17.11,
           "unit": "mb",
           "available": true
         }
       ]
     },
     {
-      "id": 8,
-      "name": "Kantówka suszona C24",
-      "unit": "mb",
+      "id": 1771838341746,
+      "name": "Kantówka suszona strugana klejona KVH C24",
       "sizes": [
         {
-          "dimension": "45mmx70mmx3000mm",
-          "price": 14.50,
+          "dimension": "Kantówka suszona strugana bez impregnacji KVH 100mmx100mm",
+          "price": 25,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "45mmx95mmx3000mm",
-          "price": 18.00,
+          "dimension": "Kantówka suszona strugana bez impregnacji KVH 120mmx120mm",
+          "price": 36,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "45mmx120mmx3000mm",
-          "price": 22.00,
+          "dimension": "Kantówka suszona strugana bez impregnacji KVH 60mmx140mm",
+          "price": 21,
+          "unit": "mb",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": 1771838361603,
+      "name": "Kantówka suszona strugana klejona BSH C24",
+      "sizes": [
+        {
+          "dimension": "Kantówka suszona strugana bez impregnacji BSH 120mmx120mm",
+          "price": 41.04,
           "unit": "mb",
           "available": true
         },
         {
-          "dimension": "45mmx145mmx3000mm",
-          "price": 26.50,
-          "unit": "mb",
-          "available": true
-        },
-        {
-          "dimension": "45mmx195mmx3000mm",
-          "price": 35.00,
-          "unit": "mb",
-          "available": true
-        },
-        {
-          "dimension": "70mmx145mmx3000mm",
-          "price": 38.50,
+          "dimension": "Kantówka suszona strugana bez impregnacji BSH 140mmx140mm",
+          "price": 55.86,
           "unit": "mb",
           "available": true
         }
       ]
     }
-  ],
-  "lastUpdated": "2026-01-24T12:00:00.000Z"
+  ]
 }
