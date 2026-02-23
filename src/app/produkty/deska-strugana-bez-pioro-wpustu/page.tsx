@@ -102,7 +102,7 @@ sizes: [
     specs: "sosna/świerk, 4 strony strugane, wilgotność do 16%",
     details: "Prawa i lewa strona gładka",
     availability: "Zapytaj o dostępną długość",
-    image: "/Deska strugana czołowa 28mmx195mmx4000mm.jpg"
+    image: "/Deska strugana czolowa 28mmx195mmx4000mm.jpg"
   }
 ],
 

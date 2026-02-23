@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
 
-const DATA_FILE = path.join(process.cwd(), 'src/data/pricing.json');
-const BACKUP_DIR = path.join(process.cwd(), 'src/data/backups');
+const DATA_FILE = '/var/data/bielinscy/pricing.json';
+const BACKUP_DIR = '/var/data/bielinscy/backups';
 
 // Ensure backup directory exists
 async function ensureBackupDir() {

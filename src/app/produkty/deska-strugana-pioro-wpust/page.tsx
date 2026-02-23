@@ -94,7 +94,7 @@ sizes: [
     specs: "pióro-wpust, strugana z czterech stron, prawa i lewa strona gładka",
     details: "świerk, wilgotność do 16%",
     availability: "Zapytaj o dostępną długość",
-    image: "/Stropopodłoga 25mmx113mmx4000mm.jpg"
+    image: "/Stropopodloga 25mmx113mmx4000mm.jpg"
   }
 ],
 
